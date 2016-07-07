@@ -1,0 +1,24 @@
+span[data-action]{
+    cursor: pointer;
+}
+.input-group.disabled span:hover{
+    cursor: not-allowed;
+}
+#preloader{
+    display: none;
+}
+.step-content{
+    /*overflow: hidden;*/
+    /*height: 0;*/
+}
+.step-content.open{
+    height: auto;
+}
+.img-thumbnail.selected{
+    outline: 1px solid blue;
+    box-shadow: 0 0 5px blue;
+}
+
+.location {
+    margin: 20px 0;
+}
