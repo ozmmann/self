@@ -27,7 +27,7 @@ function initialize() {
 
     autocomplete.addListener('place_changed', function () {
         codeAddress('address_1');
-        fillInAddress('address_1');
+        fillInAddress('address_1', this.getPlace());
     });
 }
 
@@ -51,6 +51,7 @@ function geocodePosition(pos, inputId) {
     }, function (responses) {
         if (responses && responses.length > 0) {
             marker.formatted_address = responses[0].formatted_address;
+            fillInAddress(inputId, responses[0]);
         } else {
             marker.formatted_address = 'Адрес не понятен';
         }
@@ -97,6 +98,7 @@ function codeAddress(inputId) {
 
             google.maps.event.addListener(marker, 'dragend', function () {
                 // updateMarkerStatus('Drag ended');
+                // fillInAddress(inputId, marker);
                 geocodePosition(this.getPosition(), inputId);
             });
             google.maps.event.addListener(marker, 'click', function () {
@@ -130,9 +132,8 @@ function geolocate() {
     }
 }
 
-function fillInAddress(addressId) {
+function fillInAddress(addressId, place) {
     var cityId = "city_" + addressId;
-    var place = autocomplete.getPlace();
 
     document.getElementById(cityId).value = '';
 
