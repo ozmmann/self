@@ -1,4 +1,5 @@
-<? phpuse yii\helpers\Html;
+<?php
+use yii\helpers\Html;
 
 ?>
 <div class="row active">
@@ -39,15 +40,20 @@
         </div>
 
         <span id="loading" class="hidden">Загрузка...</span>
-        <div class="db required hidden" id="commissionTypeWrap">
+        <div class="db required" id="commissionTypeWrap">
             <h3>Выберете тип размещения</h3>
             <div class="db mtop-10">
                 <div class="required-field">
-                    <?= Html::activeDropDownList($stockForm, 'commissionType', $commissionTypes, [
-                        'class'            => 'chosen styled-select',
-                        'prompt'           => '',
-                        'data-placeholder' => 'Выберите тип размещения'
-                    ]) ?>
+                    <?= Html::activeDropDownList(
+                        $stockForm,
+                        'commissionType',
+                        $commissionTypes,
+                        [
+                            'class'            => 'chosen styled-select',
+                            'prompt'           => '',
+                            'data-placeholder' => 'Выберите тип размещения'
+                        ]
+                    ) ?>
                     <div class="form-error-msg"></div>
                 </div>
             </div>

@@ -51,6 +51,7 @@ function geocodePosition(pos, inputId) {
     }, function (responses) {
         if (responses && responses.length > 0) {
             marker.formatted_address = responses[0].formatted_address;
+            $('#preview_' + inputId).find('.preview_address').text(marker.formatted_address);
             fillInAddress(inputId, responses[0]);
         } else {
             marker.formatted_address = 'Адрес не понятен';
@@ -109,6 +110,7 @@ function codeAddress(inputId) {
                 }
                 infowindow.open(map, marker);
             });
+
             // google.maps.event.trigger(marker, 'click');
         } else {
             alert('Geocode was not successful for the following reason: ' + status);

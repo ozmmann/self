@@ -56,7 +56,9 @@ AppAsset::register($this);
 <?php
 if (Yii::$app->controller->id == 'partner'
     || Yii::$app->controller->id == 'site'
-):
+    || (Yii::$app->controller->id == 'moderator'
+        && Yii::$app->controller->action->id == 'edit-stock')
+    ):
     ?>
     <?= $content ?>
 <?php else: ?>

@@ -187,6 +187,9 @@ function countDown(){
 
 $(document).ready(function () {
     // $('.discount-but').click(changeDiscount);
+    if($('#stockform-picture').val()) {
+        $('#stock-cover').attr('src', $('#stockform-picture').val());
+    }
 
     var discountInp = $('#discount');
     var categorySelect = $('#stockform-categoryid');

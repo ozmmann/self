@@ -91,7 +91,7 @@
                 <div id="place" class="mtop-30">
                     <div class="c-gray f-12">Где находится:</div>
                     <div id="map_canvas" class="mtop-20"></div>
-                    <div id="place_name" class="mtop-20 f-14 lh-1-4">
+                    <div id="place_name" class="hidden mtop-20 f-14 lh-1-4">
                         <a href="#" target="_blank">Отель «Золотая корона»</a>
                     </div>
                     <div id="place_address" class="f-14 lh-1-4 mtop-15">

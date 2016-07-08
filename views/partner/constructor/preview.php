@@ -87,13 +87,12 @@
                 <div id="place" class="mtop-30">
                     <div class="c-gray f-12">Где находится:</div>
                     <div id="map_canvas" class="mtop-20"></div>
-                    <div id="place_name" class="mtop-20 f-14 lh-1-4">
+                    <div id="place_name" class="hidden mtop-20 f-14 lh-1-4">
                         <a href="#" target="_blank">Отель «Золотая корона»</a>
                     </div>
-                    <div id="place_address" class="f-14 lh-1-4 mtop-15">
-                        <div id="city">Киев,</div>
-                        <div id="metro">Руспубликанский стадион</div>
-                        <div id="street">ул. Ивана Мазепы</div>
+                    <div id="preview_address_1" class="f-14 lh-1-4 mtop-15">
+                        <div class="preview_address"></div>
+                        <div class="preview_phone"></div>
                     </div>
                     <div id="place_phones" class="f-14 lh-1-4 mtop-15">
                         <div>+38 (000) 000-11-22,</div>

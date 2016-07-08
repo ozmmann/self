@@ -11,9 +11,9 @@ use yii\widgets\ActiveForm;
     $this->registerJsFile('js/nouislider.min.js', ['depends' => 'app\assets\AppAsset']);
     $this->registerJsFile('js/wNumb.js', ['depends' => 'app\assets\AppAsset']);
     $this->registerJsFile('https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places');
-    $this->registerCssFile('css/pickdate/classic.css');
-    $this->registerCssFile('css/nouislider.min.css');
-    $this->registerCssFile('css/pickdate/classic.date.css');
+    $this->registerCssFile('css/pickdate/classic.css', ['depends' => 'app\assets\AppAsset']);
+    $this->registerCssFile('css/nouislider.min.css', ['depends' => 'app\assets\AppAsset']);
+    $this->registerCssFile('css/pickdate/classic.date.css', ['depends' => 'app\assets\AppAsset']);
 ?>
 <div id="construtor_page">
     <div class="container md-text-center f-0">

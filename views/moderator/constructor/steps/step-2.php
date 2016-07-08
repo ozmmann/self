@@ -1,4 +1,5 @@
-<? phpuse yii\helpers\Html;
+<?php
+    use yii\helpers\Html;
 
 ?>
 <div class="row">
