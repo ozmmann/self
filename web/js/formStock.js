@@ -475,7 +475,7 @@ $(document).ready(function () {
     });
 
     $(".row .row-title").click(function (e) {
-        if($(this).parents('.row').hasClass('valid')) {
+        if($(this).parents('.row').hasClass('valid') || $(this).parents('.row').hasClass('open')) {
             e.preventDefault();
             $(".row.active").removeClass("active");
             $(this).parent().toggleClass("active");
@@ -487,12 +487,18 @@ $(document).ready(function () {
             e.preventDefault();
             if (validateEmpty($(this).parents('.row'))) {
                 $(this).parents('.row').addClass('valid');
+                $(this).parents('.row').addClass('open');
                 $(".row.active").removeClass("active");
+                $(".row.active").removeClass("open");
                 $("html, body").animate({
-                    scrollTop: $(this).closest(".row").next().addClass("active").offset().top
+                    scrollTop: $(this).closest(".row").next().addClass("active").addClass("open").offset().top
                 }, 450);
                 $("#sidebar").animate({
                     scrollTop: $(this).closest(".row").next().find(".row-title").position().top
+                }, 450);
+            } else {
+                $("#sidebar").animate({
+                    scrollTop: $(this).closest(".row").find(".field-error").first().position().top
                 }, 450);
             }
         }
