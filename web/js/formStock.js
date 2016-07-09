@@ -45,7 +45,7 @@ function getCategoryCover(categoryId) {
         data: {"categoryId": categoryId, 'get': 'categoryCovers'},
         success: function (result) {
             var wrap = $('#covers-wrap');
-            wrap.children('div.img-item').each(function () {
+            wrap.children('img').each(function () {
                 $(this).remove();
             });
             // wrap.empty();
@@ -109,6 +109,7 @@ function countPrice() {
     if(!isNaN(new_price))
     {
         $('#new_price').text(new_price);
+        $('#new_price').parent('#price').removeClass('no-data');
     }
     if(!isNaN(save))
     {
@@ -181,8 +182,14 @@ function validateEmpty(section){
     return true;
 }
 
-function countDown(){
-
+function phonePreview() {
+    $('.phone').keyup(function () {
+        var id = $(this).attr('id');
+        $('#preview_' + id).text($(this).val());
+    }).change(function () {
+        var id = $(this).attr('id');
+        $('#preview_' + id).text($(this).val());
+    });
 }
 
 $(document).ready(function () {
@@ -190,6 +197,16 @@ $(document).ready(function () {
     if($('#stockform-picture').val()) {
         $('#stock-cover').attr('src', $('#stockform-picture').val());
     }
+
+    phonePreview();
+
+    getCategoryCover($('#stockform-categoryid').val());
+
+    $(document).on("keypress", ":input:not(textarea)", function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
 
     var discountInp = $('#discount');
     var categorySelect = $('#stockform-categoryid');
@@ -309,6 +326,8 @@ $(document).ready(function () {
     // $('.form-control').keyup(function (event) {
     $("[name^='StockForm']").keyup(function (event) {
         var target = '#stock' + $(this).attr('id').substr($(this).attr('id').indexOf('-'));
+        $(target).removeClass('no-data');
+
         if (event.keyCode == 8) {
             var str = $(target).text();
             $(target).text(str.substr(0, -1));
@@ -316,6 +335,7 @@ $(document).ready(function () {
         $(target).text($(this).val());
     }).change(function (event) {
         var target = '#stock' + $(this).attr('id').substr($(this).attr('id').indexOf('-'));
+        $(target).removeClass('no-data');
 
         if (event.keyCode == 8) {
             var str = $(target).text();
@@ -331,7 +351,6 @@ $(document).ready(function () {
 
     $('#addlocation').click(function () {
         var locationsCount = $(this).parents('#locations').data('locations-count');
-        console.log('begin ' + locationsCount);
         var id = locationsCount;
         var addressId = 'address_' + id;
 
@@ -345,7 +364,10 @@ $(document).ready(function () {
         newLocation += '<input id="city_' + addressId + '" class="w-85 city" name="LocationForm[city][]" placeholder="Киев" disabled="true">';
         newLocation += '</div>';
         newLocation += '<div class="dib w-50 f-14 text-right">';
-        newLocation += '<input class="w-100 phone" name="LocationForm[phone][]" placeholder="+380 (ХХ) ХХХ-ХХ-ХХ" pattern="/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/">';
+        newLocation += '<input id="phone_' + addressId + '" class="w-100 phone" name="LocationForm[phone][]" placeholder="+380 (ХХ) ХХХ-ХХ-ХХ">';
+        newLocation += '</div>';
+        newLocation += '<div class="text-right">';
+        newLocation += '<button type="button" class="cancel btn btn-blue">Отменить</button>';
         newLocation += '</div>';
         newLocation += '</div>';
         // newLocation += '<div class="text-right">';
@@ -367,14 +389,31 @@ $(document).ready(function () {
                 codeAddress(addressId);
                 fillInAddress(addressId, this.getPlace());
             });
+
+            $('.cancel').click(function (e) {
+                e.preventDefault();
+                var newLocCount = locationsCount - 1;
+                $(this).parents('.address-row').remove();
+                $(this).parents('#locations').data('locations-count', newLocCount);
+            })
+        }
+
+        var preview = '<div id="preview_'+ addressId +'" class="f-14 lh-1-4 mtop-15">';
+        preview += '<div class="preview_address"></div>';
+        preview += '<div id="preview_phone_'+ addressId +'"></div>';
+        preview += '</div>';
+
+        if($('#place').append(preview)){
+            phonePreview();
         }
     });
 
-    $('#stockform-startdate, #stockform-enddate').pickadate({
+    var start = $('#stockform-startdate').pickadate({
         min: true,
         today: '',
         clear: '',
         close: '',
+        select: $(this).val(),
         onStart: function() {
             $('.picker__day').each(function () {
                 var timestamp = $(this).data('pick');
@@ -396,6 +435,38 @@ $(document).ready(function () {
             });
         }
     });
+
+    var end = $('#stockform-enddate').pickadate({
+        min: true,
+        today: '',
+        clear: '',
+        close: '',
+        select: $(this).val(),
+        onStart: function() {
+            $('.picker__day').each(function () {
+                var timestamp = $(this).data('pick');
+                var date = new Date(timestamp);
+                var day = whichDay(date);
+                var month = whichMonth(date);
+                $(this).attr('data-month', day);
+                $(this).attr('data-day', month);
+            });
+        },
+        onRender: function() {
+            $('.picker__day').each(function () {
+                var timestamp = $(this).data('pick');
+                var date = new Date(timestamp);
+                var day = whichDay(date);
+                var month = whichMonth(date);
+                $(this).attr('data-day', day);
+                $(this).attr('data-month', month);
+            });
+        }
+    });
+    var pickerstart = start.pickadate('picker')
+    var pickerend = end.pickadate('picker')
+    pickerstart.set('select', new Date($('#stockform-startdate').val()));
+    pickerend.set('select', new Date($('#stockform-enddate').val()));
 
 });
 
@@ -504,6 +575,11 @@ $(document).ready(function () {
                     scrollTop: $(this).closest(".row").find(".field-error").first().position().top
                 }, 450);
             }
+        } else {
+            if (validateEmpty($(this).parents('.row'))) {
+                return true;
+            }
+            e.preventDefault();
         }
     });
 

@@ -33,7 +33,7 @@
 
 
         <div class="db mtop-40 text-right">
-            <button class="btn btn-yellow btn-next-step">Дальше</button>
+            <button type="button" class="btn btn-yellow btn-next-step">Дальше</button>
         </div>
         <div class="db mtop-30">
             <div class="text"><sup>*</sup>Обратите внимание, что наша редакция может изменить или отредактировать ваш текст, перед запуском акции

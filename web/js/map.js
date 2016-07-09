@@ -21,13 +21,17 @@ function initialize() {
         infowindow.close();
     });
 
-    autocomplete = new google.maps.places.Autocomplete(
-        /** @type {!HTMLInputElement} */(document.getElementById('address_1')),
-        {types: ['geocode']});
+    $('.address-row').find('.address').each(function () {
+        var id = $(this).attr('id');
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById(id)),
+            {types: ['geocode']});
 
-    autocomplete.addListener('place_changed', function () {
-        codeAddress('address_1');
-        fillInAddress('address_1', this.getPlace());
+        autocomplete.addListener('place_changed', function () {
+            codeAddress(id);
+        });
+
+        codeAddress(id);
     });
 }
 
@@ -65,10 +69,17 @@ function geocodePosition(pos, inputId) {
 
 function codeAddress(inputId) {
     var address = document.getElementById(inputId).value;
+
+    if(!address){
+        return;
+    }
+
+    $('#preview_' + inputId).find('.preview_address').text(address);
+
     geocoder.geocode({'address': address}, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             map.setCenter(results[0].geometry.location);
-            map.fitBounds(results[0].geometry.viewport);
+            // map.fitBounds(results[0].geometry.viewport);
 
             marker = markers[inputId];
 
@@ -97,6 +108,16 @@ function codeAddress(inputId) {
 
             markers[inputId] = marker;
 
+
+            //
+            // var bounds = new google.maps.LatLngBounds();
+            // for (marker in markers) {
+                // bounds.extend(marker.getPosition());
+            // }
+
+            // map.fitBounds(bounds);
+            // map.panToBounds(bounds);
+
             google.maps.event.addListener(marker, 'dragend', function () {
                 // updateMarkerStatus('Drag ended');
                 // fillInAddress(inputId, marker);
@@ -111,9 +132,10 @@ function codeAddress(inputId) {
                 infowindow.open(map, marker);
             });
 
-            // google.maps.event.trigger(marker, 'click');
+            fillInAddress(inputId, results[0]);
+
         } else {
-            alert('Geocode was not successful for the following reason: ' + status);
+            alert('Что-то пошло не так: ' + status);
         }
     });
 }

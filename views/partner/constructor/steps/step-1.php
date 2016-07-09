@@ -65,7 +65,7 @@
         <div class="db mtop-20 f-0">
             <div class="required-field">
                 <h3 class="dib vam w-70">Введите стоимость услуги</h3>
-                <?= Html::activeTextInput($stockForm, 'price', [
+                <?= Html::activeInput('number', $stockForm, 'price', [
                     'class'       => 'dib vam w-30 f-14 text-center',
                     'placeholder' => "××× грн",
                 ]) ?>
@@ -87,7 +87,7 @@
             </div>
         </div>
         <div class="db mtop-40 text-right">
-            <button class="btn btn-yellow btn-next-step">Дальше</button>
+            <button type="button" class="btn btn-yellow btn-next-step">Дальше</button>
         </div>
     </div>
 </div>

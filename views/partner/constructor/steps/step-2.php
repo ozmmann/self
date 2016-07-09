@@ -24,7 +24,7 @@
             <div class="text">Изображение не подходящее под <a href="#" target="_blank">гайдлайны</a> Покупона&Супердила, будет автоматически заменено случайной картинкой из нашей базы</div>
         </div>
         <div class="db mtop-40 text-right">
-            <button class="btn btn-yellow btn-next-step">Дальше</button>
+            <button type="button" class="btn btn-yellow btn-next-step">Дальше</button>
         </div>
     </div>
 </div>

@@ -3,15 +3,13 @@
         Предпросмотр акции
     </div>
     <div id="preview">
-        <h1 id="stock-title">
-            До 5 мастер-классов по мыловарению и изготовлению свечей, для взрослых и детей в творческом центре «Страна
-            талантов»!
+        <h1 id="stock-title" class="no-data">
         </h1>
         <div class="row f-0">
             <div class="dib vat w-60 f-14">
-                <img id="stock-cover" src="//cdn1.pokupon.ua/uploaded/new_campaign_pictures/70853/data/main720x340/МАС.jpg"
+                <img id="stock-cover" src="/img/no-data.png"
                      class="img-responsive">
-                <div id="stock-description">
+                <div id="stock-description" class="no-data">
                     <p>
                         На занятии вы узнаете базовый рецепт изготовления мыла:</p>
                     <ul>
@@ -78,7 +76,7 @@
                     </div>
                 </div>
                 <button class="btn btn-white-blue-border btn-favorite mtop-20 w-100">Добавить в избранное</button>
-                <div id="counter" class="counter mtop-30">
+                <div id="counter" class="hidden counter mtop-30">
                     <div class="c-gray f-12">До конца акции:</div>
                     <b>02</b>
                     <b>52</b>
@@ -92,12 +90,7 @@
                     </div>
                     <div id="preview_address_1" class="f-14 lh-1-4 mtop-15">
                         <div class="preview_address"></div>
-                        <div class="preview_phone"></div>
-                    </div>
-                    <div id="place_phones" class="f-14 lh-1-4 mtop-15">
-                        <div>+38 (000) 000-11-22,</div>
-                        <div>+38 (000) 000-11-22,</div>
-                        <div>+38 (000) 000-11-22</div>
+                        <div id="preview_phone_address_1"></div>
                     </div>
                 </div>
             </div>

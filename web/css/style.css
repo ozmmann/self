@@ -3937,7 +3937,7 @@ a {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   border: 1px solid #eaeff4;
-  padding: 0 15px;
+  padding: 0 10px;
   height: 36px;
   border-radius: 5px;
 }
@@ -4257,7 +4257,7 @@ a {
   outline: none !important;
 }
 #construtor_page #sidebar .calendar .picker.picker--opened {
-  margin-bottom: 170px;
+  margin-bottom: 30px;
 }
 #construtor_page #sidebar .calendar .picker,
 #construtor_page #sidebar .calendar .picker__holder {
@@ -4296,10 +4296,10 @@ a {
   background: #99acc4;
   height: 80px;
 }
-#preview #text {
+#preview #stock-description {
   line-height: 1.45;
 }
-#preview #text.no-data {
+#preview #stock-description.no-data {
   margin-top: 20px;
   background: #99acc4;
   height: 400px;

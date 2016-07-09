@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <button class="btn btn-white-blue-border btn-favorite mtop-20 w-100">Добавить в избранное</button>
-                <div id="counter" class="counter mtop-30">
+                <div id="counter" class="hidden counter mtop-30">
                     <div class="c-gray f-12">До конца акции:</div>
                     <b>02</b>
                     <b>52</b>

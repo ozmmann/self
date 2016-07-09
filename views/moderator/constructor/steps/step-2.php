@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="db mtop-40 text-right">
-            <button class="btn btn-yellow btn-next-step">Дальше</button>
+            <button type="button" class="btn btn-yellow btn-next-step">Дальше</button>
         </div>
     </div>
 </div>

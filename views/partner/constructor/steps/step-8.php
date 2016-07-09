@@ -16,7 +16,7 @@ use yii\helpers\Html;
         </div>
 
         <div class="db mtop-40 text-right">
-            <button type="submit" class="btn btn-yellow btn-next-step">Закончить</button>
+            <?= Html::submitButton('Закончить', ['class'=>'btn btn-yellow btn-next-step']) ?>
         </div>
     </div>
 </div>

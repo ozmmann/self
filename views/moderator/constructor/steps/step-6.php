@@ -28,6 +28,7 @@
                                 <?= Html::textInput('LocationForm[city][]', $locationForm->city[$i], [
                                     'class'       => 'w-85 city',
                                     'placeholder' => 'Киев',
+                                    'disabled' => true,
                                     'id' => 'city_address_' . $i
                                 ]) ?>
                             </div>
@@ -35,7 +36,8 @@
                                 <?= Html::textInput('LocationForm[phone][]', $locationForm->phone[$i], [
                                     'class'       => 'w-100 phone',
                                     'placeholder' => '+380 (ХХ) ХХХ-ХХ-ХХ',
-                                    'pattern'     => '/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/'
+//                                    'pattern'     => '/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/',
+                                    'id' => 'phone_address_' . $i
                                 ]) ?>
                             </div>
                         </div>
@@ -46,7 +48,7 @@
             <button type="button" id="addlocation" class="btn btn-white-blue-border btn-add">Добавить локацию</button>
         </div>
         <div class="db mtop-40 text-right">
-            <button class="btn btn-yellow btn-next-step">Дальше</button>
+            <button type="button" class="btn btn-yellow btn-next-step">Дальше</button>
         </div>
     </div>
 
