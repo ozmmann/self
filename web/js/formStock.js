@@ -173,6 +173,17 @@ function validateEmpty(section){
             $this.find('.form-error-msg').text('Поле является обязательным');
         }
     });
+    section.find($('.phone')).each(function(){
+        var val = $(this).val();
+        var tel = new RegExp(/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/);
+        // var tel = new RegExp('\s?(|\-)[0-9]{3}$');
+        if(val && !tel.test(val)) {
+            $(this).css("border-color", "#f00");
+            errors++;
+        } else {
+            $(this).css("border-color", "#eaeff4");
+        }
+    });
     if (errors > 0){
         section.removeClass('valid');
         return false;
@@ -201,6 +212,18 @@ $(document).ready(function () {
     phonePreview();
 
     getCategoryCover($('#stockform-categoryid').val());
+
+    $('.cancel').click(function (e) {
+        e.preventDefault();
+        var locationsCount = $(this).parents('#locations').data('locations-count');
+        var newLocCount = locationsCount - 1;
+        $(this).parents('.address-row').remove();
+        $(this).parents('#locations').data('locations-count', newLocCount);
+        var markerId = $(this).parents('.address-row').find('.address').attr('id');
+        var marker = markers[markerId];
+        marker.setMap(null);
+        delete markers[markerId];
+    });
 
     $(document).on("keypress", ":input:not(textarea)", function(event) {
         if (event.keyCode == 13) {
@@ -392,10 +415,15 @@ $(document).ready(function () {
 
             $('.cancel').click(function (e) {
                 e.preventDefault();
+                var locationsCount = $(this).parents('#locations').data('locations-count');
                 var newLocCount = locationsCount - 1;
                 $(this).parents('.address-row').remove();
                 $(this).parents('#locations').data('locations-count', newLocCount);
-            })
+                var markerId = $(this).parents('.address-row').find('.address').attr('id');
+                var marker = markers[markerId];
+                marker.setMap(null);
+                delete markers[markerId];
+            });
         }
 
         var preview = '<div id="preview_'+ addressId +'" class="f-14 lh-1-4 mtop-15">';
