@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 
+    /** @var array $commissionTypes */
 ?>
 <div class="row active">
     <a href="#" class="row-title">Выберете категорию услуги</a>
