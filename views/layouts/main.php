@@ -54,22 +54,21 @@ AppAsset::register($this);
 </div>
 
 <?php
-if (Yii::$app->controller->id == 'partner'
-    || Yii::$app->controller->id == 'site'
-    || (Yii::$app->controller->id == 'moderator'
-        && Yii::$app->controller->action->id == 'edit-stock')
-    ):
-    ?>
+//if (Yii::$app->controller->id == 'partner'
+//    || Yii::$app->controller->id == 'site'
+//    || (Yii::$app->controller->id == 'moderator'
+//        && Yii::$app->controller->action->id == 'edit-stock')
+//    ):
+//    ?>
     <?= $content ?>
-<?php else: ?>
-    <div class="container">
-        <div class="wrapper m-auto w-100 w-lg-85">
-            <?= $content ?>
-        </div>
-    </div>
-<?php endif; ?>
+<?php //else: ?>
+<!--    <div class="container">-->
+<!--        <div class="wrapper m-auto w-100 w-lg-85">-->
+<!--            --><?//= $content ?>
+<!--        </div>-->
+<!--    </div>-->
+<?php //endif; ?>
 
-?>
 <? include_once("footer.php"); ?>
 <? include_once("feedback.php"); ?>
 

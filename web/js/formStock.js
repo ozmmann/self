@@ -19,13 +19,13 @@ function getAllocationTypes() {
             success: function (result) {
                 $('#loading').addClass('hidden');
                 if (result) {
-                    // var select = $('#stockform-commissiontype');
-                    // select.empty();
-                    // for (var key in result) {
-                    //     select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
-                    // }
-                    // select.parents('#commissionTypeWrap').removeClass('hidden')
-                    // select.val('').trigger("chosen:updated");
+                    var select = $('#stockform-commissiontype');
+                    select.empty();
+                    for (var key in result) {
+                        select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+                    }
+                    select.parents('#commissionTypeWrap').removeClass('hidden')
+                    select.val('').trigger("chosen:updated");
 
                 } else {
                     var select = $('#stockform-commissiontype');
@@ -122,7 +122,7 @@ function countProfit() {
     var discount = $('#discount').val();
     var price = $('#stockform-price').val();
     var commissionvalue = 0;
-    if(commissiontype.val() == 'percent'){
+    if(commissiontype.val().toLowerCase() == 'percent'){
         commissionvalue = commissiontype.find(':selected').data('value');
     }
 
@@ -501,10 +501,11 @@ $(document).ready(function () {
 $(document).ready(function () {
     var keypressSlider = document.getElementById('precentslider'),
         input = document.getElementById('discount'),
-        resultElement = document.getElementsByClassName('current');
+        resultElement = document.getElementsByClassName('current'),
+        isFirstUpdate = true;
 
     noUiSlider.create(keypressSlider, {
-        start: 50,
+        start: input.value ? input.value : 50,
         step: 1,
         range: {
             'min': 0,
@@ -520,9 +521,13 @@ $(document).ready(function () {
         $(resultElement).text(values[handle]);
         $('.discount').text(values[handle]);
         countPrice();
-        changeDiscount();
+        if (!isFirstUpdate){
+            changeDiscount();
+        }
+
         countProfit();
         unValid(resultElement);
+        isFirstUpdate = false;
     });
 
     input.addEventListener('change', function(){

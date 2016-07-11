@@ -9,7 +9,7 @@
 ?>
 <?php Pjax::begin(); ?>
 
-<h1><?= Html::a('Все акции', 'moderator/stock-list') ?></h1>
+<h1><?= Html::a('Все акции', '/moderator/stock-list') ?></h1>
 <?= GridView::widget([
                          'dataProvider' => $stockProvider,
                          'columns'      => [
@@ -86,7 +86,7 @@
                          ],
                          'showHeader'   => true,
                      ]) ?>
-<h1><?= Html::a('Все партнеры', 'moderator/partner-list') ?></h1>
+<h1><?= Html::a('Все партнеры', '/moderator/partner-list') ?></h1>
 <?= GridView::widget([
                          'dataProvider' => $partnerProvider,
                          'columns'      => [

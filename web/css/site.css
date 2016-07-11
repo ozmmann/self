@@ -629,9 +629,9 @@ input[type="checkbox"]:checked {
     margin-right: 0;
 }
 
-.form-control {
-    height: 40px;
-}
+/*.form-control {*/
+    /*height: 40px;*/
+/*}*/
 
 .has-success .chosen-container-single .chosen-single {
     border-color: #3c763d;
