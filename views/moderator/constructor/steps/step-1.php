@@ -52,7 +52,8 @@ use yii\helpers\Html;
                         [
                             'class'            => 'chosen styled-select',
                             'prompt'           => '',
-                            'data-placeholder' => 'Выберите тип размещения'
+                            'data-placeholder' => 'Выберите тип размещения',
+                            'data-selected'    => $stockForm->commissionType
                         ]
                     ) ?>
                     <div class="form-error-msg"></div>

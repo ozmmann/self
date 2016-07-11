@@ -1,10 +1,15 @@
 <?php
 
-    use app\models\City;
+    use yii\base\Model;
+    use yii\data\ActiveDataProvider;
     use yii\grid\GridView;
-    use yii\helpers\ArrayHelper;
     use yii\helpers\Html;
     use yii\widgets\Pjax;
+    
+    /** @var Model $searchModel */
+    /** @var ActiveDataProvider $partnerProvider */
+    /** @var array $cityList */
+    /** @var array $stockTypeList */
 
 ?>
 

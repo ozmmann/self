@@ -1,15 +1,18 @@
 <?php
 
+    use yii\data\ActiveDataProvider;
     use yii\grid\GridView;
     use yii\helpers\Html;
     use yii\widgets\Pjax;
+    
+    /** @var ActiveDataProvider $partnerProvider */
+    /** @var ActiveDataProvider $stockProvider */
 
     $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']);
 
 ?>
 <?php Pjax::begin(); ?>
-
-<h1><?= Html::a('Все акции', 'moderator/stock-list') ?></h1>
+<h1><?= Html::a('Все акции', '/moderator/stock-list') ?></h1>
 <?= GridView::widget([
                          'dataProvider' => $stockProvider,
                          'columns'      => [
@@ -86,7 +89,7 @@
                          ],
                          'showHeader'   => true,
                      ]) ?>
-<h1><?= Html::a('Все партнеры', 'moderator/partner-list') ?></h1>
+<h1><?= Html::a('Все партнеры', '/moderator/partner-list') ?></h1>
 <?= GridView::widget([
                          'dataProvider' => $partnerProvider,
                          'columns'      => [
@@ -142,7 +145,6 @@
                                  ],
                                  'template' => '{view}{update}',
                                  'contentOptions' => ['class' => 'action-column'],
-
                              ],
                          ],
                          'showHeader'   => true,

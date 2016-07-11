@@ -58,7 +58,7 @@
         }
 
         public function actionIndex(){
-            Yii::$app->formatter->locale = 'ru-RU';
+            //Yii::$app->formatter->locale = 'ru-RU';
 
             $partnerProvider = new ActiveDataProvider([
                                                           'query'      => User::find()
@@ -242,7 +242,7 @@
             $locationForm = new LocationForm($stock->location);
 
             $categoryCovers = Stockcategory::getCategoryCovers($stock->categoryId, $stock->userId);
-            $commissionTypes = Commission::getAllocationTypesList($stock->userId, $stock->categoryId, $stock->discount);
+            $commissionTypes = Commission::getAllocationTypes($stock->userId, $stock->categoryId, $stock->discount);
 
             if($stockForm->load(Yii::$app->request->post()) && $conditionForm->load(Yii::$app->request->post()) && $organizerForm->load(Yii::$app->request->post()) && $locationForm->load(Yii::$app->request->post())){
                 $validationStatus = $stockForm->validate();

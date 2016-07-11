@@ -67,6 +67,7 @@
 
             return empty($allocationTypes) ? false : $allocationTypes;
         }
+        
         public static function getAllocationTypesList($userId, $categoryId, $discount){
             $user = User::findOne($userId);
             $cityType = City::findOne(['id' => $user->cityId])->notGhost;
