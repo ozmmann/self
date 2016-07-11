@@ -19,13 +19,13 @@ function getAllocationTypes() {
             success: function (result) {
                 $('#loading').addClass('hidden');
                 if (result) {
-                    var select = $('#stockform-commissiontype');
-                    select.empty();
-                    for (var key in result) {
-                        select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
-                    }
-                    select.parents('#commissionTypeWrap').removeClass('hidden')
-                    select.val('').trigger("chosen:updated");
+                    // var select = $('#stockform-commissiontype');
+                    // select.empty();
+                    // for (var key in result) {
+                    //     select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+                    // }
+                    // select.parents('#commissionTypeWrap').removeClass('hidden')
+                    // select.val('').trigger("chosen:updated");
 
                 } else {
                     var select = $('#stockform-commissiontype');

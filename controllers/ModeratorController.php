@@ -170,6 +170,7 @@
         }
 
         public function actionEditStock($id){
+            /** @var Stock $stock */
             $stock = Stock::findOne($id);
             $partner = User::findOne($stock->userId);
             $stockCategoryList = Stockcategory::getCategoryList();
@@ -241,7 +242,7 @@
             $locationForm = new LocationForm($stock->location);
 
             $categoryCovers = Stockcategory::getCategoryCovers($stock->categoryId, $stock->userId);
-            $commissionTypes = Commission::getAllocationTypes($stock->userId, $stock->categoryId, $stock->discount);
+            $commissionTypes = Commission::getAllocationTypesList($stock->userId, $stock->categoryId, $stock->discount);
 
             if($stockForm->load(Yii::$app->request->post()) && $conditionForm->load(Yii::$app->request->post()) && $organizerForm->load(Yii::$app->request->post()) && $locationForm->load(Yii::$app->request->post())){
                 $validationStatus = $stockForm->validate();
