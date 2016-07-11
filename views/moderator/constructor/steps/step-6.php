@@ -41,6 +41,11 @@
                                 ]) ?>
                             </div>
                         </div>
+                        <?php if ($i != 0): ?>
+                            <div class="text-right">
+                                <button type="button" class="cancel btn btn-blue">Отменить</button>
+                            </div>
+                        <?php endif; ?>
                     </div>
             <?php endfor; ?>
             </div>
