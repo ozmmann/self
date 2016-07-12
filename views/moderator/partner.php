@@ -1,27 +1,58 @@
 <?php
-   
+
+
 ?>
-<div class="row">
-    <table class="table-striped col-sm-12">
-        <th>Имя</th>
-        <th>Телефоны</th>
-        <th>Email</th>
-        <th>Статус</th>
-        <th>Город</th>
-        <th>Категория услуг</th>
-        <tr>
-            <td><?= $partner->name ?></td>
-            <td><?= $partner->phone ?></td>
-            <td><?= $partner->email ?></td>
-            <td><?= Yii::$app->params['userStatus'][$partner->status] ?></td>
-            <td><?= $partner->getCityName() ?></td>
-            <td><?= $partner->getStockTypeName() ?></td>
-            <td>
-                <a href="<?= Yii::$app->urlManager->createUrl(['moderator/edit-partner', 'id' => $partner->id]) ?>">Edit</a>
-            </td>
-        </tr>
-    </table>
-    <?php if(is_null($partner)): ?>
-        <h1>партнер призрак!!!</h1>
-    <?php endif; ?>
+<div id="cabinet">
+    <div class="container">
+        <div class="w-100 w-lg-85 m-auto white-wrap">
+            <div class="w-100 f-34 fw-bold text-center">
+                <?= $partner->name ?>
+            </div>
+            <div class="mtop-40 data-table">
+
+                <div class="header text-center f-0">
+                    <div class="dib w-16">
+                        Телефоны
+                    </div>
+                    <div class="dib w-20">
+                        Email
+                    </div>
+                    <div class="dib w-16">
+                        Статус
+                    </div>
+                    <div class="dib w-16">
+                        Город
+                    </div>
+                    <div class="dib w-16">
+                        Категория услуг
+                    </div>
+                    <div class="dib w-16">
+                        Действие
+                    </div>
+                </div>
+                <div class="data-row f-0">
+                    <div class="dib w-16">
+                        <?= $partner->phone ?>
+                    </div>
+                    <div class="dib w-20 status">
+                        <?= $partner->email ?>
+                    </div>
+                    <div class="dib w-16">
+                        <?= Yii::$app->params['userStatus'][$partner->status] ?>
+                    </div>
+                    <div class="dib w-16">
+                        <?= $partner->getCityName() ?>
+                    </div>
+                    <div class="dib w-16 type">
+                        <?= $partner->getStockTypeName() ?>
+                    </div>
+                    <div class="dib w-16">
+                        <a href="<?= Yii::$app->urlManager->createUrl(['moderator/edit-partner', 'id' => $partner->id]) ?>" class="btn edit"></a>
+                        <a href="#" class="btn refresh" disabled="true"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

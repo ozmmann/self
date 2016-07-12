@@ -5,15 +5,15 @@ use yii\widgets\LinkPager;
 use yii\widgets\Pjax;
 
 ?>
-<div class="row">
-    <div class="col-md-12">
+<div class="container">
+    <div class="w-85 m-auto wrapper">
         <?php Pjax::begin() ?>
-        <?= Html::beginForm('city-list', 'get', ['class' => 'form-inline']) ?>
+        <?= Html::beginForm('city-list', 'get', ['class' => 'form-inline dib']) ?>
         <?= Html::input('text', 'nameSerch', Yii::$app->request->post('nameSerch'), ['class' => 'form-control']) ?>
-        <?= Html::submitButton('Найти', ['class' => 'btn btn-lg btn-primary']) ?>
+        <?= Html::submitButton('Найти', ['class' => 'btn btn-yellow btn-next-step']) ?>
         <?= Html::endForm() ?>
 
-        <?= Html::a('Добавить город', 'edit-city') ?>
+        <?= Html::a('Добавить город', 'edit-city', ['class' => 'btn btn-blue btn-add mtop-10']) ?>
         <table class="table table-striped">
             <tr>
                 <th>Город</th>

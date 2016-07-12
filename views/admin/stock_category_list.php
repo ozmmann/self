@@ -1,26 +1,35 @@
 <?php
 
-    use yii\helpers\Html;
-    use yii\widgets\Pjax;
+use yii\helpers\Html;
+use yii\widgets\Pjax;
 
+\yii\bootstrap\BootstrapAsset::register($this);
 ?>
 <style>
     .list-group-item.active a {
         color: white;
     }
 </style>
-<div class="row">
-    <div class="col-sm-12">
-        <?php Pjax::begin() ?>
-        <?= Html::beginForm('stock-category-list', 'get', ['class' => 'form-inline']) ?>
-        <?= Html::input('text', 'nameSerch', Yii::$app->request->post('nameSerch'), ['class' => 'form-control']) ?>
-        <?= Html::submitButton('Найти', ['class' => 'btn btn-lg btn-primary']) ?>
-        <?= Html::endForm() ?>
-        <?php Pjax::end() ?>
+<div class="container">
+    <div class="w-85 m-auto wrapper">
+        <div style="position: relative">
+            <?php Pjax::begin() ?>
+            <?= Html::beginForm('stock-category-list', 'get', ['class' => 'form-inline dib']) ?>
+            <?= Html::input('text', 'nameSerch', Yii::$app->request->post('nameSerch'), ['class' => 'form-control']) ?>
+            <?= Html::submitButton('Найти', ['class' => 'btn btn-yellow btn-next-step']) ?>
+            <?= Html::endForm() ?>
+            <?php Pjax::end() ?>
 
-        <?= Html::a('Добавить', ['edit-stock-category']) ?>
+            <?= Html::a(
+                'Добавить',
+                ['edit-stock-category'],
+                [
+                    'class' => 'btn btn-blue btn-add mtop-10',
+                    'style' => 'position: absolute; top: 0; right: 0;'
+                ]) ?>
+        </div>
         <div class="list-group">
-            <?php foreach($stockCategorys as $item): ?>
+            <?php foreach ($stockCategorys as $item): ?>
 
                 <?php
                 //кнопочки удалить и редактировать
@@ -34,9 +43,9 @@
                 //                ], ['title' => 'Удалить']);
                 //количество детей
                 $span = Html::tag('span', $item->countChild, ['class' => 'badge']);
-                if($selectId == $item->id){
+                if ($selectId == $item->id) {
                     $class = 'list-group-item active';
-                }else{
+                } else {
                     $class = 'list-group-item';
                 }
                 ?>
@@ -46,8 +55,8 @@
                     <?= $edit ?>
                     <!--                    --><? //= $delete ?>
                 </div>
-                <?php if($selectId == $item->id): ?>
-                    <?php foreach($children as $child): ?>
+                <?php if ($selectId == $item->id): ?>
+                    <?php foreach ($children as $child): ?>
                         <?php
                         //кнопочки удалить и редактировать
                         $edit = Html::a('<span class="glyphicon glyphicon-pencil"></span>', [
@@ -61,23 +70,23 @@
                         //количество детей
 
                         $span = Html::tag('span', $child->countChild, ['class' => 'badge']);
-                        if($selSubId == $child->id){
+                        if ($selSubId == $child->id) {
                             $subclass = ' active';
-                        }else{
+                        } else {
                             $subclass = '';
                         } ?>
                         <div class="col-sm-offset-2 list-group-item <?= $subclass ?>">
                             <?= Html::a($child->name, [
                                 '/admin/stock-category-list',
-                                'id'    => $item->id,
+                                'id' => $item->id,
                                 'subid' => $child->id
                             ], ['class' => 'col-sm-11']) ?>
                             <?= $span ?>
                             <?= $edit ?>
                             <!--                            --><? //= $delete ?>
                         </div>
-                        <? if($selSubId == $child->id): ?>
-                            <?php foreach($subchildren as $sub_child): ?>
+                        <? if ($selSubId == $child->id): ?>
+                            <?php foreach ($subchildren as $sub_child): ?>
                                 <?php
                                 //кнопочки удалить и редактировать
                                 $edit = Html::a('<span class="glyphicon glyphicon-pencil"></span>', [

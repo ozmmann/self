@@ -24,7 +24,6 @@ use yii\helpers\ArrayHelper;
                             <div class="dib w-50 w-sm-100 w-md-80 vat f-14 m-auto md-db">
                                 <?php $form = ActiveForm::begin([
                                     'id' => 'reg-form',
-                                    'options' => ['class' => 'form-horizontal'],
                                     'fieldConfig' => [
                                         //                    'template' => "{label}\n<div class=\"col-lg-7\">{input}</div>\n<div class=\"col-lg-3\">{error}</div>",
                                         //                    'labelOptions' => ['class' => 'col-lg-2 control-label'],

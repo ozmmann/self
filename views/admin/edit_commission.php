@@ -6,8 +6,8 @@
     /** @var \app\models\forms\CommissionForm $model */
     /** @var array $categoryList */
 ?>
-<div class="row">
-    <div class="col-md-12">
+<div class="container">
+    <div class="w-85 m-auto wrapper">
         <?php $form = ActiveForm::begin(); ?>
         <?= $form->field($model, 'stockCategoryId')
                  ->label('Категория акций')
@@ -35,8 +35,8 @@
                  ->label('Процент для бесплатного размещения')
                  ->input('float') ?>
 
-        <?= Html::submitButton('Сохранить') ?>
-        <?= Html::a('Отмена', ['/admin/commission-list']); ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-yellow btn-next-step']) ?>
+        <?= Html::a('Отмена', ['/admin/commission-list'], ['class' => 'btn btn-blue btn-step']); ?>
         <?php ActiveForm::end(); ?>
 
     </div>

@@ -2,11 +2,12 @@
 
     use yii\widgets\DetailView;
 
-    echo "test";
-
+$title = isset($title) ? $title : 'Профиль';
 ?>
-<div class="row">
-    <div class="col-md-12">
+<div class="container">
+    <div class="w-85 m-auto wrapper">
+        <h3><?= $title ?></h3>
+
         <?= DetailView::widget([
                                    'model'      => $moderator,
                                    'attributes' => [

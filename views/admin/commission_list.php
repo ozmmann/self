@@ -5,15 +5,15 @@ use yii\widgets\Pjax;
 
     /** @var \app\models\Commission $commissions */
 ?>
-<div class="row">
-    <div class="col-md-12">
+<div class="container">
+    <div class="w-85 m-auto wrapper">
         <?php Pjax::begin() ?>
-        <?= Html::beginForm('commission-list', 'get', ['class' => 'form-inline']) ?>
+        <?= Html::beginForm('commission-list', 'get', ['class' => 'form-inline dib']) ?>
         <?= Html::input('text', 'nameSerch', Yii::$app->request->post('nameSerch'), ['class' => 'form-control']) ?>
-        <?= Html::submitButton('Найти', ['class' => 'btn btn-lg btn-primary']) ?>
+        <?= Html::submitButton('Найти', ['class' => 'btn btn-yellow btn-next-step']) ?>
         <?= Html::endForm() ?>
 
-        <?= Html::a('Добавить коммисию', ['admin/edit-commission']) ?>
+        <?= Html::a('Добавить коммисию', ['admin/edit-commission'], ['class' => 'btn btn-blue btn-add mtop-10']) ?>
         <?php
             if(count($commissions)): ?>
             <table class="table table-striped">

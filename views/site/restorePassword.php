@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="cols mtop-80 f-14">
 
                         <?php $form = ActiveForm::begin([
-                            'id' => 'restore-form', 'options' => ['class' => 'form-horizontal'], 'fieldConfig' => [
+                            'id' => 'restore-form', 'fieldConfig' => [
 //                                'template' => "{label}\n<div class=\"col-lg-4\">{input}</div>\n<div class=\"col-lg-6\">{error}</div>",
 //                                'labelOptions' => ['class' => 'col-lg-2 control-label'],
                             ],

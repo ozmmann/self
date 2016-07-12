@@ -94,6 +94,14 @@ $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']
             ],
             'filterModel' => $searchModel,
             'showHeader' => true,
+            'pager' => [
+                'prevPageLabel' => '&larr;',
+                'nextPageLabel' => '&rarr;',
+                'disabledPageCssClass' => 'btn',
+                'linkOptions' => [
+                    'class' => 'btn'
+                ]
+            ]
         ]) ?>
         <?php Pjax::end(); ?>
     </div>

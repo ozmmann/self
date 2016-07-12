@@ -43,12 +43,6 @@
             ];
         }
 
-        public function beforeAction($action)
-        {
-            BootstrapAsset::register($this->getView());
-            return parent::beforeAction($action);
-        }
-
         public function actions(){
             return [
                 'error' => [

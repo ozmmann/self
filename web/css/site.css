@@ -622,6 +622,7 @@ input[type="checkbox"]:checked {
 .checkbox label span, label.checkbox-inline span {
     display: table-cell;
     vertical-align: middle;
+    padding-left: 5px;
 }
 
 .form-horizontal .form-group {
@@ -725,5 +726,5 @@ div#covers-wrap > div {
 
 .grid-view td.action-column
 {
-    width:30px;
+    width:13px;
 }
