@@ -1,5 +1,5 @@
 <?php
-use yii\helpers\Html;
+    use yii\helpers\Html;
 
     /** @var array $commissionTypes */
 ?>
@@ -16,8 +16,8 @@ use yii\helpers\Html;
                 //                ]) ?>
             <div class="required-field">
                 <?= Html::activeDropDownList($stockForm, 'categoryId', $stockCategoryList, [
-                    'class'            => 'chosen styled-select',
-                    'prompt'           => '',
+                    'class'            => 'styled-select',
+//                    'prompt'           => '',
                     'data-placeholder' => 'Выберите категорию услуг'
                 ]) ?>
                 <div class="form-error-msg"></div>
@@ -45,17 +45,13 @@ use yii\helpers\Html;
             <h3>Выберете тип размещения</h3>
             <div class="db mtop-10">
                 <div class="required-field">
-                    <?= Html::activeDropDownList(
-                        $stockForm,
-                        'commissionType',
-                        $commissionTypes,
-                        [
-                            'class'            => 'chosen styled-select',
-                            'prompt'           => '',
-                            'data-placeholder' => 'Выберите тип размещения',
-                            'data-selected'    => $stockForm->commissionType
-                        ]
-                    ) ?>
+                    <?= Html::activeDropDownList($stockForm, 'commissionType', \yii\helpers\ArrayHelper::map($commissionTypes,'value','name') ,
+                                                 [
+                                                     'class'            => 'chosen styled-select',
+//                                                     'prompt'           => '',
+                                                     'data-placeholder' => 'Выберите тип размещения',
+                                                     'data-selected'    => $stockForm->commissionType
+                                                 ]) ?>
                     <div class="form-error-msg"></div>
                 </div>
             </div>
