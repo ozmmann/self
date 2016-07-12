@@ -27,7 +27,6 @@ class AppAsset extends AssetBundle
         'js/chosen.jquery.min.js',
         'js/hammer.min.js',
         'js/main.js',
-        'js/chosen.jquery.min.js',
     ];
 
     public $depends = [

@@ -6,7 +6,8 @@
 
     $title = isset($title) ? $title : 'Список партнеров';
 
-    
+    /** @var array $partners */
+
 ?>
 <div class="row">
     <h2>Partner</h2>

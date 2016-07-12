@@ -1,5 +1,6 @@
 <?php
     namespace app\models;
+
     use app\components\Email;
     use yii;
     use yii\db\ActiveRecord;
@@ -47,14 +48,20 @@
                 $this->commissionType = strtoupper($this->commissionType);
                 $city = City::findOne(Yii::$app->user->identity->cityId);
                 $cityType = ($city->notGhost) ? 'REGION' : 'GHOST';
-                $commission = Commission::find()->where(['stockCategoryId'=>$this->categoryId])->andWhere(['cityType'=>$cityType])->one();
+                $commission = Commission::find()
+                                        ->where(['stockCategoryId' => $this->categoryId])
+                                        ->andWhere(['cityType' => $cityType])
+                                        ->one();
                 $commissionType = strtolower($this->commissionType);
                 $this->commissionValue = $commission->$commissionType;
             }else{
                 $this->commissionType = strtoupper($this->commissionType);
                 $city = City::findOne(User::findOne($this->userId)->cityId);
                 $cityType = ($city->notGhost) ? 'REGION' : 'GHOST';
-                $commission = Commission::find()->where(['stockCategoryId'=>$this->categoryId])->andWhere(['cityType'=>$cityType])->one();
+                $commission = Commission::find()
+                                        ->where(['stockCategoryId' => $this->categoryId])
+                                        ->andWhere(['cityType' => $cityType])
+                                        ->one();
                 $commissionType = strtolower($this->commissionType);
                 $this->commissionValue = $commission->$commissionType;
                 if(is_array($this->condition)){
@@ -90,30 +97,30 @@
             return $this->save(false);
         }
 
+        /**
+         * @param $status
+         *
+         * @return bool
+         * @throws \Swift_SwiftException
+         */
         public function updateStatus($status){
             $oldStatus = $this->status;
             $newStatus = $status;
-            if($oldStatus != $newStatus) {
+            $this->status = $status;
+            if($oldStatus != $newStatus && $this->save(false)){
                 $statuslabel = Yii::$app->params['stockStatus'][$status];
+                /** @var User $user */
                 $user = User::findOne($this->userId);
                 $title = "Статус Вашей акции <br>был изменен";
                 $link = Yii::$app->urlManager->createAbsoluteUrl(['partner/stock', 'id' => $this->id]);
                 $body = "Здравствуйте, статус Вашей акции был изменен модератором на <strong>{$statuslabel}</strong>";
 
-                Email::sendEmail(
-                    'mail-template-html',
-                    Yii::$app->name . '. Изменен статус у Вашей акции.',
-                    $title,
-                    $link,
-                    $body,
-                    [Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot'],
-                    $user->email
-                );
+                Email::sendEmail('mail-template-html', Yii::$app->name.'. Изменен статус у Вашей акции.', $title, $link, $body, [Yii::$app->params['adminEmail'] => Yii::$app->name.' robot'], $user->email);
+
+                return true;
             }
 
-            $this->status = $status;
-
-            return $this->save(false);
+            return;
         }
 
         public function getUser(){

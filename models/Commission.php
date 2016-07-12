@@ -51,22 +51,23 @@
 
             $allocationTypes = [];
             if($commission && !is_null($commission->free) && $discount >= $commission->free){
-                $allocationTypes['FREE']['name'] = 'Я размещаюсь бесплатно за высокий % скидки в моей категории';
+                $allocationTypes['FREE']['name'] = Yii::$app->params['commissionType']['FREE'];
                 $allocationTypes['FREE']['value'] = $commission->free;
             }
 
             if($commission && !is_null($commission->fixed)){
-                $allocationTypes['FIXED']['name'] = 'Я плачу фиксированную ставку';
+                $allocationTypes['FIXED']['name'] = Yii::$app->params['commissionType']['FIXED'];
                 $allocationTypes['FIXED']['value'] = $commission->fixed;
             }
 
             if($commission && !is_null($commission->percent)){
-                $allocationTypes['PERCENT']['name'] = 'Я плачу коммисиию за продажу';
+                $allocationTypes['PERCENT']['name'] = Yii::$app->params['commissionType']['PERCENT'];
                 $allocationTypes['PERCENT']['value'] = $commission->percent;
             }
 
             return empty($allocationTypes) ? false : $allocationTypes;
         }
+        
         public static function getAllocationTypesList($userId, $categoryId, $discount){
             $user = User::findOne($userId);
             $cityType = City::findOne(['id' => $user->cityId])->notGhost;

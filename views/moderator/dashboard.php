@@ -1,8 +1,12 @@
 <?php
 
+use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
+
+/** @var ActiveDataProvider $partnerProvider */
+/** @var ActiveDataProvider $stockProvider */
 
 $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']);
 
