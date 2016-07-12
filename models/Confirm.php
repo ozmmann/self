@@ -9,15 +9,22 @@
         public  function beforeDelete(){
             $moderators = User::find()->select(['email'])->where(['role'=>'MODERATOR'])->all();
 
-            $this->emailMessage .= 'Новый пользователь в системе: '
-                .Yii::$app->urlManager->createAbsoluteUrl(['moderator/partner', 'id' => $this->userId]);
+            $title = 'НОВЫЙ ПОЛЬЗОВАТЕЛЬ<br> В СИСТЕМЕ';
+            $link = Yii::$app->urlManager->createAbsoluteUrl(['moderator/partner', 'id' => $this->userId]);
+            $body ="Перейдите по ссылке, чтобы просмотреть детали.";
+
             $messages = [];
             foreach ($moderators as $moderator) {
-                $messages[] = Yii::$app->mailer->compose()
-                                                ->setFrom(Yii::$app->params['adminEmail'])
-                                                ->setTo($moderator->email)
-                                                ->setSubject(Yii::$app->name . '. Новый пользователь.')
-                                                ->setTextBody($this->emailMessage);
+                $messages[] = Yii::$app->mailer->compose(
+                    ['html' => 'mail-template-html'],
+                    [
+                        'title' => $title,
+                        'link' => $link,
+                        'body' => $body
+                    ]
+                )->setFrom(Yii::$app->params['adminEmail'])
+                    ->setTo($moderator->email)
+                    ->setSubject(Yii::$app->name . '. Новый пользователь.');
             }
             Yii::$app->mailer->sendMultiple($messages);
 

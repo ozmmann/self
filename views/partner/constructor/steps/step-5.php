@@ -9,12 +9,7 @@
         </div>
 
         <div class="db checkbox-list">
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" id="countPerson"><i></i>
-                    <span>1 купон распространяется на N человек</span>
-                </label>
-            </div>
+            <?= Html::activeCheckbox($conditionForm, 'isCount', ['label' => '<i></i><span>1 купон распространяется на N человек</span>']) ?>
             <div class="hidden" id="countPersonWrap">
                 <div class="row">
                     <label class="control-label col-lg-5">Количество человек</label>

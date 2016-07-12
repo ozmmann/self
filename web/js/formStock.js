@@ -370,7 +370,11 @@ $(document).ready(function () {
         });
     });
 
-    $('#countPerson').change(function () {
+    if($('#conditionform-iscount').is(':checked')) {
+        $('#countPersonWrap').removeClass('hidden');
+    }
+
+    $('#conditionform-iscount').change(function () {
         if ($(this).is(':checked')) {
             $('#countPersonWrap').removeClass('hidden');
         } else {

@@ -10,16 +10,11 @@
         </div>
 
         <div class="db checkbox-list">
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" id="countPerson"><i></i>
-                    <span>1 купон распространяется на N человек</span>
-                </label>
-            </div>
+            <?= Html::activeCheckbox($conditionForm, 'isCount', ['label' => '<i></i><span>1 купон распространяется на N человек</span>']) ?>
             <div class="hidden" id="countPersonWrap">
                 <div class="row">
                     <label class="control-label col-lg-5">Количество человек</label>
-                    <?= Html::activeInput('number', $conditionForm, 'countPerson', ['class' => 'form-control', 'value' => 1, 'min' => 1]) ?>
+                    <?= Html::activeInput('number', $conditionForm, 'countPerson', ['class' => 'form-control', 'min' => 1]) ?>
                 </div>
             </div>
             <?= Html::activeCheckbox($conditionForm, 'preEntry', ['label' => '<i></i><span>Обязательная запись</span>']) ?>

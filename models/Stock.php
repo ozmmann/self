@@ -77,6 +77,36 @@
 
             return true;
         }
+        public function afterSave($insert, $changedAttributes)
+        {
+            if($insert){
+                $moderators = User::find()->select(['email'])->where(['role'=>'MODERATOR'])->all();
+
+                $title = 'НОВАЯ АКЦИЯ В СИСТЕМЕ';
+                $link = Yii::$app->urlManager->createAbsoluteUrl(['moderator/stock', 'id' => $this->id]);
+                $body ="Перейдите по ссылке, чтобы просмотреть детали.";
+
+                $messages = [];
+
+                foreach ($moderators as $moderator) {
+                    $messages[] = Yii::$app->mailer->compose(
+                            ['html' => 'mail-template-html'],
+                            [
+                                'title' => $title,
+                                'link' => $link,
+                                'body' => $body
+                            ]
+                        )
+                        ->setFrom(Yii::$app->params['adminEmail'])
+                        ->setTo($moderator->email)
+                        ->setSubject(Yii::$app->name . '. Новая акция.');
+                }
+
+                Yii::$app->mailer->sendMultiple($messages);
+            }
+
+            return true;
+        }
 
         public function createStock($stockForm, $conditionForm, $organizerForm, $locationForm){
             $this->attributes = $stockForm->attributes;

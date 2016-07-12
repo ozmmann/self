@@ -3,6 +3,7 @@
     use yii\base\Model;
 
     class ConditionForm extends Model{
+        public $isCount;
         public $countPerson;
         public $preEntry;
         public $discountSum;
@@ -20,7 +21,7 @@
 
         public function scenarios(){
             return [
-                'default' => ['countPerson', 'preEntry', 'discountSum', 'preCall', 'dispatcherCall', 'showCoupon', 'own']
+                'default' => ['isCount', 'countPerson', 'preEntry', 'discountSum', 'preCall', 'dispatcherCall', 'showCoupon', 'own']
             ];
         }
     }
