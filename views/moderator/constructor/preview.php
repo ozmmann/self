@@ -3,58 +3,13 @@
         Предпросмотр акции
     </div>
     <div id="preview">
-        <h1 id="stock-title">
-            До 5 мастер-классов по мыловарению и изготовлению свечей, для взрослых и детей в творческом центре «Страна
-            талантов»!
+        <h1 id="stock-title" class="no-data">
         </h1>
         <div class="row f-0">
             <div class="dib vat w-60 f-14">
-                <img id="stock-cover" src="//cdn1.pokupon.ua/uploaded/new_campaign_pictures/70853/data/main720x340/МАС.jpg"
+                <img id="stock-cover" src="/img/no-data.png"
                      class="img-responsive">
-                <div id="stock-description">
-                    <p>
-                        На занятии вы узнаете базовый рецепт изготовления мыла:</p>
-                    <ul>
-                        <li>
-                            какие основные ингредиенты использовать
-                        </li>
-                        <li>
-                            различие эфирных масел от ароматов
-                        </li>
-                        <li>
-                            свойства трав
-                        </li>
-                        <li>
-                            разновидности красителей
-                        </li>
-                    </ul>
-                    <p>
-                        Ароматические свечи своими руками&nbsp;&mdash; замечательный подарок близким и любимым. Вы
-                        сможете научиться делать свечи и Вам это очень понравиться. Под руководством мастера Вы сделаете
-                        прекрасную свечу, украсив их натуральным декором, вложив туда свою душу и позитивные
-                        мысли...этот подарок станет бесценным... Все свечи мы будем делать из вощины.</p>
-                    <p>
-                        Стоимость:</p>
-                    <ul>
-                        <li>
-                            1 мастер-класс для одного человека,&nbsp;за 35 грн.&nbsp;вместо 85 грн.
-                        </li>
-                        <li>
-                            1 мастер-класс для двоих человек,&nbsp;за 65 грн.&nbsp;вместо 170 грн.
-                        </li>
-                        <li>
-                            3 мастер-класса для одного человека,&nbsp;за 95 грн.&nbsp;вместо 255 грн.
-                        </li>
-                        <li>
-                            3 мастер-класса для двоих человек,&nbsp;за 170 грн.&nbsp;вместо 410 грн.
-                        </li>
-                        <li>
-                            5 мастер-классов для одного человека,&nbsp;за 145 грн.&nbsp;вместо 425 грн.
-                        </li>
-                        <li>
-                            5 мастер-классов для двоих человек,&nbsp;за 265 грн.&nbsp;вместо 850 грн.
-                        </li>
-                    </ul>
+                <div id="stock-description" class="no-data">
                 </div>
             </div>
             <div class="dib w-5"></div>
@@ -70,15 +25,11 @@
                     </div>
                     <div class="dib w-40 text-center">
                         <small>экономия</small>
-                        <b><span id="save">1 280</span>
-                            <small>грн.</small>
-                        </b>
+                        <b><span id="save">1 280</span><small>грн.</small></b>
                     </div>
                     <div class="dib w-30 text-right">
                         <small>купили</small>
-                        <b id="bought">0
-                            <small>чел.</small>
-                        </b>
+                        <b id="bought">0<small>чел.</small></b>
                     </div>
                 </div>
                 <button class="btn btn-white-blue-border btn-favorite mtop-20 w-100">Добавить в избранное</button>
@@ -94,15 +45,9 @@
                     <div id="place_name" class="hidden mtop-20 f-14 lh-1-4">
                         <a href="#" target="_blank">Отель «Золотая корона»</a>
                     </div>
-                    <div id="place_address" class="f-14 lh-1-4 mtop-15">
-                        <div id="city">Киев,</div>
-                        <div id="metro">Руспубликанский стадион</div>
-                        <div id="street">ул. Ивана Мазепы</div>
-                    </div>
-                    <div id="place_phones" class="f-14 lh-1-4 mtop-15">
-                        <div>+38 (000) 000-11-22,</div>
-                        <div>+38 (000) 000-11-22,</div>
-                        <div>+38 (000) 000-11-22</div>
+                    <div id="preview_address_1" class="f-14 lh-1-4 mtop-15">
+                        <div class="preview_address"></div>
+                        <div id="preview_phone_address_1"></div>
                     </div>
                 </div>
             </div>

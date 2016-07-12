@@ -34,10 +34,10 @@
                     <div class="dib w-16">
                         <?= $partner->phone ?>
                     </div>
-                    <div class="dib w-20 status">
+                    <div class="dib w-20">
                         <?= $partner->email ?>
                     </div>
-                    <div class="dib w-16">
+                    <div class="dib w-16 status <?= $partner->status ?>">
                         <?= Yii::$app->params['userStatus'][$partner->status] ?>
                     </div>
                     <div class="dib w-16">

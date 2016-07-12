@@ -26,12 +26,12 @@
                 ],
                 [['email', 'password', 'password_repeat', 'name'], 'trim'],
                 ['agree', 'boolean'],
-                ['email', 'email'],
-                ['email', 'unique', 'targetClass' => 'app\models\User', 'targetAttribute' => 'email'],
-                ['password', 'compare'],
-                [['phone', 'secondPhone'], 'match', 'pattern' => '/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/'],
-                ['site', 'url', 'defaultScheme' => ''],
-                ['agree', 'compare', 'compareValue'=>1, 'operator'=> '==', 'message'=>'Required field']
+                ['email', 'email', 'message' => 'Значение не является правильным email адресом.'],
+                ['email', 'unique', 'targetClass' => 'app\models\User', 'targetAttribute' => 'email', 'message' => 'Такой пользователь уже существует'],
+                ['password', 'compare', 'message' => 'Пароли не совпадают'],
+                [['phone', 'secondPhone'], 'match', 'pattern' => '/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/', 'message' => 'Не верный телефон'],
+                ['site', 'url', 'defaultScheme' => '', 'message' => 'Значение не является правильным URL'],
+                ['agree', 'compare', 'compareValue'=>1, 'operator'=> '==', 'message'=>'Поле является обязательным']
             ];
         }
 

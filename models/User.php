@@ -89,8 +89,8 @@
             if(!$insert && isset($changedAttributes['status'])){
                 $link = Yii::$app->urlManager->createAbsoluteUrl(['partner/index']);
                 $status = Yii::$app->params['userStatus'][$this->status];
-                $title = "Статус Вашего акаунта был изменен";
-                $body = "Здравствуйте, статус Вашего акаунта был изменен модератором на <strong>{$status}</strong>";
+                $title = "Статус Вашего акаунта<br> был изменен";
+                $body = "Здравствуйте, статус Вашего акаунта был изменен модератором на <strong>$status</strong>";
 
                 Email::sendEmail(
                     'mail-template-html',

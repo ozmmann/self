@@ -55,7 +55,11 @@ function getCategoryCover(categoryId) {
             });
             // wrap.empty();
             for (var key in result) {
-                wrap.prepend('<img src="' + result[key] + '" class="img-thumbnail" onclick="selectCover(this)">');
+                if(result[key] == $('#stockform-picture').val()){
+                    wrap.prepend('<img src="' + result[key] + '" class="img-thumbnail active" onclick="selectCover(this)">');
+                } else {
+                    wrap.prepend('<img src="' + result[key] + '" class="img-thumbnail" onclick="selectCover(this)">');
+                }
             }
 
         }
@@ -216,6 +220,28 @@ $(document).ready(function () {
 
     phonePreview();
 
+    $('.address-row').each(function () {
+        var id = $(this).find('.address').attr('id');
+        if (isEmpty($('#preview_' + id))){
+            var preview = '<div id="preview_'+ id +'" class="f-14 lh-1-4 mtop-15">';
+            preview += '<div class="preview_address"></div>';
+            preview += '<div id="preview_phone_'+ id +'"></div>';
+            preview += '</div>';
+
+            if($('#place').append(preview)){
+                phonePreview();
+            }
+
+        }
+    });
+
+    $('.phone').each(function () {
+        if($(this).val()) {
+            var id = $(this).attr('id');
+            $('#preview_' + id).text($(this).val());
+        }
+    });
+
     getCategoryCover($('#stockform-categoryid').val());
 
     $('.cancel').click(function (e) {
@@ -228,6 +254,7 @@ $(document).ready(function () {
         var marker = markers[markerId];
         marker.setMap(null);
         delete markers[markerId];
+        $('#preview_' + markerId).remove();
     });
 
     $(document).on("keypress", ":input:not(textarea)", function(event) {
@@ -372,7 +399,15 @@ $(document).ready(function () {
         $(target).text($(this).val());
     });
 
-    $('#stockform-categoryid').chosen().change(function () {
+    $("[name^='StockForm']").each(function (event) {
+        var target = '#stock' + $(this).attr('id').substr($(this).attr('id').indexOf('-'));
+        if($(this).val()){
+            $(target).removeClass('no-data');
+            $(target).text($(this).val());
+        }
+    });
+
+        $('#stockform-categoryid').chosen().change(function () {
         getAllocationTypes();
         unValid(this);
     });
@@ -428,6 +463,7 @@ $(document).ready(function () {
                 var marker = markers[markerId];
                 marker.setMap(null);
                 delete markers[markerId];
+                $('#preview_' + markerId).remove();
             });
         }
 

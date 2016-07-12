@@ -84,7 +84,7 @@
                 <tr valign="middle">
                     <td align="center">
                         <font face="Arial" color="#9daac2" size="2" style="font-size: 12px;">
-                            <? $body ?>
+                            <?= $body ?>
                         </font>
                     </td>
                 </tr>
