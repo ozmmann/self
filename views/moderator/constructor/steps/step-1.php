@@ -47,7 +47,7 @@
                 <div class="required-field">
                     <?= Html::activeDropDownList($stockForm, 'commissionType', \yii\helpers\ArrayHelper::map($commissionTypes,'value','name') ,
                                                  [
-                                                     'class'            => 'chosen styled-select',
+                                                     'class'            => ' styled-select',
 //                                                     'prompt'           => '',
                                                      'data-placeholder' => 'Выберите тип размещения',
                                                      'data-selected'    => $stockForm->commissionType

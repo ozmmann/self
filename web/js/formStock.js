@@ -12,34 +12,35 @@ function getAllocationTypes() {
     timerId = setTimeout(function () {
         var categoryId = $('#stockform-categoryid').val();
         var discount = $('#discount').val();
-        $.ajax({
-            url: location.href,
-            type: "post",
-            data: {"categoryId": categoryId, "discount": discount, 'get': 'allocationTypes'},
-            success: function (result) {
-                $('#loading').addClass('hidden');
-                if (result) {
-                    var select = $('#stockform-commissiontype');
-                    var selected = select.attr('data-selected');
-                    select.empty();
-                    for (var key in result) {
-                        if(key==selected){
-                            select.append('<option selected value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
-                        }else{
-                            select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+        if (categoryId && discount)
+            $.ajax({
+                url: location.href,
+                type: "post",
+                data: {"categoryId": categoryId, "discount": discount, 'get': 'allocationTypes'},
+                success: function (result) {
+                    $('#loading').addClass('hidden');
+                    if (result) {
+                        var select = $('#stockform-commissiontype');
+                        var selected = select.attr('data-selected');
+                        select.empty();
+                        for (var key in result) {
+                            if (key == selected) {
+                                select.append('<option selected value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+                            } else {
+                                select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+                            }
                         }
+                        select.parents('#commissionTypeWrap').removeClass('hidden')
+                        // select.val('');
+                        select.trigger("chosen:updated");
+                    } else {
+                        var select = $('#stockform-commissiontype');
+                        select.parents('#commissionTypeWrap').addClass('hidden');
+
                     }
-                    select.parents('#commissionTypeWrap').removeClass('hidden')
-                    // select.val('');
-                    select.trigger("chosen:updated");
-                } else {
-                    var select = $('#stockform-commissiontype');
-                    select.parents('#commissionTypeWrap').addClass('hidden');
 
                 }
-
-            }
-        });
+            });
     }, 500)
 }
 
@@ -55,7 +56,7 @@ function getCategoryCover(categoryId) {
             });
             // wrap.empty();
             for (var key in result) {
-                if(result[key] == $('#stockform-picture').val()){
+                if (result[key] == $('#stockform-picture').val()) {
                     wrap.prepend('<img src="' + result[key] + '" class="img-thumbnail active" onclick="selectCover(this)">');
                 } else {
                     wrap.prepend('<img src="' + result[key] + '" class="img-thumbnail" onclick="selectCover(this)">');
@@ -85,7 +86,7 @@ function checkGroup(button) {
     return true;
 }
 
-function isEmpty( el ){
+function isEmpty(el) {
     return !$.trim(el.html())
 }
 
@@ -106,22 +107,20 @@ function unValid(el) {
 function countPrice() {
     var discount = $('#discount').val();
     var price = $('#stockform-price').val();
-    var save = price*discount/100;
+    var save = price * discount / 100;
     var new_price = price - save;
-    if(new_price.toString().indexOf('.')!=-1){
-        if(new_price.toString().split(".")[1].length > 2){
-            if( !isNaN( parseFloat( new_price ) ) ) {
+    if (new_price.toString().indexOf('.') != -1) {
+        if (new_price.toString().split(".")[1].length > 2) {
+            if (!isNaN(parseFloat(new_price))) {
                 new_price = parseFloat(new_price).toFixed(2);
             }
         }
     }
-    if(!isNaN(new_price))
-    {
+    if (!isNaN(new_price)) {
         $('#new_price').text(new_price);
         $('#new_price').parent('#price').removeClass('no-data');
     }
-    if(!isNaN(save))
-    {
+    if (!isNaN(save)) {
         $('#save').text(save);
     }
 }
@@ -131,69 +130,69 @@ function countProfit() {
     var discount = $('#discount').val();
     var price = $('#stockform-price').val();
     var commissionvalue = 0;
-    if(commissiontype.val().toLowerCase() == 'percent'){
+    if (commissiontype.val().toLowerCase() == 'percent') {
         commissionvalue = commissiontype.find(':selected').data('value');
     }
 
     var new_price = price - price * discount / 100;
     var profit = new_price - new_price * commissionvalue / 100;
 
-    if(profit.toString().indexOf('.')!=-1){
-        if(profit.toString().split(".")[1].length > 2){
-            if( !isNaN( parseFloat( profit ) ) ) {
+    if (profit.toString().indexOf('.') != -1) {
+        if (profit.toString().split(".")[1].length > 2) {
+            if (!isNaN(parseFloat(profit))) {
                 profit = parseFloat(profit).toFixed(2);
             }
         }
     }
-    if(!isNaN(profit)) {
+    if (!isNaN(profit)) {
         $('#webmaster_reward').text(profit);
     }
 }
 
-function validateEmpty(section){
+function validateEmpty(section) {
     var errors = 0;
-    section.find($('.field-error')).each(function(){
+    section.find($('.field-error')).each(function () {
         $(this).removeClass('field-error');
     });
-    section.find($('.form-error-msg')).each(function(){
+    section.find($('.form-error-msg')).each(function () {
         $(this).text('');
     });
 
-    section.find($('.required-field')).each(function(){
+    section.find($('.required-field')).each(function () {
         var $this = $(this),
             input = $this.find($("[name^='StockForm']"));
-        if (!input.val() && input.parent().is(':visible')){
+        if (!input.val() && input.parent().is(':visible')) {
             errors++;
             $this.addClass('field-error');
             $this.find('.form-error-msg').text('Поле является обязательным');
         }
 
         input = $this.find($("[name^='OrganizerForm']"));
-        if (!input.val() && input.parent().is(':visible')){
+        if (!input.val() && input.parent().is(':visible')) {
             errors++;
             $this.addClass('field-error');
             $this.find('.form-error-msg').text('Поле является обязательным');
         }
 
         input = $this.find($("[name^='LocationForm']"));
-        if (!input.val() && input.parent().is(':visible')){
+        if (!input.val() && input.parent().is(':visible')) {
             errors++;
             $this.addClass('field-error');
             $this.find('.form-error-msg').text('Поле является обязательным');
         }
     });
-    section.find($('.phone')).each(function(){
+    section.find($('.phone')).each(function () {
         var val = $(this).val();
         var tel = new RegExp(/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/);
         // var tel = new RegExp('\s?(|\-)[0-9]{3}$');
-        if(val && !tel.test(val)) {
+        if (val && !tel.test(val)) {
             $(this).css("border-color", "#f00");
             errors++;
         } else {
             $(this).css("border-color", "#eaeff4");
         }
     });
-    if (errors > 0){
+    if (errors > 0) {
         section.removeClass('valid');
         return false;
     }
@@ -214,7 +213,7 @@ function phonePreview() {
 
 $(document).ready(function () {
     // $('.discount-but').click(changeDiscount);
-    if($('#stockform-picture').val()) {
+    if ($('#stockform-picture').val()) {
         $('#stock-cover').attr('src', $('#stockform-picture').val());
     }
 
@@ -222,13 +221,13 @@ $(document).ready(function () {
 
     $('.address-row').each(function () {
         var id = $(this).find('.address').attr('id');
-        if (isEmpty($('#preview_' + id))){
-            var preview = '<div id="preview_'+ id +'" class="f-14 lh-1-4 mtop-15">';
+        if (isEmpty($('#preview_' + id))) {
+            var preview = '<div id="preview_' + id + '" class="f-14 lh-1-4 mtop-15">';
             preview += '<div class="preview_address"></div>';
-            preview += '<div id="preview_phone_'+ id +'"></div>';
+            preview += '<div id="preview_phone_' + id + '"></div>';
             preview += '</div>';
 
-            if($('#place').append(preview)){
+            if ($('#place').append(preview)) {
                 phonePreview();
             }
 
@@ -236,7 +235,7 @@ $(document).ready(function () {
     });
 
     $('.phone').each(function () {
-        if($(this).val()) {
+        if ($(this).val()) {
             var id = $(this).attr('id');
             $('#preview_' + id).text($(this).val());
         }
@@ -259,7 +258,7 @@ $(document).ready(function () {
         $('#preview_' + markerId).remove();
     });
 
-    $(document).on("keypress", ":input:not(textarea)", function(event) {
+    $(document).on("keypress", ":input:not(textarea)", function (event) {
         if (event.keyCode == 13) {
             event.preventDefault();
         }
@@ -343,10 +342,10 @@ $(document).ready(function () {
                 $('#stockform-picture').val(result);
                 $('.img-thumbnail').removeClass('active');
                 var img = '<img src="' + result + '" class="active img-thumbnail" onclick="selectCover(this)">';
-                if(isEmpty(el)){
+                if (isEmpty(el)) {
                     el = $(self).parents('#covers-wrap');
                     el.prepend(img);
-                }else {
+                } else {
                     el.after(img);
                 }
 
@@ -373,7 +372,7 @@ $(document).ready(function () {
         });
     });
 
-    if($('#conditionform-iscount').is(':checked')) {
+    if ($('#conditionform-iscount').is(':checked')) {
         $('#countPersonWrap').removeClass('hidden');
     }
 
@@ -408,7 +407,7 @@ $(document).ready(function () {
 
     $("[name^='StockForm']").each(function (event) {
         var target = '#stock' + $(this).attr('id').substr($(this).attr('id').indexOf('-'));
-        if($(this).val()){
+        if ($(this).val()) {
             $(target).removeClass('no-data');
             $(target).text($(this).val());
         }
@@ -446,7 +445,7 @@ $(document).ready(function () {
         // newLocation += '</div>';
         newLocation += '</div>';
 
-        if($(this).parent().before(newLocation)){
+        if ($(this).parent().before(newLocation)) {
             var newLocationCount = locationsCount + 1;
             $(this).parents('#locations').data('locations-count', newLocationCount);
             var autocomplete_ = new google.maps.places.Autocomplete(
@@ -474,12 +473,12 @@ $(document).ready(function () {
             });
         }
 
-        var preview = '<div id="preview_'+ addressId +'" class="f-14 lh-1-4 mtop-15">';
+        var preview = '<div id="preview_' + addressId + '" class="f-14 lh-1-4 mtop-15">';
         preview += '<div class="preview_address"></div>';
-        preview += '<div id="preview_phone_'+ addressId +'"></div>';
+        preview += '<div id="preview_phone_' + addressId + '"></div>';
         preview += '</div>';
 
-        if($('#place').append(preview)){
+        if ($('#place').append(preview)) {
             phonePreview();
         }
     });
@@ -490,7 +489,7 @@ $(document).ready(function () {
         clear: '',
         close: '',
         select: $(this).val(),
-        onStart: function() {
+        onStart: function () {
             $('.picker__day').each(function () {
                 var timestamp = $(this).data('pick');
                 var date = new Date(timestamp);
@@ -500,7 +499,7 @@ $(document).ready(function () {
                 $(this).attr('data-day', month);
             });
         },
-        onRender: function() {
+        onRender: function () {
             $('.picker__day').each(function () {
                 var timestamp = $(this).data('pick');
                 var date = new Date(timestamp);
@@ -518,7 +517,7 @@ $(document).ready(function () {
         clear: '',
         close: '',
         select: $(this).val(),
-        onStart: function() {
+        onStart: function () {
             $('.picker__day').each(function () {
                 var timestamp = $(this).data('pick');
                 var date = new Date(timestamp);
@@ -528,7 +527,7 @@ $(document).ready(function () {
                 $(this).attr('data-day', month);
             });
         },
-        onRender: function() {
+        onRender: function () {
             $('.picker__day').each(function () {
                 var timestamp = $(this).data('pick');
                 var date = new Date(timestamp);
@@ -564,12 +563,12 @@ $(document).ready(function () {
         })
     });
 
-    keypressSlider.noUiSlider.on('update', function( values, handle ) {
+    keypressSlider.noUiSlider.on('update', function (values, handle) {
         input.value = values[handle];
         $(resultElement).text(values[handle]);
         $('.discount').text(values[handle]);
         countPrice();
-        if (!isFirstUpdate){
+        if (!isFirstUpdate) {
             changeDiscount();
         }
 
@@ -578,15 +577,15 @@ $(document).ready(function () {
         isFirstUpdate = false;
     });
 
-    input.addEventListener('change', function(){
+    input.addEventListener('change', function () {
         keypressSlider.noUiSlider.set([null, this.value]);
     });
 
     // Listen to keydown events on the input field.
-    input.addEventListener('keydown', function( e ) {
+    input.addEventListener('keydown', function (e) {
 
         // Convert the string to a number.
-        var value = Number( keypressSlider.noUiSlider.get() ),
+        var value = Number(keypressSlider.noUiSlider.get()),
             sliderStep = keypressSlider.noUiSlider.steps();
 
         // Select the stepping for the first handle.
@@ -595,15 +594,15 @@ $(document).ready(function () {
         // 13 is enter,
         // 38 is key up,
         // 40 is key down.
-        switch ( e.which ) {
+        switch (e.which) {
             case 13:
                 keypressSlider.noUiSlider.set(this.value);
                 break;
             case 38:
-                keypressSlider.noUiSlider.set( value + sliderStep[1] );
+                keypressSlider.noUiSlider.set(value + sliderStep[1]);
                 break;
             case 40:
-                keypressSlider.noUiSlider.set( value - sliderStep[0] );
+                keypressSlider.noUiSlider.set(value - sliderStep[0]);
                 break;
         }
     });
@@ -619,10 +618,10 @@ $(document).ready(function () {
         countProfit();
     });
 
-    $('#stockform-commissiontype').chosen().change(function () {
-        countProfit();
-        unValid(this);
-    });
+    // $('#stockform-commissiontype').chosen().change(function () {
+    //     countProfit();
+    //     unValid(this);
+    // });
 
     $(document).on("click", ".js-toggle", function (e) {
         e.preventDefault();
@@ -630,7 +629,7 @@ $(document).ready(function () {
     });
 
     $(".row .row-title").click(function (e) {
-        if($(this).parents('.row').hasClass('valid') || $(this).parents('.row').hasClass('open')) {
+        if ($(this).parents('.row').hasClass('valid') || $(this).parents('.row').hasClass('open')) {
             e.preventDefault();
             $(".row.active").removeClass("active");
             $(this).parent().toggleClass("active");
@@ -638,7 +637,7 @@ $(document).ready(function () {
     });
 
     $(".row .btn-next-step").click(function (e) {
-        if($(this).attr('type') != 'submit' ) {
+        if ($(this).attr('type') != 'submit') {
             e.preventDefault();
             if (validateEmpty($(this).parents('.row'))) {
                 $(this).parents('.row').addClass('valid');
@@ -664,7 +663,7 @@ $(document).ready(function () {
         }
     });
 
-    $('input, textarea').on('keyup change', function(){
+    $('input, textarea').on('keyup change', function () {
         unValid(this);
     });
 
@@ -673,7 +672,7 @@ $(document).ready(function () {
         var text_max = self.attr('maxlength') ? self.attr('maxlength') : 255;
         var input = self.siblings('.text');
         input.html(text_max + ' символов осталось');
-        self.keyup(function() {
+        self.keyup(function () {
             var x = self.val();
             var newLines = x.match(/(\r\n|\n|\r)/g);
             var addition = 0;
