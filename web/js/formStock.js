@@ -26,11 +26,11 @@ function getAllocationTypes() {
                         if(key==selected){
                             select.append('<option selected value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
                         }else{
-                      select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+                            select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
                         }
                     }
                     select.parents('#commissionTypeWrap').removeClass('hidden')
-                    // select.val('').trigger("chosen:updated");
+                    // select.val('');
                     select.trigger("chosen:updated");
                 } else {
                     var select = $('#stockform-commissiontype');
@@ -244,6 +244,8 @@ $(document).ready(function () {
 
     getCategoryCover($('#stockform-categoryid').val());
 
+    getAllocationTypes();
+
     $('.cancel').click(function (e) {
         e.preventDefault();
         var locationsCount = $(this).parents('#locations').data('locations-count');
@@ -276,6 +278,7 @@ $(document).ready(function () {
             // discountInp.val('');
             $('#commissionTypeWrap').addClass('hidden');
             $('#stockform-commissiontype').val('');
+            $('#stockform-commissiontype').data('selected', '');
         }
     });
 
@@ -411,7 +414,7 @@ $(document).ready(function () {
         }
     });
 
-        $('#stockform-categoryid').chosen().change(function () {
+    $('#stockform-categoryid').chosen().change(function () {
         getAllocationTypes();
         unValid(this);
     });
