@@ -11,7 +11,7 @@
                         <h1>Увеличивайте продажи вместе с Pokupon & Superdeal</h1>
                         <p>Каждый день мы развиваем и расширяем бизнес наших партнеров, <br> помогаем экономить тысячам
                             украинцам.</p>
-                        <a href="<?= Yii::$app->urlManager->createUrl('site/login') ?>" class="btn btn-yellow">НАЧАТЬ</a>
+                        <a href="<?= Yii::$app->urlManager->createUrl('site/registration') ?>" class="btn btn-yellow">НАЧАТЬ</a>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                         <h2>Увеличивайте продажи вместе с Pokupon & Superdeal</h2>
                         <p>Каждый день мы развиваем и расширяем бизнес наших партнеров, <br> помогаем экономить тысячам
                             украинцам.</p>
-                        <a href="#" class="btn btn-yellow">НАЧАТЬ</a>
+                        <a href="<?= Yii::$app->urlManager->createUrl('site/registration') ?>" class="btn btn-yellow">НАЧАТЬ</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                         <h2>Увеличивайте продажи вместе с Pokupon & Superdeal</h2>
                         <p>Каждый день мы развиваем и расширяем бизнес наших партнеров, <br> помогаем экономить тысячам
                             украинцам.</p>
-                        <a href="#" class="btn btn-yellow">НАЧАТЬ</a>
+                        <a href="<?= Yii::$app->urlManager->createUrl('site/registration') ?>" class="btn btn-yellow">НАЧАТЬ</a>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 <div class="mtop-40 fw-light f-20 lh-1-4">Они уже нашли новых клиентов и начали зарабатывать больше <br>
                     без предварительных затрат.
                 </div>
-                <a href="<?= Yii::$app->urlManager->createUrl('site/login') ?>" class="btn btn-yellow mtop-40">НАЧАТЬ</a>
+                <a href="<?= Yii::$app->urlManager->createUrl('site/registration') ?>" class="btn btn-yellow mtop-40">НАЧАТЬ</a>
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@
                 </div>
             </div>
             <div class="w-75 m-auto">
-                <a href="#" class="btn btn-yellow mtop-80">НАЧАТЬ</a>
+                <a href="<?= Yii::$app->urlManager->createUrl('site/registration') ?>" class="btn btn-yellow mtop-80">НАЧАТЬ</a>
             </div>
 
             <div class="w-100 f-30 fw-bold mtop-100">
@@ -170,7 +170,7 @@
                     </div>
                 </div>
                 <div class="w-75 m-auto">
-                    <a href="<?= Yii::$app->urlManager->createUrl('site/login') ?>" class="btn btn-yellow mtop-40">НАЧАТЬ</a>
+                    <a href="<?= Yii::$app->urlManager->createUrl('site/registration') ?>" class="btn btn-yellow mtop-40">НАЧАТЬ</a>
                 </div>
 
                 <div class="w-100 f-30 fw-bold mtop-100">
