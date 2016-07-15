@@ -16,6 +16,7 @@ class m160603_204222_create_ss_stocktype extends Migration
             'id' => $this->primaryKey(11),
             'name' => $this->string(250),
         ]);
+        $this->insert('ss_stocktype',['name'=>'Местные услуги']);
     }
 
     /**

@@ -17,6 +17,8 @@ class m160603_202039_create_ss_city extends Migration
             'name' => $this->string(100),
             'notGhost' => 'tinyint(4)',
         ]);
+
+        $this->insert('ss_city',['name'=>'Киев']);
     }
 
     /**

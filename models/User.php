@@ -63,9 +63,9 @@
                 BaseFileHelper::createDirectory(Yii::$app->basePath.$categoryStorage.$this->id);
 
                 $createdUser = User::findOne($this->id);
-                $auth = Yii::$app->authManager;
-                $userRole = $auth->getRole($createdUser->getRole());
-                $auth->assign($userRole, $createdUser->getId());
+//                $auth = Yii::$app->authManager;
+//                $userRole = $auth->getRole($createdUser->getRole());
+//                $auth->assign($userRole, $createdUser->getId());
                 
                 $title = "ПЕРЕЙДИТЕ <br>НА СЛЕДУЮЩИЙ ШАГ";
                 $link = Yii::$app->urlManager->createAbsoluteUrl(['site/confirm', 'confirm' => $confirmLink]);

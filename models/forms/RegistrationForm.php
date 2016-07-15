@@ -51,8 +51,6 @@
                     $auth = Yii::$app->authManager;
                     $authorRole = $auth->getRole('partner');
                     $auth->assign($authorRole, $user->getId());
-
-
                     return true;
                 }
             }
