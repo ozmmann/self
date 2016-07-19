@@ -93,7 +93,7 @@ abstract class Application extends Module
     /**
      * @var string the application name.
      */
-    public $name = 'Self Service для Pokupon & SuperDeal';
+    public $name = 'My Application';
     /**
      * @var string the version of this application.
      */

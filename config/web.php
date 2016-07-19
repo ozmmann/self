@@ -7,6 +7,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'language' => 'ru-RU',
     'bootstrap' => ['log'],
+//    'bootstrap'    => ['assetsAutoCompress'],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -59,6 +60,22 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+            ],
+        ],
+        'assetManager' =>
+            [
+                'appendTimestamp'   => true,
+            ],
+        'assetsAutoCompress' => [
+            'class'             => '\skeeks\yii2\assetsAuto\AssetsAutoCompressComponent',
+            'enabled'           => true,
+            'jsCompress'        => true,
+            'cssFileCompile'    => true,
+            'jsFileCompile'     => true,
+            'htmlCompress'      => true,
+            'htmlCompressOptions' => [
+                'extra' => true,
+                'no-comments' => true
             ],
         ],
     ],

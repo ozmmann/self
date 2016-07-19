@@ -189,9 +189,7 @@ class Response extends \yii\base\Response
         401 => 'Unauthorized',
         402 => 'Payment Required',
         403 => 'Forbidden',
-//        404 => 'Not Found',
-//todo Перевести статусы, которые не переводятся
-        404 => 'Что-то пошло не так',
+        404 => 'Not Found',
         405 => 'Method Not Allowed',
         406 => 'Not Acceptable',
         407 => 'Proxy Authentication Required',
@@ -206,6 +204,7 @@ class Response extends \yii\base\Response
         416 => 'Requested range unsatisfiable',
         417 => 'Expectation failed',
         418 => 'I\'m a teapot',
+        421 => 'Misdirected Request',
         422 => 'Unprocessable entity',
         423 => 'Locked',
         424 => 'Method failure',

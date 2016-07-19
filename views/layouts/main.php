@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -53,21 +54,17 @@ AppAsset::register($this);
     </div>
 </div>
 
-<?php
-//if (Yii::$app->controller->id == 'partner'
-//    || Yii::$app->controller->id == 'site'
-//    || (Yii::$app->controller->id == 'moderator'
-//        && Yii::$app->controller->action->id == 'edit-stock')
-//    ):
-//    ?>
-    <?= $content ?>
-<?php //else: ?>
-<!--    <div class="container">-->
-<!--        <div class="wrapper m-auto w-100 w-lg-85">-->
-<!--            --><?//= $content ?>
-<!--        </div>-->
-<!--    </div>-->
-<?php //endif; ?>
+<?= $content ?>
+<a class="popup-with-form btn btn-success" href="#login_popup" value="<?= Url::to(['site/modal-login']) ?>">Оставить
+    заявку</a>
+
+
+<div class="mfp-hide popup-data" id="login_popup">
+    <div class="popup-data">
+        <div class="content" id="modalContent">
+        </div>
+    </div>
+</div>
 
 <? include_once("footer.php"); ?>
 <? include_once("feedback.php"); ?>

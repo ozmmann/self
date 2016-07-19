@@ -20,3 +20,22 @@ function checkURL (abc) {
         return abc;
     }
 }
+
+$(document).ready(function() {
+    $('.popup-with-form').magnificPopup({
+        type: 'inline',
+        preloader: false,
+        focus: '#name',
+        mainClass: 'login-popup',
+        closeMarkup: '<button title="Закрыть" type="button" class="mfp-close close"></button>',
+        callbacks: {
+            beforeOpen: function() {
+                if($(window).width() < 700) {
+                    this.st.focus = false;
+                } else {
+                    this.st.focus = '#name';
+                }
+            }
+        }
+    });
+});

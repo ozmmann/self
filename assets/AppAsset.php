@@ -21,15 +21,19 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/chosen.css',
-        'css/style.css',
+        'css/magnific-popup.css',
+        'css/style.css'
     ];
     public $js = [
         'js/chosen.jquery.min.js',
         'js/hammer.min.js',
         'js/main.js',
+        'js/jquery.magnific-popup.min.js',
+        'js/ajax-login.js',
     ];
 
     public $depends = [
         'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 }

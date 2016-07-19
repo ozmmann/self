@@ -52,6 +52,18 @@ class SiteController extends Controller{
         return $this->render('index');
     }
 
+    public function actionModalLogin() {
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $controllerUri = '/'.Yii::$app->user->identity->getRole();
+            return $this->redirect($controllerUri);
+        }else if(Yii::$app->request->isAjax) {
+            return $this->renderAjax('_login', [
+                'model' => $model
+            ]);
+        }
+    }
+
     public function actionLogin(){
 
         $model = new LoginForm();
@@ -114,7 +126,7 @@ class SiteController extends Controller{
 
     public function actionRestorePassword($token){
         if(Restore::restorePassword($token)){
-            return $this->render('successPasswordRestore');
+            return $this->render('successPasswordRestoreRequest');
         }
 
         throw new yii\base\UserException('Ошибка восстановления! Проверте ссылку или обратитесь к администратору');
