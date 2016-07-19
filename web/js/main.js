@@ -35,7 +35,47 @@ $(document).ready(function() {
                 } else {
                     this.st.focus = '#name';
                 }
+
+                $('.show-password').click(function () {
+                    var password_input = $(this).parent().siblings('#password'),
+                        type = password_input.attr('type');
+                    if(type == 'text'){
+                        password_input.attr('type', 'password');
+                    } else if(type == 'password'){
+                        password_input.attr('type', 'text');
+                    }
+                });
             }
         }
     });
 });
+
+$(document).ready(
+    $('#login_form').on('beforeSubmit', function(event, jqXHR, settings) {
+        var form = $(this);
+        if(form.find('.has-error').length) {
+            return false;
+        }
+
+        $.ajax({
+            url: form.attr('action'),
+            type: 'post',
+            data: form.serialize(),
+            success: function(data) {
+                $("#login_popup").find("#modalContent")
+                    .html(data);
+                $(".show-password").click(function () {
+                    var password_input = $(this).parent().siblings("#password"),
+                        type = password_input.attr("type");
+                    if(type == "text"){
+                        password_input.attr("type", "password");
+                    } else if(type == "password"){
+                        password_input.attr("type", "text");
+                    }
+                });
+            }
+        });
+
+        return false;
+    })
+);

@@ -40,9 +40,20 @@ use yii\bootstrap\ActiveForm;
                             <div style="color:#999;margin:1em 0">
                                 Забыли пароль? <?= Html::a('Восстановить', ['site/restore-password-request']) ?>.
                             </div>
-
+                            <div class="db checkbox-list mtop-20">
+                                <?= Html::activeCheckbox(
+                                    $model,
+                                    'rememberMe',
+                                    [
+                                        'label' => '<i></i><span>Запомните меня</span>',
+                                        'labelOptions' => ['class' => 'vam w-68']
+                                    ]);
+                                ?><i></i>
+                            </div>
                             <div class="db mtop-40">
                                 <?= Html::submitButton('Дальше', ['class' => 'btn btn-yellow btn-next-step', 'name' => 'login-button']) ?>
+<!--                                --><?//= Html::submitButton('Войти', ['class' => 'btn btn-blue', 'name' => 'login-button']) ?>
+                                <?= Html::a('Регистрация', ['site/registration'], ['class' => 'ml-10 mtop-15']) ?>
 
                             </div>
                             <?php ActiveForm::end(); ?>

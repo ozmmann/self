@@ -7,6 +7,7 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -26,48 +27,67 @@ AppAsset::register($this);
 </head>
 <body class="<?= Yii::$app->controller->id == 'site' ? 'site ' . Yii::$app->controller->action->id : '' ?>">
 <?php $this->beginBody() ?>
-<?php
-//    NavBar::begin([
-//        'brandLabel' => 'Pokupon & SuperDeal',
-//        'brandUrl' => Yii::$app->user->isGuest
-//            ? Yii::$app->homeUrl
-//            : '/' . Yii::$app->user->identity->getRole() . "/index",
-//        'options' => [
-//            'class' => 'navbar-inverse navbar-fixed-top',
-//        ],
-//    ]);
-//    $menu = Yii::$app->user->isGuest ? 'guest.php' : Yii::$app->user->identity->getRole() . '.php';
-//    echo Nav::widget([
-//        'options' => ['class' => 'navbar-nav navbar-right'],
-//        'items' => require(__DIR__ . '/' . $menu),
-//    ]);
-//    NavBar::end();
-//    ?>
-<div id="header">
-    <div class="container">
-        <div class="w-100 text-center">
-            <a href="<?= Yii::$app->user->isGuest
-                ? Yii::$app->homeUrl
-                : '/' . Yii::$app->user->identity->getRole() . "/index" ?>" class="logo"><b>P</b>okupon <b>&
-                    S</b>uper<b>D</b>eal</a>
-        </div>
-    </div>
-</div>
+
+<?php include_once("header.php"); ?>
 
 <?= $content ?>
-<a class="popup-with-form btn btn-success" href="#login_popup" value="<?= Url::to(['site/modal-login']) ?>">Оставить
-    заявку</a>
 
+<?php if (Yii::$app->user->isGuest): ?>
+    <?php $model = new \app\models\forms\LoginForm(); ?>
+    <div class="mfp-hide popup-data" id="login_popup">
+        <div class="popup-data">
+            <div class="content" id="modalContent">
+                <div class="f-30 fw-semi-bold">Вход для партнеров</div>
+                <?php $form = ActiveForm::begin([
+                    'id' => 'login_form',
+                    'enableClientValidation' => true,
+                    'enableAjaxValidation' => false,
+                    'action' => '/site/modal-login'
+                ]); ?>
 
-<div class="mfp-hide popup-data" id="login_popup">
-    <div class="popup-data">
-        <div class="content" id="modalContent">
+                <div class="row mtop-20">
+                    <?= $form->field($model, 'login')
+                        ->textInput([
+                            'autofocus' => true,
+                            'id' => 'login',
+                            'placeholder' => 'email@localhost.com'
+                        ])
+                        ->label('Email:') ?>
+                </div>
+                <div class="row mtop-20 pos-rel">
+                    <?= $form->field($model, 'password')
+                        ->passwordInput([
+                            'id' => 'password',
+                            'placeholder' => "•••••••••"
+                        ])
+                        ->label('Пароль:<a href="#" class="show-password sm-hide"></a>') ?>
+
+                </div>
+                <div class="db checkbox-list mtop-20">
+                    <?= Html::activeCheckbox(
+                        $model,
+                        'rememberMe',
+                        [
+                            'label' => '<i></i><span>Запомните меня</span>',
+                            'labelOptions' => ['class' => 'vam w-68']
+                        ]);
+                    ?><i></i>
+                    <?= Html::a('Забыл пароль', ['site/restore-password-request'], ['class' => 'dib vam w-30 text-right']) ?>
+                </div>
+
+                <div class="mtop-20 cta">
+                    <?= Html::submitButton('Войти', ['class' => 'btn btn-blue', 'name' => 'login-button']) ?>
+                    <?= Html::a('Регистрация', ['site/registration'], ['class' => 'pull-right mtop-15']) ?>
+                </div>
+                <?php ActiveForm::end(); ?>
+
+            </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
 
-<? include_once("footer.php"); ?>
-<? include_once("feedback.php"); ?>
+<?php include_once("footer.php"); ?>
+<?php include_once("feedback.php"); ?>
 
 <?php $this->endBody() ?>
 </body>

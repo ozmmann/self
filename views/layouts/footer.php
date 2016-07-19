@@ -1,3 +1,6 @@
+<?php
+    use yii\helpers\Url;
+?>
 <div id="footer">
     <div class="container text-center">
         <div class="dib w-85 f-0">
@@ -23,7 +26,13 @@
                 <div class="title fw-semi-bold f-30">Контакты</div>
                 <a href="tel:+380445858086">Тел.: +38 (044) 585-80-86</a>
                 <a href="mailto:partners@pokupon.ua">E-mail: partners@pokupon.ua</a>
-                <a href="<?= Yii::$app->urlManager->createUrl('partner/create-stock') ?>" class="btn btn-white-blue-border btn-add">Добавить акцию</a>
+                <?php if(Yii::$app->user->isGuest): ?>
+                    <a href="#login_popup" value="<?= Url::to(['/site/modal-login']) ?>" class="popup-with-form btn btn-white-blue-border btn-add">Добавить акцию</a>
+                <?php else: ?>
+                    <a href="<?= Yii::$app->urlManager->createUrl('/partner/create-stock') ?>" class="btn btn-white-blue-border btn-add">Добавить акцию</a>
+                <?php endif; ?>
+
+
             </div>
         </div>
     </div>

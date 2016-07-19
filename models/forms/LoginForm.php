@@ -23,7 +23,7 @@
             if(!$this->hasErrors()){
                 $user = User::findByEmail($this->login);
                 if(!$user or !$user->validatePassword($this->password, $user->password)){
-                    $this->addError($attribute, 'Incorrect Email or Password!');
+                    $this->addError($attribute, 'Неверные Email или пароль!');
                 }
             }
         }
@@ -33,7 +33,7 @@
             if($user->confirmed){
                 return true;
             }
-            $this->addError('login', 'Account is not confirmed!');
+            $this->addError('login', 'Акаунт не подтвержден!');
             return false;
         }
         
