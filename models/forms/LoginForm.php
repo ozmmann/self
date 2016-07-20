@@ -13,7 +13,7 @@
         public function rules(){
             return [
                 [['login', 'password'], 'required', 'message' => 'Поле является обязательным'],
-                ['login', 'email'],
+                ['login', 'email', 'message' => 'Не правильный Email'],
                 ['password', 'validatePassword'],
                 ['rememberMe', 'boolean'],
             ];
