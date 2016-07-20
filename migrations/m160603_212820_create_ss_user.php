@@ -30,7 +30,6 @@
                 'cityId'           => $this->integer(11),
                 'inn'              => $this->string(11),
                 'site'             => $this->string(100),
-                'auth_key'         => $this->string(255),
             ]);
 
             // creates index for column `stockTypeId`
