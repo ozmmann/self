@@ -57,9 +57,9 @@ function getCategoryCover(categoryId) {
             // wrap.empty();
             for (var key in result) {
                 if (result[key] == $('#stockform-picture').val()) {
-                    wrap.prepend('<img src="' + result[key] + '" class="img-thumbnail active" onclick="selectCover(this)">');
+                    wrap.prepend('<img src="' + result[key].slice(4) + '" class="img-thumbnail active" onclick="selectCover(this)">');
                 } else {
-                    wrap.prepend('<img src="' + result[key] + '" class="img-thumbnail" onclick="selectCover(this)">');
+                    wrap.prepend('<img src="' + result[key].slice(4) + '" class="img-thumbnail" onclick="selectCover(this)">');
                 }
             }
 
@@ -341,7 +341,7 @@ $(document).ready(function () {
             success: function (result) {
                 $('#stockform-picture').val(result);
                 $('.img-thumbnail').removeClass('active');
-                var img = '<img src="' + result + '" class="active img-thumbnail" onclick="selectCover(this)">';
+                var img = '<img src="' + result.slice(4) + '" class="active img-thumbnail" onclick="selectCover(this)">';
                 if (isEmpty(el)) {
                     el = $(self).parents('#covers-wrap');
                     el.prepend(img);
@@ -366,7 +366,7 @@ $(document).ready(function () {
             processData: false,
             data: formData,
             success: function (result) {
-                $('#logo-wrap').html('<img src="' + result + '" class="img-thumbnail">');
+                $('#logo-wrap').html('<img src="' + result.slice(4) + '" class="img-thumbnail">');
                 $('#organizerform-logo').val(result);
             }
         });
