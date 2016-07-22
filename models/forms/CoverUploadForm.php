@@ -1,6 +1,8 @@
 <?php
     namespace app\models\forms;
     use yii\base\Model;
+    use yii\debug\components\search\matchers\Base;
+    use yii\helpers\BaseFileHelper;
     use yii\imagine\Image;
 
     class CoverUploadForm extends Model{
@@ -21,9 +23,10 @@
             $this->coverName = '/web/storage/users_uploads/'.$userId.'/'.$tmpLabel.'.'.$this->cover->extension;
             $this->thumbName = '/web/storage/users_uploads/'.$userId.'/thumb_'.$tmpLabel.'.'.$this->cover->extension;
             if($this->validate()){
-                if(!is_dir(\Yii::$app->basePath.'/web/storage/users_uploads/'.$userId)){
-                    mkdir(\Yii::$app->basePath.'/web/storage/users_uploads/'.$userId, 0777);
-                }
+                BaseFileHelper::createDirectory(\Yii::$app->basePath.'/web/storage/users_uploads/'.$userId, 0777);
+//                if(!is_dir(\Yii::$app->basePath.'/web/storage/users_uploads/'.$userId)){
+//                    mkdir(\Yii::$app->basePath.'/web/storage/users_uploads/'.$userId, 0777);
+//                }
                 $this->cover->saveAs(\Yii::$app->basePath.$this->coverName);
                 Image::thumbnail(\Yii::$app->basePath.$this->coverName, 100, 100)
                      ->save(\Yii::$app->basePath.$this->thumbName);

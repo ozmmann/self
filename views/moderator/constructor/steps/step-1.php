@@ -59,9 +59,11 @@
         <div class="db mtop-20 f-0">
             <div class="required-field">
                 <h3 class="dib vam w-70">Введите стоимость услуги</h3>
-                <?= Html::activeTextInput($stockForm, 'price', [
+                <?= Html::activeInput('number', $stockForm, 'price', [
                     'class'       => 'dib vam w-30 f-14 text-center',
                     'placeholder' => "××× грн",
+                    'min' => 1
+
                 ]) ?>
                 <div class="form-error-msg"></div>
             </div>

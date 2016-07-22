@@ -68,6 +68,7 @@
                 <?= Html::activeInput('number', $stockForm, 'price', [
                     'class'       => 'dib vam w-30 f-14 text-center',
                     'placeholder' => "××× грн",
+                    'min' => 1
                 ]) ?>
                 <div class="form-error-msg f-14"></div>
             </div>
