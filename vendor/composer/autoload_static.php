@@ -28,6 +28,10 @@ class ComposerStaticInitad58df8b1fd64fa34d7ad92f21fd7f5c
         array (
             'skeeks\\yii2\\assetsAuto\\' => 23,
         ),
+        'r' => 
+        array (
+            'rmrevin\\yii\\minify\\' => 19,
+        ),
         'c' => 
         array (
             'cebe\\markdown\\' => 14,
@@ -78,6 +82,10 @@ class ComposerStaticInitad58df8b1fd64fa34d7ad92f21fd7f5c
         'skeeks\\yii2\\assetsAuto\\' => 
         array (
             0 => __DIR__ . '/..' . '/skeeks/yii2-assets-auto-compress',
+        ),
+        'rmrevin\\yii\\minify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/rmrevin/yii2-minify-view',
         ),
         'cebe\\markdown\\' => 
         array (

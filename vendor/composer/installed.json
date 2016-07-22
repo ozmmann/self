@@ -1281,5 +1281,52 @@
             "skeeks",
             "yii"
         ]
+    },
+    {
+        "name": "rmrevin/yii2-minify-view",
+        "version": "1.11.0",
+        "version_normalized": "1.11.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rmrevin/yii2-minify-view.git",
+            "reference": "65d63bbb5ede925054d5f22fb0b440889ca96a7e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rmrevin/yii2-minify-view/zipball/65d63bbb5ede925054d5f22fb0b440889ca96a7e",
+            "reference": "65d63bbb5ede925054d5f22fb0b440889ca96a7e",
+            "shasum": ""
+        },
+        "require": {
+            "mrclay/minify": "~2.2",
+            "yiisoft/yii2": "2.0.*"
+        },
+        "time": "2016-06-23 20:33:07",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "rmrevin\\yii\\minify\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Revin Roman",
+                "email": "roman@rmrevin.com",
+                "homepage": "https://rmrevin.com/"
+            }
+        ],
+        "description": "Yii2 View component with minification css & js",
+        "keywords": [
+            "JS",
+            "css",
+            "minify",
+            "view",
+            "yii2"
+        ]
     }
 ]

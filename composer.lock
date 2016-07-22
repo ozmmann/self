@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "023530ea725c89b9bb05f9d6adf20ebb",
-    "content-hash": "bad1aa0e4eb1aa99b796d5ef389d94e5",
+    "hash": "e9fb3b160c0108d24afb2397a66e5fd3",
+    "content-hash": "6eba9a7ab224a92bb7fa0fa100d9a9a6",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -442,6 +442,51 @@
                 "minify"
             ],
             "time": "2015-09-25 11:13:11"
+        },
+        {
+            "name": "rmrevin/yii2-minify-view",
+            "version": "1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmrevin/yii2-minify-view.git",
+                "reference": "65d63bbb5ede925054d5f22fb0b440889ca96a7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmrevin/yii2-minify-view/zipball/65d63bbb5ede925054d5f22fb0b440889ca96a7e",
+                "reference": "65d63bbb5ede925054d5f22fb0b440889ca96a7e",
+                "shasum": ""
+            },
+            "require": {
+                "mrclay/minify": "~2.2",
+                "yiisoft/yii2": "2.0.*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "rmrevin\\yii\\minify\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Revin Roman",
+                    "email": "roman@rmrevin.com",
+                    "homepage": "https://rmrevin.com/"
+                }
+            ],
+            "description": "Yii2 View component with minification css & js",
+            "keywords": [
+                "JS",
+                "css",
+                "minify",
+                "view",
+                "yii2"
+            ],
+            "time": "2016-06-23 20:33:07"
         },
         {
             "name": "skeeks/yii2-assets-auto-compress",

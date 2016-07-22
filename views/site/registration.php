@@ -8,6 +8,8 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\ArrayHelper;
 
+$this->title = 'Регистрация';
+
 ?>
 
     <div id="construtor_page">
@@ -106,7 +108,7 @@ use yii\helpers\ArrayHelper;
                                 <?php ActiveForm::end(); ?>
                             </div>
                             <div class="dib w-50 w-sm-100 w-md-100 vat mtop-sm-40 mtop-md-60 f-14 text-center">
-                                <div class="dib w-50 w-sm-100 w-md-80">
+                                <div class="dib w-51 w-sm-100 w-md-80">
                                     <div class="f-26">Сверхприбыльный
                                         маркетинг
                                     </div>
@@ -118,7 +120,7 @@ use yii\helpers\ArrayHelper;
                                         успешными.
                                     </div>
                                 </div>
-                                <div class="dib w-50 w-sm-100 w-md-80 mtop-60">
+                                <div class="dib w-51 w-sm-100 w-md-80 mtop-60">
                                     <div class="f-26">У нас активные
                                         пользователи
                                     </div>
@@ -129,7 +131,7 @@ use yii\helpers\ArrayHelper;
                                         Просто удивите их.
                                     </div>
                                 </div>
-                                <div class="dib w-50 w-sm-100 w-md-80 mtop-60">
+                                <div class="dib w-51 w-sm-100 w-md-80 mtop-60">
                                     <div class="f-26">Мы новый
                                         канал роста
                                     </div>
