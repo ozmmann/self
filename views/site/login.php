@@ -6,6 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+$this->title = 'Вход в кабинет';
 
 ?>
 

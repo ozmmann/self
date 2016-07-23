@@ -3,6 +3,7 @@
     use yii\widgets\DetailView;
 
 $title = isset($title) ? $title : 'Профиль';
+$this->title = $title;
 ?>
 <div class="container">
     <div class="w-85 m-auto wrapper">

@@ -1,6 +1,5 @@
 <?php
-
-
+$this->title = 'Страница партнера';
 ?>
 <div id="cabinet">
     <div class="container">

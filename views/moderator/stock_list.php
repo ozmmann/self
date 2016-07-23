@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 $title = isset($title) ? $title : 'Список акций';
+$this->title = $title;
 $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']);
 ?>
 

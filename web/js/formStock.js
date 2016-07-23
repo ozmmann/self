@@ -349,8 +349,8 @@ $(document).ready(function () {
                     el.after(img);
                 }
 
-                $('#stockform-picture').val(result.replace('thumb_', ''));
-                $('#stock-cover').attr('src', result.replace('thumb_', ''));
+                $('#stockform-picture').val(result.slice(4).replace('thumb_', ''));
+                $('#stock-cover').attr('src', result.slice(4).replace('thumb_', ''));
             }
         });
     });
@@ -367,7 +367,7 @@ $(document).ready(function () {
             data: formData,
             success: function (result) {
                 $('#logo-wrap').html('<img src="' + result.slice(4) + '" class="img-thumbnail">');
-                $('#organizerform-logo').val(result);
+                $('#organizerform-logo').val(result.slice(4));
             }
         });
     });

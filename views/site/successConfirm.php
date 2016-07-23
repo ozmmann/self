@@ -1,3 +1,6 @@
+<?php
+$this->title = 'Подтверждение email';
+?>
 <div id="success_page">
     <div class="container">
         <div id="info_page_wrapper" class="w-85 m-auto text-center">

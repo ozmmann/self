@@ -1,6 +1,7 @@
 <?php
 
 use yii\widgets\LinkPager;
+$this->title = $stock['title'];
 
 ?>
 <div id="cabinet">

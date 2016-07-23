@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 /** @var ActiveDataProvider $stockProvider */
 
 $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']);
-
+$this->title = 'Dashboard';
 ?>
 
 <div class="container">

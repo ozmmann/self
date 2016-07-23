@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-
+$this->title = 'Dashboard';
 ?>
 <div class="container">
     <div class="w-85 m-auto wrapper">

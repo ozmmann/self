@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 
+$this->title = 'Список категорий';
+
 \yii\bootstrap\BootstrapAsset::register($this);
 ?>
 <style>

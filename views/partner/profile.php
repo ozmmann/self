@@ -1,3 +1,6 @@
+<?php
+$this->title = 'Профиль';
+?>
 <div id="cabinet">
     <div class="container">
         <div class="w-100 w-lg-85 m-auto white-wrap">

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\Pjax;
+$this->title = 'Список комиссий';
 
     /** @var \app\models\Commission $commissions */
 ?>

@@ -1,4 +1,5 @@
 <?php
+    $this->title = 'Добро пожаловать';
     $this->registerJsFile('js/slick.min.js', ['depends' => 'app\assets\AppAsset']);
 ?>
 <div id="landing">

@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
 use yii\widgets\Pjax;
-
+$this->title = 'Список городов';
 ?>
 <div class="container">
     <div class="w-85 m-auto wrapper">

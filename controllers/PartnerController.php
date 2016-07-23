@@ -222,26 +222,6 @@
             return $this->render('test');
         }
 
-        //todo test location
-        public function actionLocation(){
-            $stock = Stock::findOne(1);
-
-            if(!$stock){
-                $user = User::find()
-                            ->where(['id' => Yii::$app->user->id])
-                            ->with('city')
-                            ->one();
-                $location['city'] = $user->cityName;
-                $location['phone'] = $user->phone;
-                $location['site'] = $user->site;
-            }else{
-                $location = $stock->location;
-            }
-            $model = new LocationForm($location);
-
-            return $this->render('location', ['locationForm' => $model]);
-        }
-
         public function actionEmailError(){
             return $this->render('emailerror');
         }

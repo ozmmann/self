@@ -5,7 +5,7 @@
     use yii\widgets\Pjax;
 
     $title = isset($title) ? $title : 'Список партнеров';
-
+    $this->title = $title;
     /** @var array $partners */
 
 ?>

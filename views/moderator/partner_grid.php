@@ -13,6 +13,8 @@ use yii\data\ActiveDataProvider;
 
 $title = isset($title) ? $title : 'Список партнеров';
 
+$this->title = $title;
+
 ?>
 
 

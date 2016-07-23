@@ -3,7 +3,7 @@
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+$this->title = 'Редактировать партнера';
 ?>
 <div class="container">
     <div class="w-85 m-auto wrapper">

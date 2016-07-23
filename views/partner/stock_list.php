@@ -1,7 +1,7 @@
 <?php
 
 use yii\widgets\LinkPager;
-
+$this->title = 'Все Акции';
 ?>
 <div id="cabinet">
     <div class="container">
