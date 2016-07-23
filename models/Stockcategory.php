@@ -1,6 +1,7 @@
 <?php
     namespace app\models;
     use Yii;
+    use yii\base\Exception;
     use yii\db\ActiveRecord;
     use yii\helpers\ArrayHelper;
     use yii\helpers\BaseFileHelper;
@@ -121,22 +122,30 @@
         public static function getCategoryCovers($catId, $userId){
             $covers = [];
             $categoryStorage = '/web/storage/default_category_images/'.$catId.'/';
-            $defaultCategory = new \DirectoryIterator(Yii::$app->basePath.$categoryStorage);
-            foreach($defaultCategory as $cover){
-                if($cover->isDot() or $cover->isDir()){
-                    continue;
-                }
+            try {
+                $defaultCategory = new \DirectoryIterator(Yii::$app->basePath . $categoryStorage);
+                foreach ($defaultCategory as $cover) {
+                    if ($cover->isDot() or $cover->isDir()) {
+                        continue;
+                    }
 
-                $covers[] = $categoryStorage.$cover->getFilename();
+                    $covers[] = $categoryStorage . $cover->getFilename();
+                }
+            } catch (Exception $e) {
+                Yii::error('Getting category folder images: ' . $e);
             }
             $userStorage = '/web/storage/users_uploads/'.$userId.'/';
-            $userCovers = new \DirectoryIterator(Yii::$app->basePath.$userStorage);
-            foreach($userCovers as $cover){
-                if($cover->isDot() or $cover->isDir()){
-                    continue;
-                }
+            try {
+                $userCovers = new \DirectoryIterator(Yii::$app->basePath . $userStorage);
+                foreach ($userCovers as $cover) {
+                    if ($cover->isDot() or $cover->isDir()) {
+                        continue;
+                    }
 
-                $covers[] = $userStorage.$cover->getFilename();
+                    $covers[] = $userStorage . $cover->getFilename();
+                }
+            } catch (Exception $e){
+                Yii::error('Getting uploaded images by user: ' . $e);
             }
 
             return $covers;
