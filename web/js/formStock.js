@@ -8,7 +8,6 @@ function getAllocationTypes() {
     if (timerId) {
         clearInterval(timerId);
     }
-    $('#loading').removeClass('hidden');
     timerId = setTimeout(function () {
         var categoryId = $('#stockform-categoryid').val();
         var discount = $('#discount').val();
@@ -17,31 +16,42 @@ function getAllocationTypes() {
                 url: location.href,
                 type: "post",
                 data: {"categoryId": categoryId, "discount": discount, 'get': 'allocationTypes'},
+                beforeSend: function () {
+                    $('#loading').removeClass('hidden');
+                },
                 success: function (result) {
                     $('#loading').addClass('hidden');
                     if (result) {
                         var select = $('#stockform-commissiontype');
                         var selected = select.attr('data-selected');
+                        var isEdit = false;
                         select.empty();
                         for (var key in result) {
                             if (key == selected) {
                                 select.append('<option selected value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+                                isEdit = true;
                             } else {
                                 select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
                             }
                         }
-                        select.parents('#commissionTypeWrap').removeClass('hidden')
-                        // select.val('');
+                        select.parents('#commissionTypeWrap').removeClass('hidden');
+                        if(!isEdit) {
+                            select.val('');
+                        }
                         select.trigger("chosen:updated");
+                        select.trigger("change");
                     } else {
                         var select = $('#stockform-commissiontype');
                         select.parents('#commissionTypeWrap').addClass('hidden');
 
                     }
 
+                },
+                error: function () {
+                    $('#loading').addClass('hidden');
                 }
             });
-    }, 500)
+    }, 100)
 }
 
 function getCategoryCover(categoryId) {
@@ -50,17 +60,22 @@ function getCategoryCover(categoryId) {
         type: "post",
         data: {"categoryId": categoryId, 'get': 'categoryCovers'},
         success: function (result) {
-            var wrap = $('#covers-wrap');
-            wrap.children('img').each(function () {
-                $(this).remove();
-            });
-            // wrap.empty();
-            for (var key in result) {
-                if (result[key] == $('#stockform-picture').val()) {
-                    wrap.prepend('<img src="' + result[key].slice(4) + '" class="img-thumbnail active" onclick="selectCover(this)">');
-                } else {
-                    wrap.prepend('<img src="' + result[key].slice(4) + '" class="img-thumbnail" onclick="selectCover(this)">');
+            if(result && result.length > 0) {
+                var wrap = $('#covers-wrap');
+                wrap.children('img').each(function () {
+                    $(this).remove();
+                });
+                // wrap.empty();
+                for (var key in result) {
+                    if (result[key] == $('#stockform-picture').val()) {
+                        wrap.prepend('<img src="' + result[key].slice(4) + '" class="img-thumbnail active" onclick="selectCover(this)">');
+                    } else {
+                        wrap.prepend('<img src="' + result[key].slice(4) + '" class="img-thumbnail" onclick="selectCover(this)">');
+                    }
                 }
+                $('.default-images').removeClass('hidden');
+            } else {
+                $('.default-images').addClass('hidden');
             }
 
         }
@@ -118,6 +133,7 @@ function countPrice() {
     }
     if (!isNaN(new_price)) {
         $('#new_price').text(new_price);
+        $('.price').text(new_price);
         $('#new_price').parent('#price').removeClass('no-data');
     }
     if (!isNaN(save)) {
@@ -130,7 +146,7 @@ function countProfit() {
     var discount = $('#discount').val();
     var price = $('#stockform-price').val();
     var commissionvalue = 0;
-    if (commissiontype.val().toLowerCase() == 'percent') {
+    if (commissiontype.val() && commissiontype.val().toLowerCase() == 'percent') {
         commissionvalue = commissiontype.find(':selected').data('value');
     }
 
@@ -427,7 +443,7 @@ $(document).ready(function () {
         newLocation += '<div class="db mtop-50">';
         newLocation += '<h4>Добавить локацию</h4>';
         newLocation += '</div>';
-        newLocation += '<input id="address_' + id + '" name="LocationForm[address][]" class="w-100 address" placeholder="ул. Парашютная 12/14 1">';
+        newLocation += '<textarea id="address_' + id + '" name="LocationForm[address][]" class="w-100 address" placeholder="ул. Парашютная 12/14 1"></textarea>';
         newLocation += '<div class="f-0 mtop-20">';
         newLocation += '<div class="dib w-50 f-14">';
         newLocation += '<input id="city_' + addressId + '" class="w-85 city" name="LocationForm[city][]" placeholder="Киев" disabled="true">';
@@ -538,10 +554,16 @@ $(document).ready(function () {
             });
         }
     });
-    var pickerstart = start.pickadate('picker')
-    var pickerend = end.pickadate('picker')
+    var pickerstart = start.pickadate('picker');
+    var pickerend = end.pickadate('picker');
     pickerstart.set('select', new Date($('#stockform-startdate').val()));
     pickerend.set('select', new Date($('#stockform-enddate').val()));
+
+    pickerstart.on('set', function(e) {
+        if (e.select) {
+            pickerend.set('min', new Date(e.select));
+        }
+    });
 
 });
 
@@ -618,10 +640,10 @@ $(document).ready(function () {
         countProfit();
     });
 
-    // $('#stockform-commissiontype').chosen().change(function () {
-    //     countProfit();
-    //     unValid(this);
-    // });
+    $('#stockform-commissiontype').chosen().change(function () {
+        countProfit();
+        unValid(this);
+    });
 
     $(document).on("click", ".js-toggle", function (e) {
         e.preventDefault();

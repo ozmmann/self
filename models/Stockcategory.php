@@ -123,26 +123,30 @@
             $covers = [];
             $categoryStorage = '/web/storage/default_category_images/'.$catId.'/';
             try {
-                $defaultCategory = new \DirectoryIterator(Yii::$app->basePath . $categoryStorage);
-                foreach ($defaultCategory as $cover) {
-                    if ($cover->isDot() or $cover->isDir()) {
-                        continue;
-                    }
+                if (is_dir(Yii::$app->basePath . $categoryStorage)) {
+                    $defaultCategory = new \DirectoryIterator(Yii::$app->basePath . $categoryStorage);
+                    foreach ($defaultCategory as $cover) {
+                        if ($cover->isDot() or $cover->isDir()) {
+                            continue;
+                        }
 
-                    $covers[] = $categoryStorage . $cover->getFilename();
+                        $covers[] = $categoryStorage . $cover->getFilename();
+                    }
                 }
             } catch (Exception $e) {
                 Yii::error('Getting category folder images: ' . $e);
             }
             $userStorage = '/web/storage/users_uploads/'.$userId.'/';
             try {
-                $userCovers = new \DirectoryIterator(Yii::$app->basePath . $userStorage);
-                foreach ($userCovers as $cover) {
-                    if ($cover->isDot() or $cover->isDir()) {
-                        continue;
-                    }
+                if(is_dir(Yii::$app->basePath . $userStorage)) {
+                    $userCovers = new \DirectoryIterator(Yii::$app->basePath . $userStorage);
+                    foreach ($userCovers as $cover) {
+                        if ($cover->isDot() or $cover->isDir()) {
+                            continue;
+                        }
 
-                    $covers[] = $userStorage . $cover->getFilename();
+                        $covers[] = $userStorage . $cover->getFilename();
+                    }
                 }
             } catch (Exception $e){
                 Yii::error('Getting uploaded images by user: ' . $e);

@@ -19,7 +19,7 @@
             for($i = 0; $i < $locations_count; $i++): ?>
                     <div id="location_1" class="address-row">
                         <div class="required-field">
-                            <?= Html::textInput('LocationForm[address][]', $locationForm->address[$i], [
+                            <?= Html::textarea('LocationForm[address][]', $locationForm->address[$i], [
                                 'class'       => 'w-100 address',
                                 'placeholder' => 'ул. Парашютная 12/14 1',
                                 'id'          => 'address_1'

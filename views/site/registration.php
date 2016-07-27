@@ -34,11 +34,17 @@ $this->title = 'Регистрация';
 
                                 <?= $form->field($model, 'name')
                                     ->textInput(['placeholder' => 'Фамилия Имя Очество', 'class' => 'w-60'])
-                                    ->label('Укажите фио'); ?>
+                                    ->label('Укажите ФИО'); ?>
 
                                 <?= $form->field($model, 'phone')
-                                    ->input('tel', ['placeholder' => '+380 (ХХ) ХХХ-ХХ-ХХ', 'class' => 'w-40'])
+                                    ->input('tel', ['placeholder' => '+380 (ХХ) ХХХ-ХХ-ХХ', 'class' => 'phone w-60'])
                                     ->label('Контактный телефон'); ?>
+
+                                <div id="secondPhoneWrapper" class="hidden">
+                                    <?= $form->field($model, 'secondPhone')
+                                        ->label('')
+                                        ->input('tel', ['placeholder' => '+380 (ХХ) ХХХ-ХХ-ХХ', 'class' => 'phone w-60']); ?>
+                                </div>
 
                                 <div class="form-group">
                                     <button id="addSecondPhone" class="btn btn-white-blue-border btn-add">
@@ -46,24 +52,19 @@ $this->title = 'Регистрация';
                                     </button>
                                 </div>
 
-                                <div id="secondPhoneWrapper" class="hidden">
-                                    <?= $form->field($model, 'secondPhone')
-                                        ->label('Контактный телефон 2')
-                                        ->input('tel', ['placeholder' => '+380 (ХХ) ХХХ-ХХ-ХХ', 'class' => 'w-40']); ?>
-                                </div>
-
                                 <?= $form->field($model, 'email')
-                                    ->input('email', ['placeholder' => 'E-mail@name.com', 'class' => 'w-40'])
-                                    ->label('Ваш E-Mail', ['class' => 'mtop-60']) ?>
+                                    ->label('Ваш E-Mail', ['class' => 'mtop-60 control-label'])
+                                    ->input('email', ['placeholder' => 'E-mail@name.com', 'class' => 'w-60'])
+                                 ?>
 
                                 <?= $form->field($model, 'password_repeat')
                                     ->label('Пароль')
-                                    ->passwordInput(['class' => 'w-40', 'placeholder' => '********']) ?>
+                                    ->passwordInput(['class' => 'w-60']) ?>
                                 <?= $form->field($model, 'password')
                                     ->label('Повторите пароль')
-                                    ->passwordInput(['class' => 'w-40', 'placeholder' => '********']) ?>
+                                    ->passwordInput(['class' => 'w-60']) ?>
 
-                                <span class="db w-30 mtop-15">
+                                <span class="db w-60 mtop-15">
                                     <?= $form->field($model, 'cityId')
                                         ->label('Ваш город')
                                         ->dropDownList(
@@ -77,23 +78,27 @@ $this->title = 'Регистрация';
 
                                 <?= $form->field($model, 'site')
                                     ->label('Адрес вашего сайта')
-                                    ->input('url', ['placeholder' => 'www.site_name.com', 'class' => 'w-40']); ?>
+                                    ->input('url', ['placeholder' => 'www.site_name.com', 'class' => 'w-60']); ?>
 
                                 <div class="db">
-                                    <span class="db w-70 mtop-15">
+                                    <span class="db w-60 mtop-15">
+                                        <?php
+                                        $stockTypeListArray = ArrayHelper::map($stockTypeList, 'id', 'name');
+                                        $model->stockTypeId = array_keys($stockTypeListArray)[0];
+                                        ?>
                                         <?= $form->field($model, 'stockTypeId')
                                             ->label('Категория услуг')
-                                            ->dropDownList(ArrayHelper::map($stockTypeList, 'id', 'name'), [
+                                            ->dropDownList($stockTypeListArray, [
 //                                                'class' => 'chosen',
                                                 'prompt' => '',
-                                                'data-placeholder' => 'Выберите категорию услуг'
+                                                'data-placeholder' => 'Выберите категорию услуг',
                                             ]) ?>
                                     </span>
                                 </div>
 
                                 <div class="db checkbox-list">
                                     <?php
-                                    $label = '<i></i><span>Вы принимаете'.' '.Html::a('Пользовательское соглашение', '/site/pages?view=eula', ['target' => '_blank']).'</span>';
+                                    $label = '<i></i><span>Вы принимаете' . ' ' . Html::a('Пользовательское соглашение', '/site/pages?view=eula', ['target' => '_blank']) . '</span>';
                                     ?>
                                     <?= $form->field($model, 'agree')
                                         ->checkbox()

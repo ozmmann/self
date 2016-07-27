@@ -7,19 +7,25 @@
     <a href="#" class="row-title">Выберете категорию услуги</a>
     <div class="row-content">
         <div class="db">
-            <!--            --><? //= $form->field($stockForm, 'categoryId')
-                //                ->label('Категория')
-                //                ->dropDownList($stockCategoryList, [
-                //                    'prompt'           => '',
-                //                    'data-placeholder' => 'Выберите категорию услуг',
-                //                    'class'            => 'chosen styled-select'
-                //                ]) ?>
             <div class="required-field">
                 <?= Html::activeDropDownList($stockForm, 'categoryId', $stockCategoryList, [
                     'class'            => 'styled-select',
 //                    'prompt'           => '',
                     'data-placeholder' => 'Выберите категорию услуг'
                 ]) ?>
+                <div class="form-error-msg"></div>
+            </div>
+        </div>
+        <div class="db mtop-30">
+            <h3>Напишите заголовок акции на сайте. Например:</h3>
+            <div class="text">3 месяца дневного или безлимитного посещения тренажерного зала спортклуба "Grand Sport" </div>
+        </div>
+        <div class="db">
+            <div class="required-field">
+                <?= Html::activeTextarea($stockForm, 'title', [
+                    'placeholder' => "Напишите заголовок акции на сайте",
+                ]) ?>
+                <div class="text">95 символов осталось</div>
                 <div class="form-error-msg"></div>
             </div>
         </div>
@@ -42,7 +48,7 @@
 
         <span id="loading" class="hidden">Загрузка...</span>
         <div class="db required" id="commissionTypeWrap">
-            <h3>Выберете тип размещения</h3>
+            <h3 class="help">Выберете тип размещения</h3>
             <div class="db mtop-10">
                 <div class="required-field">
                     <?= Html::activeDropDownList($stockForm, 'commissionType', \yii\helpers\ArrayHelper::map($commissionTypes,'value','name') ,
@@ -72,13 +78,13 @@
             <div class="dib w-50">
                 <h3>Клиент заплатит</h3>
                 <div class="db f-12 fw-semi-bold">
-                    <span id="coupon_price" class="f-20 price">280</span> грн.
+                    <span id="coupon_price" class="f-20 price">0</span> грн.
                 </div>
             </div>
             <div class="dib w-50">
                 <h3 class="help">Вы получите</h3>
                 <div class="db f-12 fw-semi-bold">
-                    <span id="webmaster_reward" class="f-20">280</span> грн.
+                    <span id="webmaster_reward" class="f-20">0</span> грн.
                 </div>
             </div>
         </div>

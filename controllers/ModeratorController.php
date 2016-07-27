@@ -11,6 +11,7 @@
     use app\models\Stocktype;
     use app\models\User;
     use app\models\UserSearch;
+    use yii\base\Exception;
     use Yii;
     use yii\bootstrap\BootstrapAsset;
     use yii\data\ActiveDataProvider;
@@ -180,22 +181,34 @@
                     case'categoryCovers':
                         $covers = [];
                         $categoryStorage = '/web/storage/default_category_images/'.Yii::$app->request->post('categoryId').'/';
-                        $defaultCategory = new \DirectoryIterator(Yii::$app->basePath.$categoryStorage);
-                        foreach($defaultCategory as $cover){
-                            if($cover->isDot() or $cover->isDir()){
-                                continue;
-                            }
+                        try {
+                            if(is_dir(Yii::$app->basePath . $categoryStorage)) {
+                                $defaultCategory = new \DirectoryIterator(Yii::$app->basePath . $categoryStorage);
+                                foreach ($defaultCategory as $cover) {
+                                    if ($cover->isDot() or $cover->isDir()) {
+                                        continue;
+                                    }
 
-                            $covers[] = $categoryStorage.$cover->getFilename();
+                                    $covers[] = $categoryStorage . $cover->getFilename();
+                                }
+                            }
+                        } catch (Exception $e) {
+                            Yii::error('Getting category folder images: ' . $e);
                         }
                         $userStorage = '/web/storage/users_uploads/'.$stock->userId.'/';
-                        $userCovers = new \DirectoryIterator(Yii::$app->basePath.$userStorage);
-                        foreach($userCovers as $cover){
-                            if($cover->isDot() or $cover->isDir()){
-                                continue;
-                            }
+                        try {
+                            if (is_dir(Yii::$app->basePath . $userStorage)) {
+                                $userCovers = new \DirectoryIterator(Yii::$app->basePath . $userStorage);
+                                foreach ($userCovers as $cover) {
+                                    if ($cover->isDot() or $cover->isDir()) {
+                                        continue;
+                                    }
 
-                            $covers[] = $userStorage.$cover->getFilename();
+                                    $covers[] = $userStorage . $cover->getFilename();
+                                }
+                            }
+                        } catch (Exception $e) {
+                            Yii::error('Getting category folder images: ' . $e);
                         }
                         Yii::$app->response->format = 'json';
 
@@ -259,6 +272,7 @@
                 'organizerForm'     => $organizerForm,
                 'locationForm'      => $locationForm,
                 'stockCategoryList' => $stockCategoryList,
+                //todo for what purpose? 
                 //                'categoryCovers'    => $categoryCovers,
                 'commissionTypes'   => $commissionTypes
             ]);

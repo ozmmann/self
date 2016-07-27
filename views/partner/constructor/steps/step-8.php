@@ -5,7 +5,9 @@ use yii\helpers\Html;
     <a href="#" class="row-title">Дата окончания акции</a>
     <div class="row-content">
         <div class="db">
-            <div class="text c-black">Для того чтобы обеспечить время для рассмотрения вашей сделки Покупон&Супердилом, выберите одну из ближайших доступных дат.</div>
+            <div class="text c-black">
+                Выберете желаемую дату окончания.
+            </div>
         </div>
         
         <div class="db calendar">

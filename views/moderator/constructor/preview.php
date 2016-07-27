@@ -25,7 +25,7 @@
                     </div>
                     <div class="dib w-40 text-center">
                         <small>экономия</small>
-                        <b><span id="save">1 280</span><small>грн.</small></b>
+                        <b><span id="save"></span><small>грн.</small></b>
                     </div>
                     <div class="dib w-30 text-right">
                         <small>купили</small>

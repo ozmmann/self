@@ -6,8 +6,8 @@
     <a href="#" class="row-title">Дата запуска акции</a>
     <div class="row-content">
         <div class="db">
-            <div class="text c-black">Для того чтобы обеспечить время для рассмотрения вашей сделки Покупон&Супердилом, выберите одну из ближайших
-                доступных дат.
+            <div class="text c-black">
+                Выберете желаемую дату старта вашей акции на POKUPON & SUPERDEAL
             </div>
         </div>
 

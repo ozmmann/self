@@ -5,7 +5,7 @@
     <a href="#" class="row-title">Выберите Заявочное изображение</a>
     <div class="row-content">
         <div class="db">
-            <div class="text c-black">Загрузите своё изображение или выберите одно из предложенных:</div>
+            <div class="text c-black">Загрузите своё изображение<span class="hidden default-images"> или выберите одно из предложенных</span>:</div>
         </div>
 
         <div id="covers-wrap" class="db image-gallery mtop-10">

@@ -24,10 +24,10 @@
                 <div class="required-field">
                     <?= Html::activeTextarea($stockForm, 'description', [
                         'placeholder' => 'Описание акции',
-                        'maxLength' => 1000
-                    ]) ?>
+                        'maxLength' => 1000,
+                        'class' => 'w-90'
+                    ]) ?><i class="help mtop-10 pull-right"></i>
 
-                    <?php //todo js for symbols count ?>
                     <div class="text">95 символов осталось</div>
                     <div class="form-error-msg f-14"></div>
                 </div>
