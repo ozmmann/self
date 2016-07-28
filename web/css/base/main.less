@@ -713,3 +713,24 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     opacity: 1;
   }
 }
+
+.chosen-container {
+  &.chosen-with-drop {
+    .chosen-single {
+      border-top-color: #30bbfe !important;
+      border-right-color: #30bbfe !important;
+      border-left-color: #30bbfe !important;
+    }
+    .chosen-drop {
+      border-bottom-color: #30bbfe !important;
+      border-right-color: #30bbfe !important;
+      border-left-color: #30bbfe !important;
+    }
+  }
+}
+
+select{
+  &:focus {
+    border-color: #30bbfe
+  }
+}

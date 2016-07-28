@@ -124,21 +124,14 @@ function countPrice() {
     var price = $('#stockform-price').val();
     var save = price * discount / 100;
     var new_price = price - save;
-    if (new_price.toString().indexOf('.') != -1) {
-        if (new_price.toString().split(".")[1].length > 2) {
-            if (!isNaN(parseFloat(new_price))) {
-                new_price = parseFloat(new_price).toFixed(2);
-            }
-        }
-    }
-    if (!isNaN(new_price)) {
-        $('#new_price').text(new_price);
-        $('.price').text(new_price);
-        $('#new_price').parent('#price').removeClass('no-data');
-    }
-    if (!isNaN(save)) {
-        $('#save').text(save);
-    }
+
+    new_price = cutPrice(new_price);
+    $('#new_price').text(new_price);
+    $('.price').text(new_price);
+    $('#new_price').parent('#price').removeClass('no-data');
+
+    save = cutPrice(save);
+    $('#save').text(save);
 }
 
 function countProfit() {
@@ -146,23 +139,43 @@ function countProfit() {
     var discount = $('#discount').val();
     var price = $('#stockform-price').val();
     var commissionvalue = 0;
+    var new_price = price - price * discount / 100;
+    var profit = 0;
+
     if (commissiontype.val() && commissiontype.val().toLowerCase() == 'percent') {
         commissionvalue = commissiontype.find(':selected').data('value');
+        var commissionUAH = new_price * commissionvalue / 100;
+        profit = new_price - commissionUAH;
+
+        commissionvalue = cutPrice(commissionvalue);
+
+        $('#commission_percent').find('.percent-amount').text(commissionvalue);
+
+        commissionUAH = cutPrice(commissionUAH);
+
+        $('#commission_percent').find('.price-amount').text(commissionUAH);
+        $('#commission_percent').removeClass('hidden');
+        $('#commission_fixed').addClass('hidden');
+    } else if (commissiontype.val() && commissiontype.val().toLowerCase() == 'fixed') {
+        commissionvalue = commissiontype.find(':selected').data('value');
+        console.log(commissionvalue);
+        profit = new_price;
+
+        commissionvalue = cutPrice(commissionvalue);
+        $('#commission_fixed').find('.price-amount').text(commissionvalue);
+
+        $('#commission_fixed').removeClass('hidden');
+        $('#commission_percent').addClass('hidden');
+
+    } else {
+        profit = new_price;
+        $('#commission_percent').addClass('hidden');
+        $('#commission_fixed').addClass('hidden');
+
     }
 
-    var new_price = price - price * discount / 100;
-    var profit = new_price - new_price * commissionvalue / 100;
-
-    if (profit.toString().indexOf('.') != -1) {
-        if (profit.toString().split(".")[1].length > 2) {
-            if (!isNaN(parseFloat(profit))) {
-                profit = parseFloat(profit).toFixed(2);
-            }
-        }
-    }
-    if (!isNaN(profit)) {
-        $('#webmaster_reward').text(profit);
-    }
+    profit = cutPrice(profit);
+    $('#webmaster_reward').text(profit);
 }
 
 function validateEmpty(section) {
@@ -225,6 +238,19 @@ function phonePreview() {
         var id = $(this).attr('id');
         $('#preview_' + id).text($(this).val());
     });
+}
+
+function cutPrice(price){
+    if (price.toString().indexOf('.') != -1) {
+        if (price.toString().split(".")[1].length > 2) {
+            if (!isNaN(parseFloat(price))) {
+                price = parseFloat(price).toFixed(2);
+            }
+        }
+    }
+    if (!isNaN(price)) {
+        return price;
+    }
 }
 
 $(document).ready(function () {

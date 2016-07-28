@@ -5,7 +5,7 @@
 <div id="landing">
     <div id="slider" class="c-white">
         <div class="slide background-cover"
-             style="background-image: url('https://pp.vk.me/c633623/v633623771/3b653/Gg1CKpMcwx8.jpg');">
+             style="background-image: url('/img/slider-1.jpg');background-position: top center;">
             <div class="container content-middle text-center">
                 <div class="dib w-90">
                     <div>
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="slide background-cover"
-             style="background-image: url('https://pp.vk.me/c635100/v635100211/8b3f/UA2fHeBFHAA.jpg');">
+             style="background-image: url('/img/slider-2.jpg');background-position: top center;">
             <div class="container content-middle text-center">
                 <div class="dib w-90">
                     <div>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="slide background-cover"
-             style="background-image: url('https://cs7060.vk.me/c540104/v540104379/ef45/hCdEpE65azc.jpg');">
+             style="background-image: url('/img/slider-3.jpg');background-position: top center;">
             <div class="container content-middle text-center">
                 <div class="dib w-90">
                     <div>

@@ -34,6 +34,7 @@
             <div class="required-field">
                 <?= Html::activeTextarea($stockForm, 'title', [
                     'placeholder' => "Напишите заголовок акции на сайте",
+                    'maxLength' => 255
                 ]) ?>
                 <div class="text">95 символов осталось</div>
                 <div class="form-error-msg"></div>
@@ -97,6 +98,18 @@
                 <h3 class="help">Вы получите</h3>
                 <div class="db f-12 fw-semi-bold">
                     <span id="webmaster_reward" class="f-20">0</span> грн.
+                </div>
+            </div>
+            <div id="commission_percent" class="dib w-50 mtop-10">
+                <h3 class="help">Наша комиссия по акции составит:</h3>
+                <div class="db f-12 fw-semi-bold">
+                    <span class="percent-amount f-20">0</span>% <span class="f-20">=</span> <span class="price-amount f-20">0</span> грн.
+                </div>
+            </div>
+            <div id="commission_fixed" class="dib w-50 mtop-10">
+                <h3 class="help">Наша комиссия по акции составит:</h3>
+                <div class="db f-12 fw-semi-bold">
+                    <span class="price-amount f-20">0</span> грн/мес.
                 </div>
             </div>
         </div>

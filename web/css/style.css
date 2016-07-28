@@ -3711,6 +3711,19 @@ input[type="checkbox"]:focus {
 .help:hover:after {
   opacity: 1;
 }
+.chosen-container.chosen-with-drop .chosen-single {
+  border-top-color: #30bbfe !important;
+  border-right-color: #30bbfe !important;
+  border-left-color: #30bbfe !important;
+}
+.chosen-container.chosen-with-drop .chosen-drop {
+  border-bottom-color: #30bbfe !important;
+  border-right-color: #30bbfe !important;
+  border-left-color: #30bbfe !important;
+}
+select:focus {
+  border-color: #30bbfe;
+}
 #header {
   background: #071321;
 }
