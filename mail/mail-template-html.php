@@ -34,7 +34,7 @@
                 <tr valign="bottom">
                     <td align="center">
                         <?php //todo check img on prod ?>
-                        <img alt="Получилось" src="<?= \yii\helpers\Url::home(true)?>img/email-header.jpg">
+                        <img alt="Получилось" src="<?= \yii\helpers\Url::home(true)?>img/email-header-rocket.jpg">
                     </td>
                 </tr>
                 <tr valign="middle">
