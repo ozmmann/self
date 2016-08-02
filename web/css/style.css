@@ -3724,6 +3724,34 @@ input[type="checkbox"]:focus {
 select:focus {
   border-color: #30bbfe;
 }
+.faq-question {
+  background-color: #f8f8f8;
+  margin-bottom: 30px;
+}
+.faq-question.active .faq-header > a {
+  color: #30bbfe;
+}
+.faq-header {
+  padding: 10px 20px;
+  border: 1px solid #eeeeee;
+}
+.faq-header > a {
+  display: block;
+  color: #061321;
+  text-decoration: none;
+}
+.faq-header > a:hover {
+  color: #30bbfe;
+}
+.faq-header > a:after {
+  font-family: 'Glyphicons Halflings';
+  content: "\e235";
+  float: right;
+}
+.faq-content {
+  padding: 10px 40px;
+  color: #7D7D7D;
+}
 #header {
   background: #071321;
 }

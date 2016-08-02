@@ -734,3 +734,44 @@ select{
     border-color: #30bbfe
   }
 }
+
+.faq-question  {
+  background-color: #f8f8f8;
+  margin-bottom: 30px;
+  &.active {
+    .faq-header {
+      & > a {
+        color: #30bbfe;
+      }
+    }
+  }
+}
+
+.faq-header {
+  padding: 10px 20px;
+  border: 1px solid #eeeeee;
+}
+
+.faq-header {
+  & > a {
+    display: block;
+    color: #061321;
+    text-decoration: none;
+    &:hover {
+      color: #30bbfe;
+    }
+    &:after {
+
+      font-family: 'Glyphicons Halflings';
+      content: "\e235";
+      float: right;
+    }
+
+  }
+}
+
+.faq-content {
+  padding: 10px 40px;
+  color: #7D7D7D;
+
+}

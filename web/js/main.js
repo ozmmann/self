@@ -22,6 +22,21 @@ function checkURL(abc) {
 }
 
 $(document).ready(function () {
+
+    var allPanels = $('.accordion').find('.faq-content').hide();
+
+    $('.accordion').find('.faq-header').children('a').click(function() {
+        var faqBlock = $(this).parents('.faq-question');
+        if(faqBlock.hasClass('active')){
+            faqBlock.removeClass('active');
+            faqBlock.find('.faq-content').slideUp();
+        } else {
+            faqBlock.find('.faq-content').slideDown();
+            faqBlock.addClass('active');
+        }
+        return false;
+    });
+
     jQuery(".phone").mask("+38 (000) 000-00-00", {
         placeholder: "+380 (ХХ) ХХХ-ХХ-ХХ"
     });

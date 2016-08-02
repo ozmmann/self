@@ -90,7 +90,7 @@ $config = [
             'compress_options' => ['extra' => true], // options for compress
             'concatCss' => true, // concatenate css
             'minifyCss' => true, // minificate css
-            'concatJs' => false, // concatenate js
+            'concatJs' => true, // concatenate js
             'minifyJs' => true, // minificate js
         ]
     ],

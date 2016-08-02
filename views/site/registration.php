@@ -98,7 +98,7 @@ $this->title = 'Регистрация';
 
                                 <div class="db checkbox-list">
                                     <?php
-                                    $label = '<i></i><span>Вы принимаете' . ' ' . Html::a('Пользовательское соглашение', '/site/pages?view=eula', ['target' => '_blank']) . '</span>';
+                                    $label = '<i></i><span>Вы принимаете' . ' ' . Html::a('Пользовательское соглашение', '/site/pages?view=terms', ['target' => '_blank']) . '</span>';
                                     ?>
                                     <?= $form->field($model, 'agree')
                                         ->checkbox()
