@@ -5,7 +5,6 @@
     class City extends ActiveRecord{
         public function rules(){
             return [
-                ['name', 'match', 'pattern' => '/[a-zа-яA-ZА-Я]+$/s'],
                 ['name', 'unique', 'message' => 'Город уже существует'],
                 ['name', 'required', 'message' => 'Поле является обязательным'],
                 ['notGhost', 'boolean']
