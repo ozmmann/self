@@ -63,9 +63,8 @@
                     пользователи
                 </div>
                 <div class="text fw-light lh-1-4 w-80 m-auto mtop-30">
-                    Наши пользователи лояльны
-                    к местам , которые они любят.
-                    Они будут рекомендовать любимые места друзьям.
+                    Наши пользователи любят хорошие места и классное обслуживание.
+                    Они будут рекомендовать вас друзьям.
                     Просто удивите их.
                 </div>
             </div>
@@ -85,7 +84,7 @@
     <div class="dark-wrap">
         <div class="container text-center">
             <div class="w-90 m-auto c-white">
-                <div class="f-30 fw-bold">Присоединяйтесь к более 10000 продавцов</div>
+                <div class="f-30 fw-bold">Присоединяйтесь к более 10 000 продавцов</div>
                 <div class="mtop-40 fw-light f-20 lh-1-4">Они уже нашли новых клиентов и начали зарабатывать больше <br>
                     без предварительных затрат.
                 </div>
@@ -100,21 +99,21 @@
                 Всего 3 шага, чтобы начать зарабатывать
             </div>
             <div class="w-85 m-auto mtop-20">
-                <div class="w-33w-sm-100 dib f-20 vat mtop-40">
+                <div class="w-33 w-sm-100 dib f-20 vat mtop-40">
                     <img src="/img/landing-icon-4.png" class="img-response">
                     <div class="text fw-light lh-1-4 w-80 m-auto mtop-30">
                         Заполните акцию <br>
                         в простом редакторе
                     </div>
                 </div>
-                <div class="w-33w-sm-100 mtop-sm-40 dib f-20 vat mtop-40">
+                <div class="w-33 w-sm-100 mtop-sm-40 dib f-20 vat mtop-40">
                     <img src="/img/landing-icon-5.png" class="img-response">
                     <div class="text fw-light lh-1-4 w-80 m-auto mtop-30">
                         Опубликуйте акцию <br>
                         на нашем сайте
                     </div>
                 </div>
-                <div class="w-33w-sm-100 mtop-sm-40 dib f-20 vat mtop-40">
+                <div class="w-33 w-sm-100 mtop-sm-40 dib f-20 vat mtop-40">
                     <img src="/img/landing-icon-6.png" class="img-response">
                     <div class="text fw-light lh-1-4 w-80 m-auto mtop-30">
                         Готово! <br>

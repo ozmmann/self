@@ -5,7 +5,8 @@
     <a href="#" class="row-title">Выберите Заявочное изображение</a>
     <div class="row-content">
         <div class="db">
-            <div class="text c-black">Загрузите своё изображение<span class="hidden default-images"> или выберите одно из предложенных</span>:</div>
+            <div class="text c-black">Загрузите своё изображение<span class="hidden default-images"> или выберите одно из предложенных</span>:
+            </div>
         </div>
 
         <div id="covers-wrap" class="db image-gallery mtop-10">
@@ -21,7 +22,22 @@
         </div>
 
         <div class="db mtop-10">
-            <div class="text">Изображение не подходящее под <a href="#" target="_blank">гайдлайны</a> Покупона&Супердила, будет автоматически заменено случайной картинкой из нашей базы</div>
+            <div class="text">Изображение не подходящее под
+                <span style="text-decoration: underline; color: #3dbaff;">гайдлайны</span>
+                <div class="helper ml-0">
+                    <div class="helper-content-wrapper">
+                        <div class="helper-content helper-right">
+                            <p>
+                                Размер картинки: 720 х 340 пикселей,<br>
+                                Расширение: .jpg<br>
+                                Общие требования: От качества и привлекательности картинки зависят продажи вашей акции. Постарайтесь подобрать изображение максимальное подходящее под описание вашей услуги
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                Покупона&Супердила, будет автоматически заменено
+                случайной картинкой из нашей базы
+            </div>
         </div>
         <div class="db mtop-40 text-right">
             <button type="button" class="btn btn-yellow btn-next-step">Дальше</button>

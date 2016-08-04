@@ -3,7 +3,7 @@
 ?>
 <div class="menu-row">
     <div href="#" class="drop-down-menu">
-        <?= Yii::$app->user->identity->name ?>
+        <span><?= Yii::$app->user->identity->name ?></span>
         <div>
             <a href="<?= Yii::$app->urlManager->createUrl(['/moderator/']) ?>">Dashboard</a>
             <a href="<?= Yii::$app->urlManager->createUrl(['/moderator/stock-list']) ?>">Все Акции</a>

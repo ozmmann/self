@@ -801,6 +801,15 @@ select{
   }
 
   .helper-content {
+    &.helper-right{
+      left: -25px;
+      &:before {
+        content: " ";
+        position: absolute;
+        top: -5px;
+        left: 27px;
+      }
+    }
     display: none;
     position: absolute;
     top: 22px;
