@@ -17,13 +17,13 @@
             </div>
         </div>
         <div class="db mtop-30">
-            <h3>Напишите заголовок акции на сайте. Например:</h3>
-            <div class="text">3 месяца дневного или безлимитного посещения тренажерного зала спортклуба "Grand Sport" </div>
+            <h3>Напишите заголовок акции. Например:</h3>
+            <div class="text">Рыбалка для компании до 6 человек</div>
         </div>
         <div class="db">
             <div class="required-field">
                 <?= Html::activeTextarea($stockForm, 'title', [
-                    'placeholder' => "Напишите заголовок акции на сайте",
+                    'placeholder' => "Напишите заголовок акции",
                     'maxLength' => 255
                 ]) ?>
                 <div class="text">95 символов осталось</div>
@@ -31,7 +31,17 @@
             </div>
         </div>
         <div class="db">
-            <h3 class="help">Укажите процент скидки</h3>
+            <h3>Укажите процент скидки
+                <div class="helper">
+                    <div class="helper-content-wrapper">
+                        <div class="helper-content">
+                            <p>
+                                Скидка, которую вы даете нашему пользователю. От процента скидки зависят некоторые условия размещения акции. Чем больше скидка - тем выгоднее условия.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </h3>
             <div class="text">Оставайтесь в цветном скидочном диапазоне, для оптимальной эфективности компании</div>
         </div>
         <div class="db precent-slider">
@@ -83,7 +93,17 @@
                 </div>
             </div>
             <div class="dib w-50">
-                <h3 class="help">Вы получите</h3>
+                <h3>Вы получите
+                    <div class="helper">
+                        <div class="helper-content-wrapper">
+                            <div class="helper-content">
+                                <p>
+                                    Ваша часть денег от каждого проданного купона
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </h3>
                 <div class="db f-12 fw-semi-bold">
                     <span id="webmaster_reward" class="f-20">0</span> грн.
                 </div>

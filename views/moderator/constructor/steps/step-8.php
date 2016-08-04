@@ -7,7 +7,7 @@
     <div class="row-content">
         <div class="db">
             <div class="text c-black">
-                Выберете желаемую дату окончания.
+                Укажите желаемую дату окончания акции
             </div>
         </div>
 

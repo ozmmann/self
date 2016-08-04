@@ -3,10 +3,11 @@
 
 ?>
 <div class="row">
-    <a href="#" class="row-title">Вкратце об вашей акции</a>
+    <a href="#" class="row-title">Вкратце о вашей Компании</a>
     <div class="row-content">
-        <div class="db mtop-60">
-            <h4>В кратце опишите свою компанию</h4>
+        <div class="db mtop-30">
+            <h3>В кратце опишите компанию предоставляющую услугу. Например:</h3>
+            <div class="text">Хотите совместить отдых с семьей в живописном месте и любимое занятие? Тогда обратите внимание на наш комплекс в живописном лесу. </div>
             <div class="required-field">
                 <?= Html::activeTextarea($organizerForm, 'name', [
                     'placeholder' => "В кратце опишите свою компанию",

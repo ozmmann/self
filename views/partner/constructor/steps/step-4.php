@@ -10,12 +10,32 @@
 
         <div class="coupon-row">
             <div class="db mtop-20 f-0">
-                <h3 class="help dib w-70">Стоимость услуги</h3>
+                <h3 class="dib w-70">Стоимость услуги
+                    <div class="helper">
+                        <div class="helper-content-wrapper">
+                            <div class="helper-content">
+                                <p>
+                                    Полная стоимость предоставляемой вами услуги без учета скидки
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </h3>
                 <div class="dib w-30 f-14 fw-light"><span class="price">20</span> <span class="f-12 c-gray">грн</span></div>
             </div>
 
             <div class="db f-0">
-                <h3 class="help dib w-70">Процент скидки</h3>
+                <h3 class="dib w-70">Процент скидки
+                    <div class="helper">
+                        <div class="helper-content-wrapper">
+                            <div class="helper-content">
+                                <p>
+                                    Скидка, которую вы даете нашемупользователю. От процента скидки зависят некоторые условия размещения акции. Чем больше скидка - тем выгоднее условия.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </h3>
                 <div class="dib w-30 f-14 fw-light"><span class="discount">90</span> <span class="f-12 c-gray">%</span></div>
             </div>
 
@@ -23,11 +43,19 @@
             <div class="db mtop-10">
                 <div class="required-field">
                     <?= Html::activeTextarea($stockForm, 'description', [
-                        'placeholder' => 'Описание акции',
+                        'placeholder' => 'Опишите на что распространяется скидка',
                         'maxLength' => 1000,
                         'class' => 'w-90'
-                    ]) ?><i class="help mtop-10 pull-right"></i>
-
+                    ]) ?>
+                    <div class="helper mtop-10 pull-right">
+                        <div class="helper-content-wrapper">
+                            <div class="helper-content">
+                                <p>
+                                    Опишите на что распространяется скидка. Например: "Рыбалка для одного человека за 65 грн. вместо 100 грн."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="text">95 символов осталось</div>
                     <div class="form-error-msg f-14"></div>
                 </div>

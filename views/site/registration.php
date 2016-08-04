@@ -87,7 +87,15 @@ $this->title = 'Регистрация';
                                         $model->stockTypeId = array_keys($stockTypeListArray)[0];
                                         ?>
                                         <?= $form->field($model, 'stockTypeId')
-                                            ->label('Категория услуг')
+                                            ->label('Категория услуг<div class="helper">
+                                                        <div class="helper-content-wrapper">
+                                                            <div class="helper-content">
+                                                                <p>
+                                                                    Локальные акции - их действие распространяется в рамках одного (нескольких городов).
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>')
                                             ->dropDownList($stockTypeListArray, [
 //                                                'class' => 'chosen',
                                                 'prompt' => '',

@@ -5,7 +5,17 @@
     <a href="#" class="row-title">Добавьте условия акции</a>
     <div class="row-content">
         <div class="db">
-            <h3 class="help">Обязательные поля для заполнения</h3>
+            <h3>Обязательные поля для заполнения
+                <div class="helper">
+                    <div class="helper-content-wrapper">
+                        <div class="helper-content">
+                            <p>
+                                Отметьте обязательные условия предоставления скидки, или добавьте свое
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </h3>
         </div>
 
         <div class="db checkbox-list">
