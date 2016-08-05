@@ -158,7 +158,6 @@ function countProfit() {
         $('#commission_fixed').addClass('hidden');
     } else if (commissiontype.val() && commissiontype.val().toLowerCase() == 'fixed') {
         commissionvalue = commissiontype.find(':selected').data('value');
-        console.log(commissionvalue);
         profit = new_price;
 
         commissionvalue = cutPrice(commissionvalue);
