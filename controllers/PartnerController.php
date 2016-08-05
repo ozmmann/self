@@ -96,6 +96,10 @@
                                         continue;
                                     }
 
+                                    if(strpos($cover->getFilename(), 'thumb_') !== false){
+                                        continue;
+                                    }
+
                                     $covers[] = $categoryStorage . $cover->getFilename();
                                 }
                             }
@@ -109,6 +113,10 @@
                                 $userCovers = new \DirectoryIterator(Yii::$app->basePath . $userStorage);
                                 foreach ($userCovers as $cover) {
                                     if ($cover->isDot() or $cover->isDir()) {
+                                        continue;
+                                    }
+
+                                    if(strpos($cover->getFilename(), 'thumb_') !== false){
                                         continue;
                                     }
 

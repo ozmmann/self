@@ -25,7 +25,7 @@ use yii\helpers\Url;
                 <div class="dib text-left">
                     <div class="title fw-semi-bold f-30">Контакты</div>
                     <a href="tel:+380445858086">Тел.: +38 (044) 585-80-86</a>
-                    <a href="mailto:partners@pokupon.ua">E-mail: partners@pokupon.ua</a>
+                    <a href="mailto:partners@pokupon.ua">E-mail: <?= Yii::$app->params['adminEmail'] ?></a>
                     <?php if (Yii::$app->user->isGuest): ?>
                         <a href="#login_popup" value="<?= Url::to(['/site/modal-login']) ?>"
                            class="popup-with-form btn btn-white-blue-border btn-add">Добавить акцию</a>

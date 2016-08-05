@@ -23,18 +23,19 @@
 
         <div class="db mtop-10">
             <div class="text">Изображение не подходящее под
-                <span style="text-decoration: underline; color: #3dbaff;">гайдлайны</span>
-                <div class="helper ml-0">
-                    <div class="helper-content-wrapper">
-                        <div class="helper-content helper-right">
-                            <p>
-                                Размер картинки: 720 х 340 пикселей,<br>
-                                Расширение: .jpg<br>
-                                Общие требования: От качества и привлекательности картинки зависят продажи вашей акции. Постарайтесь подобрать изображение максимальное подходящее под описание вашей услуги
-                            </p>
+                <span class="dib"><span style="text-decoration: underline; color: #3dbaff;">гайдлайны</span>
+                    <div class="helper ml-0">
+                        <div class="helper-content-wrapper">
+                            <div class="helper-content helper-right">
+                                <p>
+                                    Размер картинки: 720 х 340 пикселей,<br>
+                                    Расширение: .jpg<br>
+                                    Общие требования: От качества и привлекательности картинки зависят продажи вашей акции. Постарайтесь подобрать изображение максимальное подходящее под описание вашей услуги
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </span>
                 Покупона&Супердила, будет автоматически заменено
                 случайной картинкой из нашей базы
             </div>

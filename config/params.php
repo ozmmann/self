@@ -1,7 +1,18 @@
 <?php
 
+    $parsed_url = parse_url($_SERVER['HTTP_HOST']);
+    if(isset($parsed_url['host'])){
+        $url = $parsed_url['host'];
+    } elseif(isset($parsed_url['path'])) {
+        $url = $parsed_url['path'];
+    } else {
+        $url = '';
+    }
+
+    $email = strpos($url, 'superdeal') !== false ? 'partners@superdeal.com.ua' : 'partners@pokupon.ua';
+
     return [
-        'adminEmail'          => 'osman.ramazanov@gmail.com',
+        'adminEmail'          => $email,
         'commissionType'      => [
             //            'label'   => 'Тип',
             'FREE'    => 'Я размещаюсь бесплатно за высокий % скидки в моей категории',
