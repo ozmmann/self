@@ -2,21 +2,22 @@
 
 use yii\helpers\Html;
 use yii\widgets\Pjax;
+
 $this->title = 'Список комиссий';
 
-    /** @var \app\models\Commission $commissions */
+/** @var \app\models\Commission $commissions */
 ?>
 <div class="container">
     <div class="w-85 m-auto wrapper">
         <?php Pjax::begin() ?>
-        <?= Html::beginForm('commission-list', 'get', ['class' => 'form-inline dib']) ?>
+        <?= Html::beginForm('commission-list', 'get', ['class' => 'form-inline db']) ?>
         <?= Html::input('text', 'nameSerch', Yii::$app->request->post('nameSerch'), ['class' => 'form-control']) ?>
         <?= Html::submitButton('Найти', ['class' => 'btn btn-yellow btn-next-step']) ?>
         <?= Html::endForm() ?>
 
-        <?= Html::a('Добавить коммисию', ['admin/edit-commission'], ['class' => 'btn btn-blue btn-add mtop-10']) ?>
+        <?= Html::a('Добавить коммисию', ['admin/edit-commission'], ['class' => 'btn btn-blue btn-add mtop-10', 'style' => 'float: none;']) ?>
         <?php
-            if(count($commissions)): ?>
+        if (count($commissions)): ?>
             <table class="table table-striped">
                 <tr>
                     <th>Категория</th>
@@ -27,7 +28,7 @@ $this->title = 'Список комиссий';
                     <th></th>
                 </tr>
                 <?php
-                    foreach($commissions as $commission): ?>
+                foreach ($commissions as $commission): ?>
                     <tr>
                         <td><?= $commission->categoryName ?></td>
                         <td><?= $commission->cityType ?></td>

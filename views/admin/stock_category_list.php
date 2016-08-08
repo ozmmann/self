@@ -27,7 +27,7 @@ $this->title = 'Список категорий';
                 ['edit-stock-category'],
                 [
                     'class' => 'btn btn-blue btn-add mtop-10',
-                    'style' => 'position: absolute; top: 0; right: 0;'
+                    'style' => 'float: none;'
                 ]) ?>
         </div>
         <div class="list-group">

@@ -8,12 +8,12 @@ $this->title = 'Список городов';
 <div class="container">
     <div class="w-85 m-auto wrapper">
         <?php Pjax::begin() ?>
-        <?= Html::beginForm('city-list', 'get', ['class' => 'form-inline dib']) ?>
+        <?= Html::beginForm('city-list', 'get', ['class' => 'form-inline db']) ?>
         <?= Html::input('text', 'nameSerch', Yii::$app->request->post('nameSerch'), ['class' => 'form-control']) ?>
         <?= Html::submitButton('Найти', ['class' => 'btn btn-yellow btn-next-step']) ?>
         <?= Html::endForm() ?>
 
-        <?= Html::a('Добавить город', 'edit-city', ['class' => 'btn btn-blue btn-add mtop-10']) ?>
+        <?= Html::a('Добавить город', 'edit-city', ['class' => 'btn btn-blue btn-add mtop-10', 'style' => 'float: none;']) ?>
         <table class="table table-striped">
             <tr>
                 <th>Город</th>
