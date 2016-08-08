@@ -1,16 +1,18 @@
 <?php
+    if (isset($_SERVER['HTTP_HOST'])) {
+        $parsed_url = parse_url($_SERVER['HTTP_HOST']);
+        if (isset($parsed_url['host'])) {
+            $url = $parsed_url['host'];
+        } elseif (isset($parsed_url['path'])) {
+            $url = $parsed_url['path'];
+        } else {
+            $url = '';
+        }
 
-    $parsed_url = parse_url($_SERVER['HTTP_HOST']);
-    if(isset($parsed_url['host'])){
-        $url = $parsed_url['host'];
-    } elseif(isset($parsed_url['path'])) {
-        $url = $parsed_url['path'];
+        $email = strpos($url, 'superdeal') !== false ? 'partners@superdeal.com.ua' : 'partners@pokupon.ua';
     } else {
-        $url = '';
+        $email = 'partners@pokupon.ua';
     }
-
-    $email = strpos($url, 'superdeal') !== false ? 'partners@superdeal.com.ua' : 'partners@pokupon.ua';
-
     return [
         'adminEmail'          => $email,
         'commissionType'      => [

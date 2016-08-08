@@ -19,9 +19,7 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "vlucas/phpdotenv": "1.0.*",
-        "yiisoft/yii2-imagine": "~2.0.0",
-        "skeeks/yii2-assets-auto-compress": "*",
-        "rmrevin/yii2-minify-view": "~1.11"
+        "yiisoft/yii2-imagine": "~2.0.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

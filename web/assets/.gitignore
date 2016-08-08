@@ -1,2 +1,5 @@
-*
+/*
 !.gitignore
+!css/readme*
+!js/readme*
+!fonts
