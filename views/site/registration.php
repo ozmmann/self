@@ -80,7 +80,7 @@ $this->title = 'Регистрация';
                                     ->label('Адрес вашего сайта')
                                     ->input('url', ['placeholder' => 'www.site_name.com', 'class' => 'w-60']); ?>
 
-                                <div class="db">
+                                <div class="db hidden">
                                     <span class="db w-60 mtop-15">
                                         <?php
                                         $stockTypeListArray = ArrayHelper::map($stockTypeList, 'id', 'name');
