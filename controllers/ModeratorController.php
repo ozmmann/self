@@ -298,4 +298,34 @@
             return $this->render('emailerror');
         }
 
+        public function actionModalAddStockLink() {
+            if(Yii::$app->request->post('id')){
+                $model = Stock::findOne(Yii::$app->request->post('id'));
+            } else {
+                $model = new Stock();
+            }
+
+            if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+                $stock = Stock::findOne($model->id);
+                $stock->link = $model->link;
+                if($stock->save(false)) {
+                    return $this->renderAjax('_addedlink', [
+                        'model' => $model
+                    ]);
+                } else {
+                    return $this->renderAjax('_addlink', [
+                        'model' => $model
+                    ]);
+                }
+            }else if(Yii::$app->request->isAjax) {
+                if(Yii::$app->request->post('id')){
+                    $model = Stock::findOne(Yii::$app->request->post('id'));
+                }
+
+                return $this->renderAjax('_addlink', [
+                    'model' => $model
+                ]);
+            }
+        }
+
     }

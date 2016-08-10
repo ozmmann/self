@@ -75,7 +75,11 @@ $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']
                                 'id' => $model->id
                             ], ['title' => 'Удалить']);
                         },
+                        'addlink' => function ($url, $model) {
+                            return "<a class='stockpopup-with-form' data-stock-id='". $model->id ."' href='#link_popup' title='Удалить'><span class='glyphicon glyphicon-link'></span></a>";
+                        },
                     ],
+                    'template' => '{view}{update}{delete}{addlink}',
                     'contentOptions' => ['class' => 'action-column'],
                 ],
                 [
@@ -105,6 +109,13 @@ $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']
             ]
         ]) ?>
         <?php Pjax::end(); ?>
+        <div class="mfp-hide popup-data" id="link_popup">
+            <div class="popup-data">
+                <div class="content">
+                    <div class="f-15 fw-semi-bold">Загрузка...</div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

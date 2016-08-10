@@ -16,13 +16,13 @@
 
         public function scenarios(){
             return [
-                'default' => ['categoryId', 'discount', 'commissionType', 'description', 'title', 'price', 'picture', 'startDate', 'endDate'],
+                'default' => ['id','categoryId', 'discount', 'commissionType', 'description', 'title', 'price', 'picture', 'startDate', 'endDate', 'link'],
             ];
         }
 
         public function rules(){
             return [
-
+                ['link', 'url', 'message'=>'Не верный url']
             ];
         }
 
