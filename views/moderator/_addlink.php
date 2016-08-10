@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 </div>
 
 <div class="mtop-20 cta">
-    <?= Html::submitButton('Войти', ['class' => 'btn btn-blue', 'name' => 'login-button']) ?>
+    <?= Html::submitButton('Добавить', ['class' => 'btn btn-blue', 'name' => 'login-button']) ?>
 </div>
 <?php ActiveForm::end(); ?>
 

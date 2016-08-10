@@ -82,7 +82,7 @@ $this->title = 'Все Акции';
                             <div class="dib w-20">
                                 <a href="#" class="btn edit" disabled="true"></a>
                                 <a href="#" class="btn refresh" disabled="true"></a>
-                                <a href="<?= Yii::$app->urlManager->createUrl(['partner/stock', 'id' => $stock->id]) ?>" class="btn open"></a>
+                                <a href="<?= isset($stock->link) ? $stock->link : '#' ?>" class="btn open" <?= isset($stock->link) ? '' : 'disabled="true"' ?>></a>
                             </div>
                         </div>
 

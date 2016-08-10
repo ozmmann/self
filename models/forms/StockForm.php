@@ -22,6 +22,7 @@
         public $condition;
         public $organizer;
         public $location;
+        public $link;
 
         public function rules(){
             return [
