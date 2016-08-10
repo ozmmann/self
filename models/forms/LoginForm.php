@@ -23,7 +23,7 @@
             if(!$this->hasErrors()){
                 $user = User::findByEmail($this->login);
                 if(!$user or !$user->validatePassword($this->password, $user->password)){
-                    $this->addError($attribute, 'Неверные Email или пароль!');
+                    $this->addError($attribute, 'Неверный Email или пароль!');
                 }
             }
         }

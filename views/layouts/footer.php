@@ -17,7 +17,7 @@ use yii\helpers\Url;
             <div class="dib vat w-33 w-md-33 md-text-center w-sm-100 sm-text-center mtop-sm-20 f-14 text-center">
                 <div class="dib text-left">
                     <div class="title fw-semi-bold f-30">Партнёрам</div>
-                    <a href="<?= Yii::$app->urlManager->createUrl(['/site/pages?view=privacy_policy']) ?>"
+                    <a href="<?= Yii::$app->urlManager->createUrl(['/site/pages?view=faq']) ?>"
                        target="_blank">Вопросы и ответы</a>
                 </div>
             </div>

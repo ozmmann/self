@@ -23,7 +23,7 @@
 
         <div class="db mtop-10">
             <div class="text">Изображение не подходящее под
-                <span class="dib"><span style="text-decoration: underline; color: #3dbaff;">гайдлайны</span>
+                <span class="dib"><span>гайдлайны</span>
                     <div class="helper ml-0">
                         <div class="helper-content-wrapper">
                             <div class="helper-content helper-right">

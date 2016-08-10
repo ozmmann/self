@@ -71,7 +71,7 @@ $this->title = 'Страница акции';
                     <div class="dib w-20">
                         <a href="<?= Yii::$app->urlManager->createUrl(['moderator/edit-stock', 'id' => $stock->id]) ?>" class="btn edit"></a>
                         <a href="#" class="btn refresh" disabled="true"></a>
-                        <a href="<?= isset($stock->link) ? $stock->link : '#' ?>" class="btn open" <?= isset($stock->link) ? '' : 'disabled="true"' ?>></a>
+                        <a href="<?= isset($stock->link) ? $stock->link : '#' ?>" target="_blank" class="btn open" <?= isset($stock->link) ? '' : 'disabled="true"' ?>></a>
                     </div>
                 </div>
 

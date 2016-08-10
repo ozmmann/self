@@ -73,7 +73,7 @@ $this->title = $stock['title'];
                         <a href="" class="btn edit" disabled="true"></a>
                         <a href="#" class="btn refresh" disabled="true"></a>
 <!--                        <a href="#" class="btn open" disabled="true"></a>-->
-                        <a href="<?= isset($stock->link) ? $stock->link : '#' ?>" class="btn open" <?= isset($stock->link) ? '' : 'disabled="true"' ?>></a>
+                        <a href="<?= isset($stock->link) ? $stock->link : '#' ?>" target="_blank" class="btn open" <?= isset($stock->link) ? '' : 'disabled="true"' ?>></a>
 
                     </div>
                 </div>
