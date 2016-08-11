@@ -2,7 +2,8 @@ $(document).ready(function () {
     $('select.chosen').chosen({
         allow_single_deselect: true,
         width: "100%",
-        no_results_text: "Ничего не найдено"
+        no_results_text: "Ничего не найдено",
+        search_contains: true
     });
 
     $('[type=url]').blur(function () {

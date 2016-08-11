@@ -16,7 +16,7 @@
                 ['email', 'email'],
                 ['email', 'exist',
                  'targetClass' => 'app\models\User',
-                 'message' => 'There is no user with such email.'
+                 'message' => 'Такого пользователя не существует.'
                 ],
             ];
         }

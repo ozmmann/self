@@ -72,9 +72,11 @@
         public static function getTreeForSelect($list, $offset = '', &$options = []){
             if (!is_null($list)) {
                 foreach ($list as $group) {
-                    $options[$group['id']] = $offset . $group['name'];
+                    $parentName = Stockcategory::findOne($group['id'])->parentName;
+                    $parentNameLabel = $parentName ? " ($parentName)" : '';
+                    $options[$group['id']] = $offset . $group['name'] . $parentNameLabel;
                     if (!is_null($group['children'])) {
-                        self::getTreeForSelect($group['children'], $offset . '-', $options);
+                        self::getTreeForSelect($group['children'], $offset . '- ', $options);
                     }
                 }
             }

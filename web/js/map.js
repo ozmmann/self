@@ -134,8 +134,6 @@ function codeAddress(inputId) {
 
             fillInAddress(inputId, results[0]);
 
-        } else {
-            alert('Что-то пошло не так: ' + status);
         }
     });
 }

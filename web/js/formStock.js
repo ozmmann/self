@@ -240,15 +240,15 @@ function phonePreview() {
 }
 
 function cutPrice(price){
-    if (price.toString().indexOf('.') != -1) {
-        if (price.toString().split(".")[1].length > 2) {
-            if (!isNaN(parseFloat(price))) {
-                price = parseFloat(price).toFixed(2);
-            }
-        }
-    }
+    // if (price.toString().indexOf('.') != -1) {
+    //     if (price.toString().split(".")[1].length > 2) {
+    //         if (!isNaN(parseFloat(price))) {
+    //             price = parseFloat(price).toFixed(2);
+    //         }
+    //     }
+    // }
     if (!isNaN(price)) {
-        return price;
+        return Math.ceil(price);
     }
 }
 
@@ -259,6 +259,18 @@ $(document).ready(function () {
     }
 
     phonePreview();
+
+    var number = document.getElementById('conditionform-countperson');
+
+// Listen for input event on numInput.
+    number.onkeydown = function(e) {
+        if(!((e.keyCode > 95 && e.keyCode < 106)
+            || (e.keyCode > 47 && e.keyCode < 58)
+            || e.keyCode == 8
+            || e.keyCode == 46)) {
+            return false;
+        }
+    }
 
     $('.address-row').each(function () {
         var id = $(this).find('.address').attr('id');
@@ -639,7 +651,12 @@ $(document).ready(function () {
     });
 
     input.addEventListener('change', function () {
-        keypressSlider.noUiSlider.set([null, this.value]);
+        keypressSlider.noUiSlider.set(this.value);
+    });
+
+    input.addEventListener('keyup', function () {
+        if (this.value)
+            keypressSlider.noUiSlider.set(this.value);
     });
 
     // Listen to keydown events on the input field.
@@ -648,6 +665,8 @@ $(document).ready(function () {
         // Convert the string to a number.
         var value = Number(keypressSlider.noUiSlider.get()),
             sliderStep = keypressSlider.noUiSlider.steps();
+
+        // keypressSlider.noUiSlider.set([null, this.value])
 
         // Select the stepping for the first handle.
         sliderStep = sliderStep[0];
@@ -670,11 +689,11 @@ $(document).ready(function () {
 
 
     $("#stockform-price").keyup(function (event) {
-        $('.price').text($(this).val());
+        $('.full-price').text($(this).val());
         countPrice();
         countProfit();
     }).change(function (event) {
-        $('.price').text($(this).val());
+        $('.full-price').text($(this).val());
         countPrice();
         countProfit();
     });

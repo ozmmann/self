@@ -7,7 +7,7 @@ $this->title = 'Успешное восстановление пароля';
             <img src="/img/success-image.png" class="img-response mtop-40 mtop-lg-80">
             <div class="f-34 lh-1-4 fw-semi-bold mtop-40">
                 Прекрасно.<br>
-                Новый пароль ждет в Вашем почтовое ящике!<br>
+                Теперь Вы можете войти используя новый пароль!<br>
             </div>
         </div>
     </div>

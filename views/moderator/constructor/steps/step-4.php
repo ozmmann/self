@@ -15,14 +15,12 @@
                     <div class="helper">
                         <div class="helper-content-wrapper">
                             <div class="helper-content">
-                                <p>
-                                    Полная стоимость предоставляемой вами услуги без учета скидки
-                                </p>
+                                Полная стоимость предоставляемой вами услуги без учета скидки
                             </div>
                         </div>
                     </div>
                 </h3>
-                <div class="dib w-30 f-14 fw-light"><span class="price">20</span> <span class="f-12 c-gray">грн</span></div>
+                <div class="dib w-30 f-14 fw-light"><span class="full-price">20</span> <span class="f-12 c-gray">грн</span></div>
             </div>
 
             <div class="db f-0">
@@ -30,9 +28,7 @@
                     <div class="helper">
                         <div class="helper-content-wrapper">
                             <div class="helper-content">
-                                <p>
-                                    Скидка, которую вы даете нашемупользователю. От процента скидки зависят некоторые условия размещения акции. Чем больше скидка - тем выгоднее условия.
-                                </p>
+                                Скидка, которую вы даете нашему пользователю. От процента скидки зависят некоторые условия размещения акции. Чем больше скидка - тем выгоднее условия.
                             </div>
                         </div>
                     </div>
@@ -51,9 +47,7 @@
                     <div class="helper mtop-10 pull-right">
                         <div class="helper-content-wrapper">
                             <div class="helper-content">
-                                <p>
-                                    Опишите на что распространяется скидка. Например: "Рыбалка для одного человека за 65 грн. вместо 100 грн."
-                                </p>
+                                Опишите на что распространяется скидка. Например: "Рыбалка для одного человека за 65 грн. вместо 100 грн."
                             </div>
                         </div>
                     </div>

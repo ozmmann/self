@@ -4,10 +4,12 @@ namespace app\controllers;
 
 use app\models\City;
 use app\models\Confirm;
+use app\models\forms\NewPasswordForm;
 use app\models\forms\RegistrationForm;
 use app\models\forms\RestorePasswordForm;
 use app\models\Restore;
 use app\models\Stocktype;
+use app\models\User;
 use yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -116,7 +118,6 @@ class SiteController extends Controller{
             } else {
 
                 throw new yii\base\UserException('Ошибка восстановления! Обратитесь к администратору');
-//                return $this->render('errorPasswordRestore');
             }
         }
 
@@ -125,11 +126,24 @@ class SiteController extends Controller{
     }
 
     public function actionRestorePassword($token){
-        if(Restore::restorePassword($token)){
-            return $this->render('successPasswordRestoreRequest');
+        $model = new NewPasswordForm();
+        if($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $now = time();
+            $restoreData = Restore::findOne(['link' => $token]);
+
+            if (!is_null($restoreData) and ($restoreData->sendDate + 3600 * 24) >= $now) {
+                $user = User::findOne(['id' => $restoreData->userId]);
+                $user->password = Yii::$app->getSecurity()
+                    ->generatePasswordHash($model->password);
+                if($user->save(false)){
+                    $restoreData->delete();
+                    return $this->render('successPasswordRestoreRequest');
+                } else {
+                    throw new yii\base\UserException('Ошибка восстановления! Проверте ссылку или обратитесь к администратору');
+                }
+            }
         }
 
-        throw new yii\base\UserException('Ошибка восстановления! Проверте ссылку или обратитесь к администратору');
-//        return $this->render('errorPasswordRestore');
+        return $this->render('newpasswordform', ['model' => $model]);
     }
 }

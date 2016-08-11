@@ -541,12 +541,6 @@ section.reviews {
     font-weight: 700;
 }
 
-.full-price {
-    color: #99acc4;
-    font-size: 16px;
-    text-decoration: line-through;
-}
-
 .price-with-discount {
     font-size: 39px;
     color: #00b6ff;
