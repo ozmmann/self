@@ -83,7 +83,10 @@ class SiteController extends Controller{
         if(Confirm::confirmEmail($confirm)){
             return $this->render('successConfirm');
         }
-        throw new yii\base\UserException('Ошибка подтверждения! Проверте ссылку или обратитесь к администратору');
+
+        $controllerUri = Yii::$app->user->isGuest ? Yii::$app->urlManager->createUrl(['site/login']) : '/'.Yii::$app->user->identity->getRole();
+        return $this->redirect($controllerUri);
+//        throw new yii\base\UserException('Ошибка подтверждения! Проверте ссылку или обратитесь к администратору');
 //        return $this->render('errorConfirm');
     }
 

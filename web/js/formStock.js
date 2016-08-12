@@ -31,7 +31,12 @@ function getAllocationTypes() {
                                 select.append('<option selected value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
                                 isEdit = true;
                             } else {
-                                select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+                                if(Object.keys(result).length > 1) {
+                                    select.append('<option value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+                                } else {
+                                    select.append('<option selected value="' + key + '" data-value="' + result[key]['value'] + '">' + result[key]['name'] + '</option>');
+                                    isEdit = true;
+                                }
                             }
                         }
                         select.parents('#commissionTypeWrap').removeClass('hidden');
