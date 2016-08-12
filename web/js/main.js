@@ -178,13 +178,14 @@ $(document).ready(function () {
             return false;
         });
 
-        $("form").submit(function () {
-            // submit more than once return false
-            $(this).submit(function () {
-                return false;
-            });
-            // submit once return true
-            return true;
-        });
+        // $("form").submit(function () {
+        //     // submit more than once return false
+        //     $(this).submit(function () {
+        //         alert('1');
+        //         return false;
+        //     });
+        //     // submit once return true
+        //     return true;
+        // });
     }
 );

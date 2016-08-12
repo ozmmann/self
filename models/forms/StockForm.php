@@ -32,7 +32,7 @@
                     'message' => 'Поле является обязательным'
                 ],
                 ['discount', 'number', 'min' => 1, 'max' => 100],
-                ['title', 'string', 'min' => 8, 'max' => 255],
+//                ['title', 'string', 'min' => 8, 'max' => 255],
                 ['price', 'number', 'min' => 1, 'max' => 999999]
             ];
         }

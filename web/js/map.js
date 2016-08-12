@@ -157,13 +157,19 @@ function geolocate() {
 function fillInAddress(addressId, place) {
     var cityId = "city_" + addressId;
 
-    document.getElementById(cityId).value = '';
+    // document.getElementsByClassName(cityId).value = '';
+    $('.' + cityId).each(function () {
+        $(this).val();
+    });
 
     for (var i = 0; i < place.address_components.length; i++) {
         var addressType = place.address_components[i].types[0];
         if (addressType == 'locality') {
             var val = place.address_components[i]['long_name'];
-            document.getElementById(cityId).value = val;
+            $('.' + cityId).each(function () {
+                $(this).val(val);
+            });
+            // document.getElementsByClassName(cityId).value = val;
         }
     }
 }

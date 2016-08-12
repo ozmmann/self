@@ -44,8 +44,15 @@ $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']
                     'attribute' => 'cityId',
                     'label' => 'Город',
                     'value' => 'user.city.name',
-                    'filter' => $cityList,
-                    'filterOptions' => ['class' => 'chosen-wrap'],
+//                    'filter' => $cityList,
+                    'content' => function ($model) {
+                        $cities = '';
+                        if($model->location['city']){
+                            $cities = implode(", ", $model->location['city']);
+                        }
+                        return $cities;
+                    },
+//                    'filterOptions' => ['class' => 'chosen-wrap'],
                 ],
                 [
                     'attribute' => 'category',

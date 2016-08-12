@@ -29,10 +29,13 @@
                         <div class="f-0 mtop-20">
                             <div class="dib w-50 f-14">
                                 <?= Html::textInput('LocationForm[city][]', $locationForm->city[$i], [
-                                    'class'       => 'w-85 city',
+                                    'class'       => 'city_address_1 w-85 city',
                                     'placeholder' => 'Киев',
                                     'disabled' => true,
                                     'id' => 'city_address_1'
+                                ]) ?>
+                                <?= Html::hiddenInput('LocationForm[city][]', $locationForm->city[$i], [
+                                    'class'       => 'city_address_1 city',
                                 ]) ?>
                             </div>
                             <div class="dib w-50 f-14 text-right">

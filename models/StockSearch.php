@@ -20,14 +20,14 @@
         public $userName;
         public $userEmail;
         public $cityName;
-        public $cityId;
+//        public $cityId;
         public $category;
 
         public function rules(){
             // only fields in rules() are searchable
             return [
                 [['id', 'userId'], 'integer'],
-                [['title', 'userName', 'userEmail', 'cityId', 'category', 'commissionType', 'status'], 'safe'],
+                [['title', 'userName', 'userEmail', 'category', 'commissionType', 'status'], 'safe'],
             ];
         }
 
@@ -72,10 +72,10 @@
                              ]);
 
             //['like', 'u.email', $this->userEmail])->andWhere(
-            if(!empty($this->cityId)){
-                $query->joinWith(['user.city c'])
-                      ->where(['c.id' => $this->cityId]);
-            }
+//            if(!empty($this->cityId)){
+//                $query->joinWith(['user.city c'])
+//                      ->where(['c.id' => $this->cityId]);
+//            }
 
             return $dataProvider;
         }

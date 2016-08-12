@@ -488,7 +488,8 @@ $(document).ready(function () {
         newLocation += '<textarea id="address_' + id + '" name="LocationForm[address][]" class="w-100 address" placeholder="ул. Парашютная 12/14 1"></textarea>';
         newLocation += '<div class="f-0 mtop-20">';
         newLocation += '<div class="dib w-50 f-14">';
-        newLocation += '<input id="city_' + addressId + '" class="w-85 city" name="LocationForm[city][]" placeholder="Киев" disabled="true">';
+        newLocation += '<input id="city_' + addressId + '" class="city_' + addressId + ' w-85 city" name="LocationForm[city][]" placeholder="Киев" disabled="true">';
+        newLocation += '<input type="hidden" class="city_' + addressId + '" name="LocationForm[city][]" >';
         newLocation += '</div>';
         newLocation += '<div class="dib w-50 f-14 text-right">';
         newLocation += '<input id="phone_' + addressId + '" class="w-100 phone" name="LocationForm[phone][]" placeholder="+380 (ХХ) ХХХ-ХХ-ХХ">';
