@@ -25,15 +25,18 @@
                         </div>
                         <div class="f-0 mtop-20">
                             <div class="dib w-50 f-14">
-                                <?= Html::textInput('LocationForm[city][]', $locationForm->city[$i], [
-                                    'class'       => 'w-85 city',
+                                <?= Html::textInput('LocationForm[city][]', isset($locationForm->city[$i]) ? $locationForm->city[$i] : '', [
+                                    'class'       => 'city_address_' . $i . ' w-85 city',
                                     'placeholder' => 'Киев',
                                     'disabled' => true,
                                     'id' => 'city_address_' . $i
                                 ]) ?>
+                                <?= Html::hiddenInput('LocationForm[city][]', isset($locationForm->city[$i]) ? $locationForm->city[$i] : '', [
+                                    'class'       => 'city_address_' . $i . ' city',
+                                ]) ?>
                             </div>
                             <div class="dib w-50 f-14 text-right">
-                                <?= Html::textInput('LocationForm[phone][]', $locationForm->phone[$i], [
+                                <?= Html::textInput('LocationForm[phone][]', isset($locationForm->phone[$i]) ? $locationForm->phone[$i] : '', [
                                     'class'       => 'w-100 phone',
                                     'placeholder' => '+380 (ХХ) ХХХ-ХХ-ХХ',
 //                                    'pattern'     => '/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/',

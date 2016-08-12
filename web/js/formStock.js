@@ -72,7 +72,7 @@ function getCategoryCover(categoryId) {
                 });
                 // wrap.empty();
                 for (var key in result) {
-                    if (result[key] == $('#stockform-picture').val()) {
+                    if (result[key].slice(4) == $('#stockform-picture').val()) {
                         wrap.prepend('<img src="' + result[key].slice(4) + '" class="img-thumbnail active" onclick="selectCover(this)">');
                     } else {
                         wrap.prepend('<img src="' + result[key].slice(4) + '" class="img-thumbnail" onclick="selectCover(this)">');

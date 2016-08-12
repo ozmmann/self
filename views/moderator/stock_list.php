@@ -41,9 +41,9 @@ $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']
                     'options' => ['width' => '100']
                 ],
                 [
-                    'attribute' => 'cityId',
+//                    'attribute' => 'cityId',
                     'label' => 'Город',
-                    'value' => 'user.city.name',
+//                    'value' => 'user.city.name',
 //                    'filter' => $cityList,
                     'content' => function ($model) {
                         $cities = '';

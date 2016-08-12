@@ -43,10 +43,20 @@ $this->title = 'Dashboard';
                     'format' => ['date', 'dd.MM.Y'],
                     'options' => ['width' => '100']
                 ],
+//                [
+//                    'attribute' => 'cityId',
+//                    'label' => 'Город',
+//                    'value' => 'user.city.name',
+//                ],
                 [
-                    'attribute' => 'cityId',
                     'label' => 'Город',
-                    'value' => 'user.city.name',
+                    'content' => function ($model) {
+                        $cities = '';
+                        if($model->location['city']){
+                            $cities = implode(", ", $model->location['city']);
+                        }
+                        return $cities;
+                    },
                 ],
                 [
                     'attribute' => 'category',
