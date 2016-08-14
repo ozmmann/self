@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <div id="covers-wrap" class="db image-gallery mtop-10">
+        <div id="covers-wrap" class="db image-gallery mtop-10 f-0">
             <div class="required-field">
                 <?= Html::activeHiddenInput($stockForm, 'picture') ?>
                 <div class="drop-zone">

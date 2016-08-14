@@ -28,8 +28,8 @@
 //                    mkdir(\Yii::$app->basePath.'/web/storage/users_uploads/'.$userId, 0777);
 //                }
                 $this->cover->saveAs(\Yii::$app->basePath.$this->coverName);
-                Image::thumbnail(\Yii::$app->basePath.$this->coverName, 100, 100)
-                     ->save(\Yii::$app->basePath.$this->thumbName);
+//                Image::thumbnail(\Yii::$app->basePath.$this->coverName, 100, 100)
+//                     ->save(\Yii::$app->basePath.$this->thumbName);
 
                 return true;
             }else{

@@ -106,7 +106,7 @@
                         } catch (Exception $e) {
                             Yii::error('Getting category folder images: ' . $e);
                         }
-                        
+
                         $userStorage = '/web/storage/users_uploads/'.Yii::$app->user->getId().'/';
                         try {
                             if (is_dir(Yii::$app->basePath . $userStorage)) {
@@ -137,9 +137,19 @@
 
                     $model->cover = UploadedFile::getInstance($model, 'cover');
                     if($model->upload()){
-                        return $model->thumbName;
+                        return $model->coverName;
                     }
 
+                    return 'error';
+                }
+
+                if(Yii::$app->request->isPost && Yii::$app->request->post('remove') == 1){
+                    $path = Yii::$app->request->post('path');
+                    $dir = Yii::$app->basePath . '/web';
+                    if(file_exists($dir . $path) && unlink($dir . $path)){
+
+                        return true;
+                    }
                     return 'error';
                 }
 
@@ -159,7 +169,7 @@
             $conditionForm = new ConditionForm();
             $organizerForm = new OrganizerForm();
             $locationForm = new LocationForm();
-            //            return var_dump(Yii::$app->request->post());
+
             if($stockForm->load(Yii::$app->request->post()) && $conditionForm->load(Yii::$app->request->post()) && $organizerForm->load(Yii::$app->request->post()) && $locationForm->load(Yii::$app->request->post())){
                 $validationStatus = $stockForm->validate();
                 $validationStatus = $organizerForm->validate() && $validationStatus;

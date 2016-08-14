@@ -6040,6 +6040,22 @@ select[multiple].input-lg {
   width: 13px;
   height: 13px;
 }
+#construtor_page #sidebar .image-gallery div.thumb-wrapper {
+  display: inline-block;
+  padding: 0;
+  margin: 0 5px 5px 0;
+  position: relative;
+}
+#construtor_page #sidebar .image-gallery div span.remove-btn {
+  font-size: 14px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  color: #00B7FF;
+}
+#construtor_page #sidebar .image-gallery div span.remove-btn:hover {
+  color: #FFDD08;
+}
 #construtor_page #sidebar .image-gallery img {
   display: inline-block;
   vertical-align: top;
@@ -6048,7 +6064,6 @@ select[multiple].input-lg {
   box-sizing: border-box;
   width: 95px;
   height: 50px;
-  margin: 0 5px 5px 0;
   cursor: pointer;
 }
 #construtor_page #sidebar .image-gallery img.active {
