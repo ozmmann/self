@@ -151,6 +151,7 @@ function whichMonth(dateString) {
 
 function unValid(el) {
     $(el).closest($('.valid')).removeClass('valid');
+    $('#w0').find('button[type=submit]').attr('disabled', false);
 }
 
 function countPrice() {
@@ -287,6 +288,11 @@ function cutPrice(price){
 }
 
 $(document).ready(function () {
+    $('#w0').find('button[type=submit]').click(function () {
+        $(this).attr('disabled', 'disabled');
+        this.form.submit();
+    });
+
     // $('.discount-but').click(changeDiscount);
     if ($('#stockform-picture').val()) {
         $('#stock-cover').attr('src', $('#stockform-picture').val());
