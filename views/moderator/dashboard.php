@@ -1,5 +1,6 @@
 <?php
 
+use app\assets\ModeratorAsset;
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
 use yii\helpers\Html;
@@ -9,7 +10,7 @@ use yii\widgets\Pjax;
 /** @var ActiveDataProvider $partnerProvider */
 /** @var ActiveDataProvider $stockProvider */
 
-$this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']);
+ModeratorAsset::register($this);
 $this->title = 'Dashboard';
 ?>
 
@@ -195,5 +196,6 @@ $this->title = 'Dashboard';
                 </div>
             </div>
         </div>
+        <?php include ('_loader.php') ?>
     </div>
 </div>

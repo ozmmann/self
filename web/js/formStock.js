@@ -176,6 +176,7 @@ function countProfit() {
     var commissionvalue = 0;
     var new_price = price - price * discount / 100;
     var profit = 0;
+    new_price = cutPrice(new_price);
 
     if (commissiontype.val() && commissiontype.val().toLowerCase() == 'percent') {
         commissionvalue = commissiontype.find(':selected').data('value');
@@ -208,8 +209,8 @@ function countProfit() {
 
     }
 
-    profit = cutPrice(profit);
-    $('#webmaster_reward').text(profit);
+    var profitFloat = cutPriceFloat(profit);
+    $('#webmaster_reward').text(profitFloat);
 }
 
 function validateEmpty(section) {
@@ -283,7 +284,7 @@ function cutPrice(price){
     //     }
     // }
     if (!isNaN(price)) {
-        return Math.ceil(price);
+        return Math.floor(price);
     }
 }
 

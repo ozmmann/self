@@ -13,22 +13,13 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class StockAsset extends AssetBundle
+class ModeratorAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/pickdate/classic.css',
-        'css/nouislider.min.css',
-        'css/pickdate/classic.date.css',
     ];
     public $js = [
-        'js/pickdate/picker.js',
-        'js/pickdate/picker.date.js',
-        'js/nouislider.min.js',
-        'js/wNumb.js',
-        'js/formStock.js',
-        'js/map.js',
         'js/updateStatus.js'
     ];
 

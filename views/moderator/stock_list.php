@@ -1,12 +1,13 @@
 <?php
 
+use app\assets\ModeratorAsset;
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 
 $title = isset($title) ? $title : 'Список акций';
 $this->title = $title;
-$this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']);
+ModeratorAsset::register($this);
 ?>
 
 <div class="container">
@@ -123,6 +124,7 @@ $this->registerJsFile('js/updateStatus.js', ['depends' => 'app\assets\AppAsset']
                 </div>
             </div>
         </div>
+        <?php include ('_loader.php') ?>
     </div>
 </div>
 
