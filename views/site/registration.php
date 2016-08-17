@@ -18,7 +18,7 @@ $this->title = 'Регистрация';
                 <div class="container">
                     <div class="form_wrap w-85 m-auto">
                         <h1 class="ttu f-32 fw-bold text-center">Укажите ваши данные</h1>
-                        <div class="text f-14 ttu text-center">Вся информация конфиденциальна и не будут переданы
+                        <div class="text f-14 ttu text-center">Вся информация конфиденциальна и не будет передана
                             третьим
                             лицам.
                         </div>
@@ -119,7 +119,7 @@ $this->title = 'Регистрация';
                                 <?php ActiveForm::end(); ?>
                             </div>
                             <div class="dib w-50 w-sm-100 w-md-100 vat mtop-sm-40 mtop-md-60 f-14 text-center">
-                                <div class="dib w-51 w-sm-100 w-md-80">
+                                <div class="dib w-55 w-sm-100 w-md-80">
                                     <div class="f-26">Сверхприбыльный
                                         маркетинг
                                     </div>
@@ -131,7 +131,7 @@ $this->title = 'Регистрация';
                                         успешными.
                                     </div>
                                 </div>
-                                <div class="dib w-51 w-sm-100 w-md-80 mtop-60">
+                                <div class="dib w-55 w-sm-100 w-md-80 mtop-60">
                                     <div class="f-26">У нас активные
                                         пользователи
                                     </div>
@@ -142,7 +142,7 @@ $this->title = 'Регистрация';
                                         Просто удивите их.
                                     </div>
                                 </div>
-                                <div class="dib w-51 w-sm-100 w-md-80 mtop-60">
+                                <div class="dib w-55 w-sm-100 w-md-80 mtop-60">
                                     <div class="f-26">Мы новый
                                         канал роста
                                     </div>

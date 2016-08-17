@@ -182,11 +182,11 @@ function countProfit() {
         var commissionUAH = new_price * commissionvalue / 100;
         profit = new_price - commissionUAH;
 
-        commissionvalue = cutPrice(commissionvalue);
+        commissionvalue = cutPriceFloat(commissionvalue);
 
         $('#commission_percent').find('.percent-amount').text(commissionvalue);
 
-        commissionUAH = cutPrice(commissionUAH);
+        commissionUAH = cutPriceFloat(commissionUAH);
 
         $('#commission_percent').find('.price-amount').text(commissionUAH);
         $('#commission_percent').removeClass('hidden');
@@ -195,7 +195,7 @@ function countProfit() {
         commissionvalue = commissiontype.find(':selected').data('value');
         profit = new_price;
 
-        commissionvalue = cutPrice(commissionvalue);
+        commissionvalue = cutPriceFloat(commissionvalue);
         $('#commission_fixed').find('.price-amount').text(commissionvalue);
 
         $('#commission_fixed').removeClass('hidden');
@@ -284,6 +284,19 @@ function cutPrice(price){
     // }
     if (!isNaN(price)) {
         return Math.ceil(price);
+    }
+}
+
+function cutPriceFloat(price){
+    if (price.toString().indexOf('.') != -1) {
+        if (price.toString().split(".")[1].length > 2) {
+            if (!isNaN(parseFloat(price))) {
+                price = parseFloat(price).toFixed(2);
+            }
+        }
+    }
+    if (!isNaN(price)) {
+        return price;
     }
 }
 
@@ -432,50 +445,54 @@ $(document).ready(function () {
             processData: false,
             data: formData,
             success: function (result) {
-                $('#stockform-picture').val(result);
-                $('.img-thumbnail').removeClass('active');
-                var img = '<div class="thumb-wrapper"><span class="remove-btn remove-uploaded glyphicon glyphicon-remove"></span><img src="' + result.slice(4) + '" class="active img-thumbnail" onclick="selectCover(this)"></div>';
-                if (isEmpty(el)) {
-                    el = $(self).parents('#covers-wrap');
-                    el.prepend(img);
-                } else {
-                    el.after(img);
-                }
-
-                $('#stockform-picture').val(result.slice(4).replace('thumb_', ''));
-                $('#stock-cover').attr('src', result.slice(4).replace('thumb_', ''));
-
-                $('.remove-uploaded').click(function () {
-                    if(!confirm("Удалить загруженное изображение")){
-                        return false;
+                if(result) {
+                    $('#stockform-picture').val(result);
+                    $('.img-thumbnail').removeClass('active');
+                    var img = '<div class="thumb-wrapper"><span class="remove-btn remove-uploaded glyphicon glyphicon-remove"></span><img src="' + result.slice(4) + '" class="active img-thumbnail" onclick="selectCover(this)"></div>';
+                    if (isEmpty(el)) {
+                        el = $(self).parents('#covers-wrap');
+                        el.prepend(img);
+                    } else {
+                        el.after(img);
                     }
 
-                    var self = $(this),
-                        thumb_wrapper = self.parents('.thumb-wrapper'),
-                        img = thumb_wrapper.children('img');
+                    $('#stockform-picture').val(result.slice(4).replace('thumb_', ''));
+                    $('#stock-cover').attr('src', result.slice(4).replace('thumb_', ''));
 
-                    self.css("pointer-events", "none");
-
-                    $.ajax({
-                        url: location.href,
-                        type: "post",
-                        data: {"path": img.attr('src'), 'remove': 1},
-                        success: function (result) {
-                            if(img.hasClass('active')) {
-                                $('#stockform-picture').val('');
-                                $('#stockform-picture').trigger('change');
-                                $('#stock-cover').attr('src', '/img/no-data.png');
-                            }
-
-                            $('#add-image').val('');
-
-                            thumb_wrapper.remove();
-                        },
-                        error: function () {
-                            getCategoryCover($('#stockform-categoryid').val());
+                    $('.remove-uploaded').click(function () {
+                        if (!confirm("Удалить загруженное изображение")) {
+                            return false;
                         }
+
+                        var self = $(this),
+                            thumb_wrapper = self.parents('.thumb-wrapper'),
+                            img = thumb_wrapper.children('img');
+
+                        self.css("pointer-events", "none");
+
+                        $.ajax({
+                            url: location.href,
+                            type: "post",
+                            data: {"path": img.attr('src'), 'remove': 1},
+                            success: function (result) {
+                                if (img.hasClass('active')) {
+                                    $('#stockform-picture').val('');
+                                    $('#stockform-picture').trigger('change');
+                                    $('#stock-cover').attr('src', '/img/no-data.png');
+                                }
+
+                                $('#add-image').val('');
+
+                                thumb_wrapper.remove();
+                            },
+                            error: function () {
+                                getCategoryCover($('#stockform-categoryid').val());
+                            }
+                        });
                     });
-                });
+                } else {
+                    alert('Не верный формат файла');
+                }
             }
         });
     });

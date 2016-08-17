@@ -17,8 +17,7 @@
             </div>
         </div>
         <div class="db mtop-30">
-            <h3>Напишите заголовок акции. Например:</h3>
-            <div class="text">Рыбалка для компании до 6 человек</div>
+            <h3>Напишите заголовок акции.</h3>
         </div>
         <div class="db">
             <div class="required-field">
@@ -73,7 +72,7 @@
         </div>
         <div class="db mtop-20 f-0">
             <div class="required-field">
-                <h3 class="dib vam w-70">Введите стоимость услуги</h3>
+                <h3 class="dib vam w-70">Введите стоимость услуги без скидки</h3>
                 <?= Html::activeInput('number', $stockForm, 'price', [
                     'class'       => 'dib vam w-30 f-14 text-center',
                     'placeholder' => "××× грн",

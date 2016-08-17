@@ -17,7 +17,7 @@
             return [
                 [['name', 'phone', 'stockTypeId', 'cityId'], 'required', 'message' => 'Поле является обязательным'],
                 ['name', 'trim'],
-                [['phone', 'secondPhone'], 'match', 'pattern' => '/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/'],
+                [['phone', 'secondPhone'], 'match', 'pattern' => '/^(\+?38\s?|)(|\()[0-9]{3}(|\))\s?(|\-)[0-9]{3}\s?(|\-)[0-9]{2}\s?(|\-)[0-9]{2}$/', 'message' => 'Не верный формат'],
                 ['site', 'url', 'defaultScheme' => ''],
                 ['status', 'in', 'range' => ['ACTIVE', 'INACTIVE', 'BLOCKED']],
                 ['inn', 'validINN'],
@@ -73,11 +73,11 @@
 
                 Email::sendEmail(
                     'mail-template-html',
-                    'Регистрация на Self Sevice для Pokupon&SuperDeal',
+                    'Добро пожаловать на Pokupon.ua & SuperDeal.ua',
                     $title,
                     $link,
                     $body,
-                    [Yii::$app->params['adminEmail'] => Yii::$app->name.' robot'],
+                    [Yii::$app->params['adminEmail'] => 'Pokupon.ua & SuperDeal.ua'],
                     $this->email
                 );
 
@@ -98,7 +98,7 @@
                     $title,
                     $link,
                     $body,
-                    [Yii::$app->params['adminEmail'] => Yii::$app->name.' robot'],
+                    [Yii::$app->params['adminEmail'] => 'Pokupon.ua & SuperDeal.ua'],
                     $this->email
                 );
             }

@@ -9,17 +9,17 @@ $this->title = 'Редактировать партнера';
     <div class="w-85 m-auto wrapper">
         <?php $form = ActiveForm::begin() ?>
         <?= $form->field($partnerForm, 'name')
-            ->textInput() ?>
+            ->textInput()->label('Имя') ?>
         <?= $form->field($partnerForm, 'phone')
-            ->input('tel') ?>
+            ->input('tel')->label('Телефон') ?>
         <?= $form->field($partnerForm, 'secondPhone')
-            ->input('tel') ?>
+            ->input('tel')->label('Второй телефон') ?>
         <?= $form->field($partnerForm, 'status')
             ->dropDownList([
                 'ACTIVE' => 'Активный',
                 'INACTIVE' => 'На модерации',
                 'BLOCKED' => 'Заблокирован'
-            ], [$partnerForm['status'] => ['seletion' => 'selected'], 'class' => 'default']) ?>
+            ], [$partnerForm['status'] => ['seletion' => 'selected'], 'class' => 'default'])->label('Статус') ?>
         <?= $form->field($partnerForm, 'cityId')
             ->label('Город')
             ->dropDownList(ArrayHelper::map($cityList, 'id', 'name'),
@@ -35,7 +35,7 @@ $this->title = 'Редактировать партнера';
                 'data-placeholder' => 'Выберите категорию услуг...',
             ]) ?>
         <?= $form->field($partnerForm, 'site')
-            ->input('url') ?>
+            ->input('url')->label('Сайт') ?>
         <?= $form->field($partnerForm, 'inn')->label('ИНН партнера')
             ->input('text') ?>
 

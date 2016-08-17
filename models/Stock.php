@@ -97,7 +97,7 @@
                                 'body' => $body
                             ]
                         )
-                        ->setFrom(Yii::$app->params['adminEmail'])
+                        ->setFrom([Yii::$app->params['adminEmail'] => 'Pokupon.ua & SuperDeal.ua'])
                         ->setTo($moderator->email)
                         ->setSubject(Yii::$app->name . '. Новая акция.');
                 }
@@ -145,7 +145,12 @@
                 $link = Yii::$app->urlManager->createAbsoluteUrl(['partner/stock', 'id' => $this->id]);
                 $body = "Здравствуйте, статус Вашей акции был изменен модератором на <strong>{$statuslabel}</strong>";
 
-                Email::sendEmail('mail-template-html', Yii::$app->name.'. Изменен статус у Вашей акции.', $title, $link, $body, [Yii::$app->params['adminEmail'] => Yii::$app->name.' robot'], $user->email);
+                Email::sendEmail('mail-template-html',
+                    Yii::$app->name.'. Изменен статус у Вашей акции.',
+                    $title,
+                    $link,
+                    $body,
+                    [Yii::$app->params['adminEmail'] => 'Pokupon.ua & SuperDeal.ua'], $user->email);
 
                 return true;
             }

@@ -22,7 +22,7 @@
                         'link' => $link,
                         'body' => $body
                     ]
-                )->setFrom(Yii::$app->params['adminEmail'])
+                )->setFrom([Yii::$app->params['adminEmail'] => 'Pokupon.ua & SuperDeal.ua'])
                     ->setTo($moderator->email)
                     ->setSubject(Yii::$app->name . '. Новый пользователь.');
             }

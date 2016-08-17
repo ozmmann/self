@@ -12,7 +12,7 @@
 
         public function rules(){
             return [
-                [['cover'], 'file', 'extensions' => 'png, jpg', 'maxSize' => 25000000],
+                [['cover'], 'file', 'extensions' => 'png, jpg, jpeg', 'maxSize' => 25000000],
             ];
         }
 

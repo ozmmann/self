@@ -52,7 +52,7 @@
                 $title,
                 $resetLink,
                 $body,
-                [Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot'],
+                [Yii::$app->params['adminEmail'] => 'Pokupon.ua & SuperDeal.ua'],
                 $this->email
             )){
                 return true;

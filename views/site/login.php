@@ -16,7 +16,7 @@ $this->title = 'Вход в кабинет';
             <div class="container">
                 <div class="form_wrap w-85 m-auto">
                     <h1 class="ttu f-32 fw-bold text-center">Укажите ваши данные</h1>
-                    <div class="text f-14 ttu text-center">Вся информация конфиденциальна и не будут переданы
+                    <div class="text f-14 ttu text-center">Вся информация конфиденциальна и не будет передана
                         третьим
                         лицам.
                     </div>

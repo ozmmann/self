@@ -53,7 +53,7 @@
             }
 
             $query = Stock::findByUserId(Yii::$app->user->getId())
-                          ->orderBy($order);
+                          ->orderBy('id DESC');
 
             $pagination = new Pagination([
                                              'defaultPageSize' => 10,
@@ -140,7 +140,7 @@
                         return $model->coverName;
                     }
 
-                    return 'error';
+                    return false;
                 }
 
                 if(Yii::$app->request->isPost && Yii::$app->request->post('remove') == 1){
@@ -232,11 +232,11 @@
 
             Email::sendEmail(
                 'mail-template-html',
-                'Регистрация на Self Sevice для Pokupon&SuperDeal',
+                'Добро пожаловать на Pokupon.ua & SuperDeal.ua',
                 $title,
                 $link,
                 $body,
-                [Yii::$app->params['adminEmail'] => Yii::$app->name.' robot'],
+                [Yii::$app->params['adminEmail'] => 'Pokupon.ua & SuperDeal.ua'],
                 $user->email
             );
 
