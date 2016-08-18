@@ -8,7 +8,7 @@ use yii\helpers\Url;
             <div class="dib vat w-33 w-md-33 md-text-center w-sm-100 sm-text-center f-14 text-center">
                 <div class="dib text-left">
                     <div class="title fw-semi-bold f-30">О нас</div>
-                    <a href="<?= Yii::$app->urlManager->createUrl(['/site/pages?view=terms']) ?>">Пользовательское
+                    <a href="<?= Yii::$app->urlManager->createUrl(['/site/pages?view=terms_' . Yii::$app->params['domain']]) ?>">Пользовательское
                         соглашение</a>
                     <a href="<?= Yii::$app->urlManager->createUrl(['/site/pages?view=privacy_policy']) ?>">Политика конфиденциальности</a>
                 </div>

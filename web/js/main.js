@@ -61,8 +61,10 @@ $(document).ready(function () {
                         type = password_input.attr('type');
                     if (type == 'text') {
                         password_input.attr('type', 'password');
+                        $(this).removeClass('active');
                     } else if (type == 'password') {
                         password_input.attr('type', 'text');
+                        $(this).addClass('active');
                     }
                 });
             }
@@ -178,14 +180,14 @@ $(document).ready(function () {
             return false;
         });
 
-        // $("form").submit(function () {
-        //     // submit more than once return false
-        //     $(this).submit(function () {
-        //         alert('1');
-        //         return false;
-        //     });
-        //     // submit once return true
-        //     return true;
-        // });
+        $('#addSecondPhone').click(function () {
+            $('#secondPhoneWrapper').removeClass('hidden');
+            $(this).remove();
+        });
+
+        $("#slider").slick({
+            dots: true,
+            arrows: false
+        });
     }
 );

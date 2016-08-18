@@ -116,13 +116,29 @@
                 </div>
             </div>
             <div id="commission_percent" class="dib w-50 mtop-10">
-                <h3 class="help">Наша комиссия по акции составит:</h3>
+                <h3>Наша комиссия по акции составит:
+                    <div class="helper">
+                        <div class="helper-content-wrapper">
+                            <div class="helper-content">
+                                Это комиссия которую мы удерживаем с продажи каждого купона на нашем сайте
+                            </div>
+                        </div>
+                    </div>
+                </h3>
                 <div class="db f-12 fw-semi-bold">
                     <span class="percent-amount f-20">0</span>% <span class="f-20">=</span> <span class="price-amount f-20">0</span> грн.
                 </div>
             </div>
             <div id="commission_fixed" class="dib w-50 mtop-10">
-                <h3 class="help">Наша комиссия по акции составит:</h3>
+                <h3>Наша комиссия по акции составит:
+                    <div class="helper">
+                        <div class="helper-content-wrapper">
+                            <div class="helper-content">
+                                Это комиссия которую мы удерживаем с продажи каждого купона на нашем сайте
+                            </div>
+                        </div>
+                    </div>
+                </h3>
                 <div class="db f-12 fw-semi-bold">
                     <span class="price-amount f-20">0</span> грн/мес.
                 </div>

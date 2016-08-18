@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4bb3a0c067620c215d814482919f8f1a",
-    "content-hash": "ebe9e10b0ceb9deb3c130acba451ad97",
+    "hash": "0e14e26815c3f8ef57dbadb805d492e0",
+    "content-hash": "b28923c314d2fb4c0cf5cbcbf02c6a5e",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -350,6 +350,52 @@
                 "image processing"
             ],
             "time": "2013-07-10 17:25:36"
+        },
+        {
+            "name": "smilemd/yii2-htmlcompress",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smilemd/yii2-htmlcompress.git",
+                "reference": "26a43368369525cd4557c21553424b5e635177b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smilemd/yii2-htmlcompress/zipball/26a43368369525cd4557c21553424b5e635177b5",
+                "reference": "26a43368369525cd4557c21553424b5e635177b5",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "smilemd\\htmlcompress\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "SmileMD",
+                    "email": "smileeerr@gmail.com"
+                }
+            ],
+            "description": "Compress HTML output into a single line",
+            "homepage": "https://github.com/smilemd/yii2-htmlcompress",
+            "keywords": [
+                "compress",
+                "html",
+                "minify",
+                "minimize",
+                "output",
+                "view",
+                "yii2"
+            ],
+            "time": "2016-08-14 12:16:50"
         },
         {
             "name": "swiftmailer/swiftmailer",

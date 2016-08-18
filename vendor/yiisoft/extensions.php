@@ -66,4 +66,13 @@ return array (
       '@yii/imagine' => $vendorDir . '/yiisoft/yii2-imagine',
     ),
   ),
+  'smilemd/yii2-htmlcompress' => 
+  array (
+    'name' => 'smilemd/yii2-htmlcompress',
+    'version' => '1.0.4.0',
+    'alias' => 
+    array (
+      '@smilemd/htmlcompress' => $vendorDir . '/smilemd/yii2-htmlcompress/src',
+    ),
+  ),
 );

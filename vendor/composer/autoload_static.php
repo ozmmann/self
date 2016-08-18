@@ -24,6 +24,10 @@ class ComposerStaticInitad58df8b1fd64fa34d7ad92f21fd7f5c
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
         ),
+        's' => 
+        array (
+            'smilemd\\htmlcompress\\' => 21,
+        ),
         'c' => 
         array (
             'cebe\\markdown\\' => 14,
@@ -70,6 +74,10 @@ class ComposerStaticInitad58df8b1fd64fa34d7ad92f21fd7f5c
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'smilemd\\htmlcompress\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/smilemd/yii2-htmlcompress/src',
         ),
         'cebe\\markdown\\' => 
         array (

@@ -9,12 +9,22 @@
             $url = '';
         }
 
-        $email = strpos($url, 'superdeal') !== false ? 'partners@superdeal.com.ua' : 'partners@pokupon.ua';
+        if(strpos($url, 'superdeal') !== false){
+            $email = 'partners@superdeal.com.ua';
+            $domain = 'superdeal';
+        } else {
+            $email = 'partners@pokupon.ua';
+            $domain = 'pokupon';
+        }
+        
     } else {
         $email = 'partners@pokupon.ua';
+        $domain = 'pokupon';
+
     }
     return [
-        'adminEmail'          => $email,
+        'adminEmail'        => $email,
+        'domain'            => $domain,
         'commissionType'      => [
             //            'label'   => 'Тип',
             'FREE'    => 'Я размещаюсь бесплатно за высокий % скидки в моей категории',
@@ -38,5 +48,5 @@
             'BLOCKED'  => 'Заблокирован'
         ],
         'userStatusLabel' => 'Статус',
-        
+
     ];

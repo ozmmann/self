@@ -1084,5 +1084,53 @@
             "responsive",
             "web"
         ]
+    },
+    {
+        "name": "smilemd/yii2-htmlcompress",
+        "version": "1.0.4",
+        "version_normalized": "1.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/smilemd/yii2-htmlcompress.git",
+            "reference": "26a43368369525cd4557c21553424b5e635177b5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/smilemd/yii2-htmlcompress/zipball/26a43368369525cd4557c21553424b5e635177b5",
+            "reference": "26a43368369525cd4557c21553424b5e635177b5",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*"
+        },
+        "time": "2016-08-14 12:16:50",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "smilemd\\htmlcompress\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "SmileMD",
+                "email": "smileeerr@gmail.com"
+            }
+        ],
+        "description": "Compress HTML output into a single line",
+        "homepage": "https://github.com/smilemd/yii2-htmlcompress",
+        "keywords": [
+            "compress",
+            "html",
+            "minify",
+            "minimize",
+            "output",
+            "view",
+            "yii2"
+        ]
     }
 ]

@@ -1,6 +1,5 @@
 <?php
     $this->title = 'Добро пожаловать';
-    $this->registerJsFile('js/slick.min.js', ['depends' => 'app\assets\AppAsset']);
 
     if(Yii::$app->user->isGuest) {
         $controllerUri = Yii::$app->urlManager->createUrl('site/registration');
@@ -204,12 +203,3 @@
         </div>
     </div>
 </div>
-<?php
-    $this->registerJs(
-        '
-        $("#slider").slick({
-            dots: true,
-            arrows: false
-        });
-        '
-    );

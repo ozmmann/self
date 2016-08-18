@@ -28,7 +28,8 @@ class AppAsset extends AssetBundle
         'js/hammer.min.js',
         'js/main.js',
         'js/jquery.magnific-popup.min.js',
-        'js/jquery.mask.min.js'
+        'js/jquery.mask.min.js',
+        'js/slick.min.js'
     ];
 
     public $depends = [

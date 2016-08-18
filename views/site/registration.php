@@ -159,11 +159,3 @@ $this->title = 'Регистрация';
             </div>
         </div>
     </div>
-<?php
-$this->registerJs("
-    $('#addSecondPhone').click(function () {
-        $('#secondPhoneWrapper').removeClass('hidden');
-        $(this).prop('disabled', true);
-    });
-    ");
-?>

@@ -66,6 +66,11 @@ $config = [
             'appendTimestamp'   => true,
             'bundles' => require('assets-prod.php'),
         ],
+        'view' => [
+            'class' => '\smilemd\htmlcompress\View',
+            'compress' => true,
+            // ...
+        ]
     ],
     'params' => $params,
 ];
