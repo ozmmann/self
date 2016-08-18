@@ -60,7 +60,7 @@ $this->title = 'Вход в кабинет';
                             <?php ActiveForm::end(); ?>
                         </div>
                         <div class="dib w-50 w-sm-100 w-md-100 vat mtop-sm-40 mtop-md-60 f-14 text-center">
-                            <div class="dib w-50 w-sm-100 w-md-80">
+                            <div class="dib w-55 w-sm-100 w-md-80">
                                 <div class="f-26">Сверхприбыльный
                                     маркетинг
                                 </div>
@@ -72,7 +72,7 @@ $this->title = 'Вход в кабинет';
                                     успешными.
                                 </div>
                             </div>
-                            <div class="dib w-50 w-sm-100 w-md-80 mtop-60">
+                            <div class="dib w-55 w-sm-100 w-md-80 mtop-60">
                                 <div class="f-26">У нас активные
                                     пользователи
                                 </div>
@@ -83,7 +83,7 @@ $this->title = 'Вход в кабинет';
                                     Просто удивите их.
                                 </div>
                             </div>
-                            <div class="dib w-50 w-sm-100 w-md-80 mtop-60">
+                            <div class="dib w-55 w-sm-100 w-md-80 mtop-60">
                                 <div class="f-26">Мы новый
                                     канал роста
                                 </div>
