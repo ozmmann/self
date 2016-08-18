@@ -313,7 +313,18 @@ textarea {
   top: 0;
   left: 0;
   background: #15292c;
-  opacity: .2;
+  /* This works in IE 8 & 9 too */
+  /* ... but also 5, 6, 7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=20);
+  /* Older than Firefox 0.9 */
+  -moz-opacity: 0.2;
+  /* Safari 1.x (pre WebKit!) */
+  -khtml-opacity: 0.2;
+  /* Modern!
+    /* Firefox 0.9+, Safari 2?, Chrome any?
+    /* Opera 9+, IE 9+ */
+  opacity: 0.2;
 }
 .slick-initialized .slick-slide {
   display: block;
