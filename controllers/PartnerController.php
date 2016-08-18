@@ -74,6 +74,10 @@
         }
 
         public function actionCreateStock(){
+            if(!$this->isConfirmed()){
+                return $this->render('index_not_confirmed');
+            }
+
             if(Yii::$app->user->identity->getStatus() != 'active'){
                 return $this->render('success_page');
             }
