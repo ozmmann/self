@@ -7,7 +7,6 @@ use yii\widgets\Pjax;
 
 $title = isset($title) ? $title : 'Список акций';
 $this->title = $title;
-ModeratorAsset::register($this);
 ?>
 
 <div class="container">

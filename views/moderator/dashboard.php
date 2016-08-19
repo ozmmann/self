@@ -10,7 +10,6 @@ use yii\widgets\Pjax;
 /** @var ActiveDataProvider $partnerProvider */
 /** @var ActiveDataProvider $stockProvider */
 
-ModeratorAsset::register($this);
 $this->title = 'Dashboard';
 ?>
 

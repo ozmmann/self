@@ -29,7 +29,6 @@ class StockAsset extends AssetBundle
         'js/wNumb.js',
         'js/formStock.js',
         'js/map.js',
-        'js/updateStatus.js'
     ];
 
     public $depends = [
