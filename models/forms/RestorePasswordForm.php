@@ -48,7 +48,7 @@
 
             if(Email::sendEmail(
                 'mail-template-html',
-                Yii::$app->name . '. Восстановление пароля для ',
+                Yii::$app->name . '. Восстановление пароля',
                 $title,
                 $resetLink,
                 $body,
