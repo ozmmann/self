@@ -21,4 +21,9 @@
         public function getUser(){
             return self::hasMany(User::className(), ['id' => 'cityId']);
         }
+
+        public static function find()
+        {
+            return parent::find()->orderBy('name');
+        }
     }
