@@ -5,7 +5,7 @@
     <a href="#" class="row-title">На что действует акция</a>
     <div class="row-content">
         <div class="db">
-            <div class="text c-black">Напишите, что получит пользователь воспользовавшись вашей акцией</div>
+            <div class="text c-black">Опишите суть вашего акционного предложения</div>
         </div>
 
         <div class="coupon-row">
@@ -60,8 +60,7 @@
             <button type="button" class="btn btn-yellow btn-next-step">Дальше</button>
         </div>
         <div class="db mtop-30">
-            <div class="text"><sup>*</sup>Обратите внимание, что наша редакция может изменить или отредактировать ваш
-                текст, перед запуском акции
+            <div class="text"><sup>*</sup>Обратите внимание, что наша редакция может изменить ваш текст, перед запуском акции.
             </div>
         </div>
     </div>

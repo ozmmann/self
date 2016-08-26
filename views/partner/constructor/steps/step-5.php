@@ -1,5 +1,6 @@
 <?php
-    use yii\helpers\Html;
+use yii\helpers\Html;
+
 ?>
 <div class="row">
     <a href="#" class="row-title">Добавьте условия акции</a>
@@ -24,15 +25,15 @@
                     <?= Html::activeInput('number', $conditionForm, 'countPerson', ['class' => 'form-control', 'value' => 1, 'min' => 1]) ?>
                 </div>
             </div>
-            <?= Html::activeCheckbox($conditionForm, 'preEntry', ['label' => '<i></i><span>Обязательная запись</span>']) ?>
+            <?= Html::activeCheckbox($conditionForm, 'preEntry', ['label' => '<i></i><span>Обязательна предварительная запись</span>']) ?>
 
-            <?= Html::activeCheckbox($conditionForm, 'preCall', ['label' => '<i></i><span>Перед визитом, свяжитесь с администрацией</span>']) ?>
+            <?= Html::activeCheckbox($conditionForm, 'preCall', ['label' => '<i></i><span>Перед визитом свяжитесь с администрацией</span>']) ?>
 
             <?= Html::activeCheckbox($conditionForm, 'discountSum', ['label' => '<i></i><span>Скидка по купону не суммируется с другими предложениями заведения</span>']) ?>
 
-            <?= Html::activeCheckbox($conditionForm, 'dispatcherCall', ['label' => '<i></i><span>Для получения скидки, необходимо сообщить код диспетчеру</span>']) ?>
+            <?= Html::activeCheckbox($conditionForm, 'dispatcherCall', ['label' => '<i></i><span>Для получения скидки необходимо назвать код купона</span>']) ?>
 
-            <?= Html::activeCheckbox($conditionForm, 'showCoupon', ['label' => '<i></i><span>Предьявите сертификат в электронном или распечатанном виде</span>']) ?>
+            <?= Html::activeCheckbox($conditionForm, 'showCoupon', ['label' => '<i></i><span>Предъявите сертификат в электронном или распечатанном виде</span>']) ?>
 
             <div class="db mtop-10">
                 <h3>Свое условие</h3>

@@ -67,7 +67,7 @@
 //                $userRole = $auth->getRole($createdUser->getRole());
 //                $auth->assign($userRole, $createdUser->getId());
                 
-                $title = "ПЕРЕЙДИТЕ <br>НА СЛЕДУЮЩИЙ ШАГ";
+                $title = "Подтвердите регистрацию, <br>нажав на кнопку";
                 $link = Yii::$app->urlManager->createAbsoluteUrl(['site/confirm', 'confirm' => $confirmLink]);
                 $body ="Перейдите на следующий шаг, чтобы подтвердить регистрацию.";
 

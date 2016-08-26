@@ -2,7 +2,7 @@
     use yii\helpers\Html;
 ?>
 <div class="row">
-    <a href="#" class="row-title">Выберите Заявочное изображение</a>
+    <a href="#" class="row-title">Выберите картинку акции</a>
     <div class="row-content">
         <div class="db">
             <div class="text c-black">Загрузите своё изображение<span class="hidden default-images"> или выберите одно из предложенных</span>:

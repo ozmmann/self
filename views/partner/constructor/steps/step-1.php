@@ -2,7 +2,7 @@
     use yii\helpers\Html;
 ?>
 <div class="row active">
-    <a href="#" class="row-title">Выберете категорию услуги</a>
+    <a href="#" class="row-title">Выберите категорию услуги</a>
     <div class="row-content">
         <div class="db">
 <!--            --><?//= $form->field($stockForm, 'categoryId')
@@ -27,12 +27,12 @@
                 </div>
         </div>
         <div class="db mtop-30">
-            <h3>Напишите заголовок акции.</h3>
+            <h3>Напишите заголовок для акции.</h3>
         </div>
         <div class="db">
             <div class="required-field">
                 <?= Html::activeTextarea($stockForm, 'title', [
-                    'placeholder' => "Напишите заголовок акции на сайте",
+                    'placeholder' => "Например: Рыбалка для компании до 6 человек со скидкой 10%",
                     'maxLength' => 255
                 ]) ?>
                 <div class="text">95 символов осталось</div>

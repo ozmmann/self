@@ -80,12 +80,11 @@
             </div>
             <div class="w-33 w-sm-100 mtop-sm-40 dib f-14 vat">
                 <img src="/img/landing-icon-3.png" class="img-response">
-                <div class="fw-bold f-30">Мы новый <br>
+                <div class="fw-bold f-30">Мы - новый <br>
                     канал роста
                 </div>
                 <div class="text fw-light lh-1-4 w-80 m-auto mtop-30">
-                    Начните продавать в интернете еще больше. Разместие одну акцию и вы получите аудиторию более 2 млн.
-                    человек
+                    Увеличьте прибыль от продаж в интернете. Разместив акцию, вы получите аудиторию более 2 млн. человек.
                 </div>
             </div>
         </div>
@@ -95,8 +94,7 @@
         <div class="container text-center">
             <div class="w-90 m-auto c-white">
                 <div class="f-30 fw-bold">Присоединяйтесь к более 10 000 продавцов</div>
-                <div class="mtop-40 fw-light f-20 lh-1-4">Они уже нашли новых клиентов и начали зарабатывать больше <br>
-                    без предварительных затрат.
+                <div class="mtop-40 fw-light f-20 lh-1-4">Они уже нашли новых клиентов и увеличили прибыль без предварительных затрат.
                 </div>
                 <a href="<?= $controllerUri ?>" class="btn btn-yellow mtop-40">НАЧАТЬ</a>
             </div>

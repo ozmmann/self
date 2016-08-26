@@ -96,10 +96,10 @@
                 <tr valign="middle">
                     <td align="center" bgcolor="#66b3ff" height="120">
                         <font face="Arial" color="#ffffff" size="2" style="font-size: 12px;">
-                            Вы получили это письмо, потому что оставили заявку на нашем сайте. <br>
-                            Если это были не вы пожалуйста <a href="mailto:<?= Yii::$app->params['adminEmail'] ?>"
+                            Вы получили это письмо, потому что оставили заявку на нашем сайте.
+                            Если это были не вы, пожалуйста, <a href="mailto:<?= Yii::$app->params['adminEmail'] ?>"
                                                               class="blue-link"
-                                                              style="text-decoration: underline; color: #fff;">свяжитесь с нами</a>
+                                                              style="text-decoration: underline; color: #fff;">свяжитесь с нами</a>.
                         </font>
                     </td>
                 </tr>
