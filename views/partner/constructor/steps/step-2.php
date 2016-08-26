@@ -22,8 +22,8 @@
         </div>
 
         <div class="db mtop-10">
-            <div class="text">Изображение не подходящее под
-                <span class="dib"><span>гайдлайны</span>
+            <div class="text">Изображение не соответствующее
+                <span class="dib"><span>требованиям</span>
                     <div class="helper ml-0">
                         <div class="helper-content-wrapper">
                             <div class="helper-content helper-right">
@@ -36,8 +36,7 @@
                         </div>
                     </div>
                 </span>
-                Покупона&Супердила, будет автоматически заменено
-                случайной картинкой из нашей базы
+                Покупона&Супердила, будет автоматически заменено случайной картинкой из нашей базы.
             </div>
         </div>
         <div class="db mtop-40 text-right">

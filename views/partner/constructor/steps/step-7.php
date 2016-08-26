@@ -6,7 +6,7 @@ use yii\helpers\Html;
     <div class="row-content">
         <div class="db">
             <div class="text c-black">
-                Выберете желаемую дату старта вашей акции на POKUPON & SUPERDEAL
+                Выберите желаемую дату старта вашей акции на POKUPON & SUPERDEAL
             </div>
         </div>
         

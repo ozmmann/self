@@ -66,7 +66,7 @@
 
         <span id="loading" class="hidden">Загрузка...</span>
         <div class="db required hidden" id="commissionTypeWrap">
-            <h3 class="help">Выберете тип размещения</h3>
+            <h3 class="help">Выберите тип размещения</h3>
             <div class="db mtop-10">
                 <div class="required-field">
                     <?= Html::activeDropDownList(
@@ -120,7 +120,7 @@
                     <div class="helper">
                         <div class="helper-content-wrapper">
                             <div class="helper-content">
-                                Это комиссия которую мы удерживаем с продажи каждого купона на нашем сайте
+                                Это комиссия, которую мы взимаем с продажи за каждый купон на нашем сайте.
                             </div>
                         </div>
                     </div>
