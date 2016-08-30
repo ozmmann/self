@@ -45,12 +45,15 @@
          */
         public function saveCommissions($insert){
             $bool = true;
-            $models = Commission::find()
+            $modelR = Commission::find()
                                 ->where(['stockCategoryId' => $this->stockCategoryId]);
-            if(!$insert && $models->count() > 0){
+            $modelG = Commission::find()
+                ->where(['stockCategoryId' => $this->stockCategoryId]);
+
+            if(!$insert && $modelR->count() > 0){
 
                 /** @var Commission $modelRegion */
-                $modelRegion = $models->where(['cityType' => 'REGION'])
+                $modelRegion = $modelR->andWhere(['cityType' => 'REGION'])
                                       ->one();
                 $modelRegion->fixed = $this->fixedRegion;
                 $modelRegion->percent = $this->percentRegion;
@@ -58,7 +61,7 @@
                 $modelRegion->stockCategoryId = $this->stockCategoryId;
 
                 /** @var Commission $modelGhost */
-                $modelGhost = $models->where(['cityType' => 'GHOST'])
+                $modelGhost = $modelG->andWhere(['cityType' => 'GHOST'])
                                      ->one();
                 $modelGhost->fixed = $this->fixedGhost;
                 $modelGhost->percent = $this->percentGhost;
@@ -89,11 +92,15 @@
 
         public static function getModels($catId){
             $form = new CommissionForm();
-            $models = Commission::find()
+            $modelR = Commission::find()
                                 ->where(['stockCategoryId' => $catId]);
-            if($models->count() > 0){
+
+            $modelG = Commission::find()
+                                ->where(['stockCategoryId' => $catId]);;
+
+            if($modelR->count() > 0){
                 /** @var Commission $modelRegion */
-                $modelRegion = $models->where(['cityType' => 'REGION'])
+                $modelRegion = $modelR->andWhere(['cityType' => 'REGION'])
                                       ->one();
                 $form->stockCategoryId = $modelRegion->stockCategoryId;
                 $form->idRegion = $modelRegion->id;
@@ -102,7 +109,7 @@
                 $form->freeRegion = $modelRegion->free;
 
                 /** @var Commission $modelGhost */
-                $modelGhost = $models->where(['cityType' => 'GHOST'])
+                $modelGhost = $modelG->andWhere(['cityType' => 'GHOST'])
                                      ->one();
                 $form->idGhost = $modelGhost->id;
                 $form->percentGhost = $modelGhost->percent;
