@@ -11,6 +11,10 @@
             ];
         }
 
+        public static function tableName(){
+            return '{{%city}}';
+        }
+
         public function scenarios(){
             return [
                 'default' => ['name', 'notGhost']
@@ -24,6 +28,6 @@
 
         public static function find()
         {
-            return parent::find()->orderBy('name');
+            return parent::find()->orderBy(self::tableName() . '.name');
         }
     }
