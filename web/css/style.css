@@ -6056,7 +6056,7 @@ select[multiple].input-lg {
   outline: none;
 }
 #construtor_page #sidebar textarea {
-  height: 100px;
+  height: 120px;
   padding: 15px;
   resize: vertical;
 }
@@ -6298,15 +6298,17 @@ select[multiple].input-lg {
   position: absolute;
   background: #fff;
   margin: auto;
-  left: 0;
+  left: 50%;
   right: 0;
+  margin-left: -1px;
   top: 0;
   bottom: 0;
-  width: 30%;
+  width: 50%;
   border: 1px solid #30bbfe;
   border-top: 0;
   border-bottom: 0;
   background: #d6f1ff;
+  border-radius: 0px 5px 5px 0;
 }
 #construtor_page #sidebar .picker__day {
   display: inline-block;
@@ -6747,7 +6749,6 @@ select[multiple].input-lg {
 }
 #cabinet .data-row > div .btn[disabled] {
   opacity: 0.6;
-  pointer-events: none;
 }
 .login-popup .bg {
   position: fixed;
