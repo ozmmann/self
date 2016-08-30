@@ -70,10 +70,10 @@ $this->title = $stock['title'];
                         <?= $label ? $stock->commissionValue : "" ?><?= $label ? $label : 'б/п размещение' ?>
                     </div>
                     <div class="dib w-20">
-                        <a href="" class="btn edit" disabled="true"></a>
-                        <a href="#" class="btn refresh" disabled="true"></a>
+<!--                        <a href="" class="btn edit" disabled="true"></a>-->
+<!--                        <a href="#" class="btn refresh" disabled="true"></a>-->
 <!--                        <a href="#" class="btn open" disabled="true"></a>-->
-                        <a href="<?= isset($stock->link) ? $stock->link : '#' ?>" target="_blank" class="btn open" <?= isset($stock->link) ? '' : 'disabled="true"' ?>></a>
+                        <a href="<?= isset($stock->link) ? $stock->link : '#' ?>" target="_blank" title="Перейти на акцию" class="btn open" <?= isset($stock->link) ? '' : 'disabled="true"' ?>></a>
 
                     </div>
                 </div>

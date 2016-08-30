@@ -9,6 +9,11 @@ $(document).ready(function () {
     $('[type=url]').blur(function () {
         checkURL(this);
     });
+
+    $('[disabled]').click(function (e) {
+        e.preventDefault();
+        return false;
+    });
 });
 
 function checkURL(abc) {

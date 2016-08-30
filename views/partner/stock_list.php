@@ -80,9 +80,9 @@ $this->title = 'Все Акции';
                                 <?= $label ? $stock->commissionValue : "" ?><?= $label ? $label : 'б/п размещение' ?>
                             </div>
                             <div class="dib w-20">
-                                <a href="#" class="btn edit" disabled="true"></a>
-                                <a href="#" class="btn refresh" disabled="true"></a>
-                                <a href="<?= isset($stock->link) ? $stock->link : '#' ?>" target="_blank" class="btn open" <?= isset($stock->link) ? '' : 'disabled="true"' ?>></a>
+<!--                                <a href="#" class="btn edit" disabled="true"></a>-->
+<!--                                <a href="#" class="btn refresh" disabled="true"></a>-->
+                                <a href="<?= isset($stock->link) ? $stock->link : '#' ?>" target="_blank" class="btn open" title="Перейти на акцию" <?= isset($stock->link) ? '' : 'disabled="true"' ?>></a>
                             </div>
                         </div>
 
